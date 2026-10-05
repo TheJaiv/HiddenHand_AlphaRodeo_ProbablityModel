@@ -6,7 +6,7 @@
 
 You will write a Python bot that plays a card-trading game against other teams' bots. Each
 bot holds a hidden hand of cards, and they trade a stock whose value is set by everyone's cards.
-No finance background is needed. If you can write a Python class and you know what an average
+No finance background is needed. If you can write a Python class and you know what an averge
 is, you can start today.
 
 | | |
