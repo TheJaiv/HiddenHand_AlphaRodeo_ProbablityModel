@@ -38,15 +38,15 @@ class Bot:
     def fair(self, obs):  # ur estimated stock
         m = self.avg(obs)
         hidden_board = 5 - len(obs.board)
-        opp_hand = sum(obs.opp_known) + (5 - len(obs.opp_known)) * m
-        theirs = [px for r, who, px, q in obs.tape if who == "opp"]
+        opp_hand = sum(obs.opp_known) + (5 - len(obs.opp_known)) * m     # my caculation of opponenets hand
+        theirs = [px for r, who, px, q in obs.tape if who == "opp"]       # it gives array of opponenets price
         if theirs:
-            implied = theirs[-1] - sum(obs.board) - (5 + hidden_board) * m
-            opp_hand += TRUST * (implied - opp_hand)
-        return sum(obs.hand) + sum(obs.board) + opp_hand + hidden_board * m
+            implied = theirs[-1] - sum(obs.board) - (5 + hidden_board) * m     # back calculataion for opponents hand
+            opp_hand += TRUST * (implied - opp_hand)                                 # the final opponents hand
+        return sum(obs.hand) + sum(obs.board) + opp_hand + hidden_board * m              # returning our calculated boards value
 
     def move(self, obs):
-        if any(who == "me" for _, who, _ in obs.discards):
+        if any(who == "me" for _, who, _ in obs.discards): 
             return None              # the one swap is spent
         m = self.avg(obs)
         lo = min(range(5), key=lambda i: obs.hand[i])
