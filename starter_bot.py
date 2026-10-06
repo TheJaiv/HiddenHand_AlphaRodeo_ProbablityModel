@@ -1,6 +1,6 @@
-# Team Name: [your team name]
-# Members: [Name 1 (Roll No.), Name 2 (Roll No.), Name 3 (Roll No.)]
-# Mentor: [your mentor's name]
+# Team Name: Alpha Rodeo
+# Members: Jaiv Patel(26075057)
+# Mentor: Arpit Gupta
 
 """
 starter_bot.py - Hidden Hand: copy this file, rename it, make it yours.
@@ -26,34 +26,41 @@ it scores exactly 0 against it, so there is everything left to win.
 """
 
 
-class Bot:
-    def fair(self, obs):
-        """My best guess of the final value, from cards alone.
+TRUST = 0.8 # how much u beileve the opponent is telling the truth 
+SWAP_EDGE = 3     # only swap a card this far from the average unseen rank
+LOT_PER_TICK = 1  # one lot per tick of edge beyond the spread
 
-        Known cards count at face value. Every card I cannot see (their hand
-        and the face-down board) is worth the average of the ranks I have not
-        seen yet: card counting, because the deck has no replacement.
-        """
-        unseen = sum(obs.unseen)
-        avg = sum((r + 1) * c for r, c in enumerate(obs.unseen)) / unseen
-        hidden = (5 - len(obs.opp_known)) + (5 - len(obs.board))
-        return sum(obs.hand) + sum(obs.board) + sum(obs.opp_known) + hidden * avg
+
+class Bot:
+    def avg(self, obs):  # the average rank of a card you haven't seen.
+        return sum((r + 1) * c for r, c in enumerate(obs.unseen)) / sum(obs.unseen)    # enumerate(obs.unseen) yields (0, 4), (1, 3), (2, 4), (3, 4), .... Index r runs from 0, so r + 1 is the rank.
+
+    def fair(self, obs):  # ur estimated stock
+        m = self.avg(obs)
+        hidden_board = 5 - len(obs.board)
+        opp_hand = sum(obs.opp_known) + (5 - len(obs.opp_known)) * m
+        theirs = [px for r, who, px, q in obs.tape if who == "opp"]
+        if theirs:
+            implied = theirs[-1] - sum(obs.board) - (5 + hidden_board) * m
+            opp_hand += TRUST * (implied - opp_hand)
+        return sum(obs.hand) + sum(obs.board) + opp_hand + hidden_board * m
 
     def move(self, obs):
-        # Ideas: does it pay to peek? If you are long, what does swapping your
-        # lowest card do to the value you are long of? What can the opponent's
-        # discards and peeks tell you?
+        if any(who == "me" for _, who, _ in obs.discards):
+            return None              # the one swap is spent
+        m = self.avg(obs)
+        lo = min(range(5), key=lambda i: obs.hand[i])
+        hi = max(range(5), key=lambda i: obs.hand[i])
+        if obs.position > 0 and obs.hand[lo] < m - SWAP_EDGE:
+            return ("SWAP", lo)
+        if obs.position < 0 and obs.hand[hi] > m + SWAP_EDGE:
+            return ("SWAP", hi)
         return None
 
     def quote(self, obs):
-        # Your quote tells the opponent about your hand. Is that a problem?
         return self.fair(obs)
 
     def respond(self, obs, price):
-        # The opponent's price tells you about THEIR hand. Use it.
         edge = self.fair(obs) - price
-        if edge > 2:
-            return 2
-        if edge < -2:
-            return -2
-        return 0
+        lots = int((abs(edge) - 2) * LOT_PER_TICK) + 1 if abs(edge) > 2 else 0
+        return min(2, lots) * (1 if edge > 0 else -1)
