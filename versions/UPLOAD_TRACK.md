@@ -12,3 +12,4 @@ worse after it, go back one entry.
 | # | File | Weighted (check seeds) | vs previous | vs r1 / r2 / r3 | What changed | Added |
 |---|---|---|---|---|---|---|
 | 1 | versions/bridge_v01.py | +8.51 (seeds 1 2) | - | +2.7 / -2.4 / +3.1 | starting point (bridge_11_strong) | Wed |
+| 2 | versions/duel_v04.py | +8.81 (seeds 7 8; prev +7.99) | +0.96 head to head | +4.2 / +0.9 / +4.2 | reads swappers better, hides 40% of its hand from round 2 vs unknown bots, stronger skew, late taker margin, ignores probe quotes | Wed |
