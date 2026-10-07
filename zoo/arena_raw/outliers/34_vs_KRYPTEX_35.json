@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/34/35",
+ "title": "Outliers vs KRYPTEX",
+ "deals": 400,
+ "a": "Outliers",
+ "score_a": 1.672,
+ "pnl_a": 8.04,
+ "b": "KRYPTEX",
+ "score_b": -1.672,
+ "pnl_b": -8.04,
+ "plays": [
+  {
+   "seats": [
+    "Outliers",
+    "KRYPTEX"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.64,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 107.51,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 103.53,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 116.72,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 111.71,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 101.87,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 113.62,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 118.81,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 125.99,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 125.35,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -1,
+    1
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    9.94,
+    -9.94
+   ]
+  },
+  {
+   "seats": [
+    "KRYPTEX",
+    "Outliers"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.6,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 103.15,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 106.16,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 104.86,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.78,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 98.64,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 104.93,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 105.92,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 108.69,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 110.58,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "10♠",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -7,
+    7
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -136.74,
+    136.74
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Outliers": 34,
+  "KRYPTEX": 35
+ },
+ "when": "Wed 07 Oct, 16:43"
+}

@@ -1,0 +1,402 @@
+{
+ "href": "/match/live/2/34",
+ "title": "House · reader vs Outliers",
+ "deals": 400,
+ "a": "House · reader",
+ "score_a": -9.977,
+ "pnl_a": -71.34,
+ "b": "Outliers",
+ "score_b": 9.977,
+ "pnl_b": 71.34,
+ "plays": [
+  {
+   "seats": [
+    "House · reader",
+    "Outliers"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 102.29,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 105.3,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 102.84,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 101.55,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 97.13,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 103.37,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 101.25,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.56,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 106.06,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 130,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -256.36,
+    256.36
+   ]
+  },
+  {
+   "seats": [
+    "Outliers",
+    "House · reader"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.64,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 110.72,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.95,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 111.82,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 106.81,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 111.68,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 113.03,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 113.98,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 119.35,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 124.48,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 121,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -95.34,
+    95.34
+   ]
+  }
+ ],
+ "entry_ids": {
+  "House · reader": 2,
+  "Outliers": 34
+ },
+ "when": "Wed 07 Oct, 16:41"
+}

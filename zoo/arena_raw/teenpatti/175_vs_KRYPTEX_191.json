@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/175/191",
+ "title": "TeenPatti vs KRYPTEX",
+ "deals": 400,
+ "a": "TeenPatti",
+ "score_a": -0.796,
+ "pnl_a": -1.28,
+ "b": "KRYPTEX",
+ "score_b": 0.796,
+ "pnl_b": 1.28,
+ "plays": [
+  {
+   "seats": [
+    "TeenPatti",
+    "KRYPTEX"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.3,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 106.31,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 109.47,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 110.57,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 106.09,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 107.8,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 108.42,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 116.28,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 125.93,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 120.1,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -4,
+    4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -81.97,
+    81.97
+   ]
+  },
+  {
+   "seats": [
+    "KRYPTEX",
+    "TeenPatti"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.31,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.74,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 117.63,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 111.24,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 108.53,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 109.03,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 112.66,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.92,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 119.69,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 119.59,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -4,
+    4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -52.18,
+    52.18
+   ]
+  }
+ ],
+ "entry_ids": {
+  "TeenPatti": 175,
+  "KRYPTEX": 191
+ },
+ "when": "Wed 07 Oct, 21:52"
+}

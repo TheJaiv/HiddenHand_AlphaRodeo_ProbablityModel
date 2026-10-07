@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/217/224",
+ "title": "Imposters vs Quantumlesssss",
+ "deals": 400,
+ "a": "Imposters",
+ "score_a": 4.733,
+ "pnl_a": 19.37,
+ "b": "Quantumlesssss",
+ "score_b": -4.988,
+ "pnl_b": -20.61,
+ "plays": [
+  {
+   "seats": [
+    "Imposters",
+    "Quantumlesssss"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 104.78,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Imposters peeks: sees 8♠"
+      },
+      {
+       "kind": "swap",
+       "out": "Q♦",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.7,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.1,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 112.45,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 107.94,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 112.73,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 125.13,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 129.92,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 127.21,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 127,
+   "final_hands": [
+    [
+     "10♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "K♣",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -1,
+    1
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    62.75,
+    -65.75
+   ]
+  },
+  {
+   "seats": [
+    "Quantumlesssss",
+    "Imposters"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.01,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 106.81,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 119.87,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 118.0,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 118.45,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 116.27,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 120.7,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 123.88,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 129.03,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 130.89,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 130,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -4,
+    4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -67.98,
+    67.98
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Imposters": 217,
+  "Quantumlesssss": 224
+ },
+ "when": "Wed 07 Oct, 22:31"
+}

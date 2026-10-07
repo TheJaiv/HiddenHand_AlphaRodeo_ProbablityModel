@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/4/8",
+ "title": "Alpha Rodeo vs TeenPatti",
+ "deals": 400,
+ "a": "Alpha Rodeo",
+ "score_a": -11.551,
+ "pnl_a": -78.72,
+ "b": "TeenPatti",
+ "score_b": 11.551,
+ "pnl_b": 78.72,
+ "plays": [
+  {
+   "seats": [
+    "Alpha Rodeo",
+    "TeenPatti"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 109.28,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 109.44,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 104.53,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 106.07,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.26,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 102.54,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 107.17,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 106.66,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 108.01,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 107.64,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -213.84,
+    213.84
+   ]
+  },
+  {
+   "seats": [
+    "TeenPatti",
+    "Alpha Rodeo"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.96,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 99.12,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 99.24,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 110.96,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "Q♦",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.1,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.65,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 106.98,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 107.41,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 111.62,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 115.98,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 127,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "10♠",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    4,
+    -4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    81.81,
+    -81.81
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Alpha Rodeo": 4,
+  "TeenPatti": 8
+ },
+ "when": "Wed 07 Oct, 15:01"
+}

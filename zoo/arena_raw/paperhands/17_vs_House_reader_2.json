@@ -1,0 +1,402 @@
+{
+ "href": "/match/live/2/17",
+ "title": "House · reader vs PaperHands",
+ "deals": 400,
+ "a": "House · reader",
+ "score_a": -14.734,
+ "pnl_a": -119.62,
+ "b": "PaperHands",
+ "score_b": 14.734,
+ "pnl_b": 119.62,
+ "plays": [
+  {
+   "seats": [
+    "House · reader",
+    "PaperHands"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 102.64,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 100.72,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 99.18,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 97.89,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 97.89,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 96.87,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 96.05,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 97.36,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 97.36,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 130,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -293.76,
+    293.76
+   ]
+  },
+  {
+   "seats": [
+    "PaperHands",
+    "House · reader"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 110.21,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.44,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 111.44,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 115.39,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 118.55,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 119.9,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 119.9,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 124.92,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 128.94,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 121,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -56.8,
+    56.8
+   ]
+  }
+ ],
+ "entry_ids": {
+  "House · reader": 2,
+  "PaperHands": 17
+ },
+ "when": "Wed 07 Oct, 15:36"
+}

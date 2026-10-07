@@ -1,0 +1,402 @@
+{
+ "href": "/match/live/221/231",
+ "title": "Dalal Street vs Quantumlesssss",
+ "deals": 400,
+ "a": "Dalal Street",
+ "score_a": -4.79,
+ "pnl_a": -19.76,
+ "b": "Quantumlesssss",
+ "score_b": 4.79,
+ "pnl_b": 19.76,
+ "plays": [
+  {
+   "seats": [
+    "Dalal Street",
+    "Quantumlesssss"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.64,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.0,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 106.78,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 105.61,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 100.95,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 103.57,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 112.2,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 105.54,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 110.45,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 121.39,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 130,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -1,
+    1
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -44.94,
+    44.94
+   ]
+  },
+  {
+   "seats": [
+    "Quantumlesssss",
+    "Dalal Street"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 110.94,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 112.83,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 113.14,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 110.06,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.35,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 113.24,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.62,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 125.21,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 118.2,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 121,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -2,
+    2
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -5.83,
+    5.83
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Dalal Street": 221,
+  "Quantumlesssss": 231
+ },
+ "when": "Wed 07 Oct, 22:40"
+}

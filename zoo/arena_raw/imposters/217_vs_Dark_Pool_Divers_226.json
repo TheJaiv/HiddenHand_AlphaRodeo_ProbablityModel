@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/217/226",
+ "title": "Imposters vs Dark Pool Divers",
+ "deals": 400,
+ "a": "Imposters",
+ "score_a": 0.988,
+ "pnl_a": 6.23,
+ "b": "Dark Pool Divers",
+ "score_b": -1.854,
+ "pnl_b": -10.12,
+ "plays": [
+  {
+   "seats": [
+    "Imposters",
+    "Dark Pool Divers"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Dark Pool Divers peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.16,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 105.82,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 105.8,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 101.82,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 102.46,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 103.32,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 106.12,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 110.44,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 111.11,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 119,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    0,
+    0
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    0.0,
+    -3.0
+   ]
+  },
+  {
+   "seats": [
+    "Dark Pool Divers",
+    "Imposters"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Dark Pool Divers peeks: sees 8♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.39,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 101.39,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 117.96,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 116.21,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 115.38,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 112.63,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 117.03,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 115.49,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 116.37,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 113.69,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    0,
+    0
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    -12.4,
+    9.4
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Imposters": 217,
+  "Dark Pool Divers": 226
+ },
+ "when": "Wed 07 Oct, 22:37"
+}

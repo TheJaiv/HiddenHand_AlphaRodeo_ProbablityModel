@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/26/28",
+ "title": "PaperHands vs Chill Chips",
+ "deals": 400,
+ "a": "PaperHands",
+ "score_a": 7.146,
+ "pnl_a": 46.11,
+ "b": "Chill Chips",
+ "score_b": -7.146,
+ "pnl_b": -46.11,
+ "plays": [
+  {
+   "seats": [
+    "PaperHands",
+    "Chill Chips"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.72,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 121.62,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 121.62,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 121.62,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 124.16,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 129.57,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 129.57,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 129.57,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 133.83,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "10♠",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -99.96,
+    99.96
+   ]
+  },
+  {
+   "seats": [
+    "Chill Chips",
+    "PaperHands"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 104.69,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 100.35,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 100.68,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 100.68,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 100.68,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 104.45,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 111.94,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 111.94,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -4,
+    4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -70.64,
+    70.64
+   ]
+  }
+ ],
+ "entry_ids": {
+  "PaperHands": 26,
+  "Chill Chips": 28
+ },
+ "when": "Wed 07 Oct, 16:10"
+}

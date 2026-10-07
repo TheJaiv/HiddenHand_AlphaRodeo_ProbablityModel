@@ -1,0 +1,402 @@
+{
+ "href": "/match/live/31/59",
+ "title": "Algo X vs Team How",
+ "deals": 400,
+ "a": "Algo X",
+ "score_a": 2.833,
+ "pnl_a": 21.38,
+ "b": "Team How",
+ "score_b": -2.833,
+ "pnl_b": -21.38,
+ "plays": [
+  {
+   "seats": [
+    "Algo X",
+    "Team How"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 112.72,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 122.12,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 106.8,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 110.48,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 114.84,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 106.65,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 110.86,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 131.74,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 130,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -194.48,
+    194.48
+   ]
+  },
+  {
+   "seats": [
+    "Team How",
+    "Algo X"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 108.64,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.94,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.4,
+       "qty": -1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 102.92,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 99.05,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 107.55,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.88,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 110.99,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 115.28,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 116.43,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 121,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -7,
+    7
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -110.68,
+    110.68
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Algo X": 31,
+  "Team How": 59
+ },
+ "when": "Wed 07 Oct, 17:49"
+}

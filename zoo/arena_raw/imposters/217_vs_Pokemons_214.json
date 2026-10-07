@@ -1,0 +1,402 @@
+{
+ "href": "/match/live/214/217",
+ "title": "Pokemons vs Imposters",
+ "deals": 400,
+ "a": "Pokemons",
+ "score_a": 0.676,
+ "pnl_a": 2.97,
+ "b": "Imposters",
+ "score_b": -0.793,
+ "pnl_b": -3.46,
+ "plays": [
+  {
+   "seats": [
+    "Pokemons",
+    "Imposters"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 106.93,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 109.93,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 113.03,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 111.03,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 107.1,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 109.9,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 114.18,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 111.79,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 116.56,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 119.36,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 119,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -4,
+    4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -4.16,
+    4.16
+   ]
+  },
+  {
+   "seats": [
+    "Imposters",
+    "Pokemons"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 107.01,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 101.7,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 106.9,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.54,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 103.72,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 107.27,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 109.26,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 122.02,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 121.82,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -3,
+    3
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -37.64,
+    37.64
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Pokemons": 214,
+  "Imposters": 217
+ },
+ "when": "Wed 07 Oct, 22:24"
+}

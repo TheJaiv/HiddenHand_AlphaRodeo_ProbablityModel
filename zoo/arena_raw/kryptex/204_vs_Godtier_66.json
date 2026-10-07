@@ -1,0 +1,402 @@
+{
+ "href": "/match/live/66/204",
+ "title": "Godtier vs KRYPTEX",
+ "deals": 400,
+ "a": "Godtier",
+ "score_a": -4.298,
+ "pnl_a": -20.79,
+ "b": "KRYPTEX",
+ "score_b": 4.298,
+ "pnl_b": 20.79,
+ "plays": [
+  {
+   "seats": [
+    "Godtier",
+    "KRYPTEX"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.64,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 103.54,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 106.67,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.34,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 104.23,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 109.25,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 110.63,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 115.78,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 114.88,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -8,
+    8
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -150.09,
+    150.09
+   ]
+  },
+  {
+   "seats": [
+    "KRYPTEX",
+    "Godtier"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.31,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.47,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 112.32,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 109.26,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 106.09,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 106.94,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.7,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 108.92,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 112.84,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 115.71,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 119,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -1,
+    1
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -12.48,
+    12.48
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Godtier": 66,
+  "KRYPTEX": 204
+ },
+ "when": "Wed 07 Oct, 22:07"
+}

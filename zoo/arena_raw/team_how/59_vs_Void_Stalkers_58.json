@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/58/59",
+ "title": "Void Stalkers vs Team How",
+ "deals": 400,
+ "a": "Void Stalkers",
+ "score_a": -46.171,
+ "pnl_a": -1068.41,
+ "b": "Team How",
+ "score_b": 46.171,
+ "pnl_b": 1068.41,
+ "plays": [
+  {
+   "seats": [
+    "Void Stalkers",
+    "Team How"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 88.88,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 100.18,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 95.76,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 100.52,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.52,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 137,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -8,
+    8
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -1291.04,
+    1291.04
+   ]
+  },
+  {
+   "seats": [
+    "Team How",
+    "Void Stalkers"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 109.74,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 92.1,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 87.49,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 92.06,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 96.85,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 137,
+   "final_hands": [
+    [
+     "10♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    8,
+    -8
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    1264.12,
+    -1264.12
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Void Stalkers": 58,
+  "Team How": 59
+ },
+ "when": "Wed 07 Oct, 17:49"
+}

@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/5/15",
+ "title": "PaperHands vs Alpha Rodeo",
+ "deals": 400,
+ "a": "PaperHands",
+ "score_a": -6.57,
+ "pnl_a": -30.02,
+ "b": "Alpha Rodeo",
+ "score_b": 6.57,
+ "pnl_b": 30.02,
+ "plays": [
+  {
+   "seats": [
+    "PaperHands",
+    "Alpha Rodeo"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.82,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 101.95,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 99.28,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 99.28,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 99.28,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 95.99,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 100.52,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 100.52,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 100.52,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 102.85,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -6,
+    6
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -159.42,
+    159.42
+   ]
+  },
+  {
+   "seats": [
+    "Alpha Rodeo",
+    "PaperHands"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.96,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.96,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 105.96,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 108.9,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 110.44,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 110.44,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 110.44,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 112.79,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 121.89,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 121.89,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -8,
+    8
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -151.5,
+    151.5
+   ]
+  }
+ ],
+ "entry_ids": {
+  "PaperHands": 5,
+  "Alpha Rodeo": 15
+ },
+ "when": "Wed 07 Oct, 15:27"
+}

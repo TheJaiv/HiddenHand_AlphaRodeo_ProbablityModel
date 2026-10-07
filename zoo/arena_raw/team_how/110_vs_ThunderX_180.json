@@ -1,0 +1,418 @@
+{
+ "href": "/match/live/110/180",
+ "title": "Team How vs ThunderX",
+ "deals": 400,
+ "a": "Team How",
+ "score_a": -0.016,
+ "pnl_a": 1.05,
+ "b": "ThunderX",
+ "score_b": -0.723,
+ "pnl_b": -4.05,
+ "plays": [
+  {
+   "seats": [
+    "Team How",
+    "ThunderX"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Team How peeks: sees 8♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.26,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 103.43,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "Q♦",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 109.58,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.67,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 107.74,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.05,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 113.57,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 115.47,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 116.34,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 118.62,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 127,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "10♠",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    0,
+    0
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    -3.0,
+    0.0
+   ]
+  },
+  {
+   "seats": [
+    "ThunderX",
+    "Team How"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Team How peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 107.39,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 106.62,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 114.25,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 118.26,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 117.65,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 118.43,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 119.88,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 121.29,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 126.83,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 128.67,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 137,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    2,
+    -2
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    51.91,
+    -54.91
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Team How": 110,
+  "ThunderX": 180
+ },
+ "when": "Wed 07 Oct, 21:28"
+}

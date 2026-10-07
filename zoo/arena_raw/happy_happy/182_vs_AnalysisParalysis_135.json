@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/135/182",
+ "title": "AnalysisParalysis vs Happy Happy",
+ "deals": 400,
+ "a": "AnalysisParalysis",
+ "score_a": -11.364,
+ "pnl_a": -83.01,
+ "b": "Happy Happy",
+ "score_b": 11.364,
+ "pnl_b": 83.01,
+ "plays": [
+  {
+   "seats": [
+    "AnalysisParalysis",
+    "Happy Happy"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.31,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 105.69,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 107.99,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.86,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.61,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 113.75,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 127.31,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 134.33,
+       "qty": -1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 119.32,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -4,
+    4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -88.73,
+    88.73
+   ]
+  },
+  {
+   "seats": [
+    "Happy Happy",
+    "AnalysisParalysis"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.94,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 104.7,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.71,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.9,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 118.95,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 119.09,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 124.3,
+       "qty": -1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 122.06,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 125.51,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 122.9,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -5,
+    5
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -79.02,
+    79.02
+   ]
+  }
+ ],
+ "entry_ids": {
+  "AnalysisParalysis": 135,
+  "Happy Happy": 182
+ },
+ "when": "Wed 07 Oct, 21:28"
+}

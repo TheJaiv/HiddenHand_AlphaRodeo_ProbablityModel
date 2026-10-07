@@ -76,13 +76,8 @@ def phi(x):
 
 
 def coef(t, shown, B, dsum, nd, plast, pkh, nkh):
-    """Reader-family opponent with trust t: its fair value is a + b * S.
-
-    shown/B: board cards up and their sum; dsum/nd: discards (both players);
-    plast: my last quote before theirs (None if I have not quoted);
-    pkh/nkh: sum/count of my cards they peeked and I still hold.
-    """
-    hb = 5 - shown
+  
+    hb = 5 - shown                  # boards cards not up count
     N = 47 - shown - nd - nkh             # cards they have not seen
     m0 = (364.0 - B - dsum - pkh) / N     # their average unseen rank is m0 - S / N
     if plast is None:

@@ -1,0 +1,410 @@
+{
+ "href": "/match/live/8/34",
+ "title": "TeenPatti vs Outliers",
+ "deals": 400,
+ "a": "TeenPatti",
+ "score_a": 2.774,
+ "pnl_a": 8.87,
+ "b": "Outliers",
+ "score_b": -2.774,
+ "pnl_b": -8.87,
+ "plays": [
+  {
+   "seats": [
+    "TeenPatti",
+    "Outliers"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.96,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 104.38,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 103.65,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 115.02,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 115.55,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 100.15,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 106.58,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.11,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 120.65,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 113.42,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    2,
+    -2
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    92.78,
+    -92.78
+   ]
+  },
+  {
+   "seats": [
+    "Outliers",
+    "TeenPatti"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.64,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.63,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 106.1,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 116.72,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 113.76,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 109.8,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 115.51,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 120.86,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 128.04,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 123.58,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    3,
+    -3
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    56.04,
+    -56.04
+   ]
+  }
+ ],
+ "entry_ids": {
+  "TeenPatti": 8,
+  "Outliers": 34
+ },
+ "when": "Wed 07 Oct, 16:41"
+}

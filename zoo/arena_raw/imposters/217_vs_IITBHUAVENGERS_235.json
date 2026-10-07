@@ -1,0 +1,418 @@
+{
+ "href": "/match/live/217/235",
+ "title": "Imposters vs IITBHUAVENGERS",
+ "deals": 400,
+ "a": "Imposters",
+ "score_a": 2.599,
+ "pnl_a": 12.39,
+ "b": "IITBHUAVENGERS",
+ "score_b": -2.942,
+ "pnl_b": -14.37,
+ "plays": [
+  {
+   "seats": [
+    "Imposters",
+    "IITBHUAVENGERS"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 107.05,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Imposters peeks: sees 8♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 111.25,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 117.05,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "Q♦",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 117.33,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 123.31,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 128.38,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 132.58,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 135.83,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 137.88,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 127,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "10♠",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    1,
+    -1
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    27.63,
+    -30.63
+   ]
+  },
+  {
+   "seats": [
+    "IITBHUAVENGERS",
+    "Imposters"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.32,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.12,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Imposters peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 102.76,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 102.69,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 101.86,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 104.66,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 109.07,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 108.91,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 114.99,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 117.79,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -9,
+    9
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    -189.55,
+    186.55
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Imposters": 217,
+  "IITBHUAVENGERS": 235
+ },
+ "when": "Wed 07 Oct, 22:53"
+}

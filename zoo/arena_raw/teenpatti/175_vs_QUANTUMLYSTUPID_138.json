@@ -1,0 +1,406 @@
+{
+ "href": "/match/live/138/175",
+ "title": "QUANTUMLYSTUPID vs TeenPatti",
+ "deals": 400,
+ "a": "QUANTUMLYSTUPID",
+ "score_a": -8.784,
+ "pnl_a": -54.44,
+ "b": "TeenPatti",
+ "score_b": 8.784,
+ "pnl_b": 54.44,
+ "plays": [
+  {
+   "seats": [
+    "QUANTUMLYSTUPID",
+    "TeenPatti"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 111.35,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 112.4,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 116.44,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 118.93,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 116.5,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 112.57,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 118.1,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 119.83,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 122.54,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 122.29,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -1,
+    1
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -4.46,
+    4.46
+   ]
+  },
+  {
+   "seats": [
+    "TeenPatti",
+    "QUANTUMLYSTUPID"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.67,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 112.09,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 114.02,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.72,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 114.55,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 115.56,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 117.9,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 120.52,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 124.87,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 124.88,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "10♠",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -6,
+    6
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    -88.43,
+    88.43
+   ]
+  }
+ ],
+ "entry_ids": {
+  "QUANTUMLYSTUPID": 138,
+  "TeenPatti": 175
+ },
+ "when": "Wed 07 Oct, 21:19"
+}

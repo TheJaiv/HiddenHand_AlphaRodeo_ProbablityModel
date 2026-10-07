@@ -1,0 +1,418 @@
+{
+ "href": "/match/live/110/211",
+ "title": "Team How vs HAN SOLO",
+ "deals": 400,
+ "a": "Team How",
+ "score_a": -0.058,
+ "pnl_a": -0.92,
+ "b": "HAN SOLO",
+ "score_b": -0.632,
+ "pnl_b": -2.08,
+ "plays": [
+  {
+   "seats": [
+    "Team How",
+    "HAN SOLO"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Team How peeks: sees 8♠"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.26,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 118.91,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 115.54,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 125.32,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.02,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 112.81,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 115.87,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 127.85,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 108.08,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 120.68,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "10♠",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -5,
+    5
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    -151.12,
+    148.12
+   ]
+  },
+  {
+   "seats": [
+    "HAN SOLO",
+    "Team How"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Team How peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 111.35,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 110.59,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 118.2,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 123.29,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 117.89,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 118.77,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 121.04,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 123.63,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 124.84,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 125.85,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 137,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    5,
+    -5
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    80.39,
+    -83.39
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Team How": 110,
+  "HAN SOLO": 211
+ },
+ "when": "Wed 07 Oct, 22:12"
+}

@@ -1,0 +1,418 @@
+{
+ "href": "/match/live/34/46",
+ "title": "Outliers vs Trinomial",
+ "deals": 400,
+ "a": "Outliers",
+ "score_a": 7.136,
+ "pnl_a": 44.36,
+ "b": "Trinomial",
+ "score_b": -7.589,
+ "pnl_b": -47.36,
+ "plays": [
+  {
+   "seats": [
+    "Outliers",
+    "Trinomial"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.64,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.52,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Trinomial peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 108.88,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 111.82,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 111.71,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 118.35,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 120.08,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 118.81,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 124.06,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 127.16,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -7,
+    7
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    -93.64,
+    90.64
+   ]
+  },
+  {
+   "seats": [
+    "Trinomial",
+    "Outliers"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.64,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 102.29,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Trinomial peeks: sees 8♠"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 105.3,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 105.36,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 102.79,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 96.83,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 103.12,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 103.08,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.56,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.77,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "10♠",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -8,
+    8
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    -173.8,
+    170.8
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Outliers": 34,
+  "Trinomial": 46
+ },
+ "when": "Wed 07 Oct, 17:31"
+}

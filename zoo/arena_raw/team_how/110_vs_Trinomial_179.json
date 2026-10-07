@@ -1,0 +1,418 @@
+{
+ "href": "/match/live/110/179",
+ "title": "Team How vs Trinomial",
+ "deals": 400,
+ "a": "Team How",
+ "score_a": -5.291,
+ "pnl_a": -23.89,
+ "b": "Trinomial",
+ "score_b": 4.556,
+ "pnl_b": 20.89,
+ "plays": [
+  {
+   "seats": [
+    "Team How",
+    "Trinomial"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Team How peeks: sees 8♠"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 104.26,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 113.41,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 115.71,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 125.66,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.02,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 109.63,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 116.43,
+       "qty": -1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 128.97,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 108.08,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 117.12,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "10♠",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -5,
+    5
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    -169.29,
+    166.29
+   ]
+  },
+  {
+   "seats": [
+    "Trinomial",
+    "Team How"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Team How peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.26,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 110.83,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 109.29,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.86,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 102.97,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 110.25,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 109.95,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 114.48,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 120.31,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -3,
+    3
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    -44.52,
+    41.52
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Team How": 110,
+  "Trinomial": 179
+ },
+ "when": "Wed 07 Oct, 21:21"
+}

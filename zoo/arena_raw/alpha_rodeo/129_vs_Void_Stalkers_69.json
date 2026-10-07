@@ -1,0 +1,418 @@
+{
+ "href": "/match/live/69/129",
+ "title": "Void Stalkers vs Alpha Rodeo",
+ "deals": 400,
+ "a": "Void Stalkers",
+ "score_a": -19.537,
+ "pnl_a": -209.17,
+ "b": "Alpha Rodeo",
+ "score_b": 19.354,
+ "pnl_b": 206.17,
+ "plays": [
+  {
+   "seats": [
+    "Void Stalkers",
+    "Alpha Rodeo"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Void Stalkers peeks: sees 8♠"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "K♣"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 101.97,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 105.39,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 99.59,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 116.18,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 116.22,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.26,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "10♠"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 121.72,
+       "qty": 1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 138.27,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 143.38,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 146.35,
+       "qty": 1,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 137,
+   "final_hands": [
+    [
+     "10♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "K♣",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    8,
+    -8
+   ],
+   "paid": [
+    3.0,
+    0.0
+   ],
+   "pnl": [
+    78.29,
+    -81.29
+   ]
+  },
+  {
+   "seats": [
+    "Alpha Rodeo",
+    "Void Stalkers"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Void Stalkers peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 107.35,
+       "qty": -1,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 120.43,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 132.97,
+       "qty": -2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 110.84,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 115.78,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 137.75,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 142.85,
+       "qty": -1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 129.35,
+       "qty": 0,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 0.0,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 0.0,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -8,
+    8
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    231.04,
+    -234.04
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Void Stalkers": 69,
+  "Alpha Rodeo": 129
+ },
+ "when": "Wed 07 Oct, 20:15"
+}

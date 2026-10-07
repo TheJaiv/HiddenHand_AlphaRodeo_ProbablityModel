@@ -1,0 +1,414 @@
+{
+ "href": "/match/live/217/236",
+ "title": "Imposters vs Trade Transmitters",
+ "deals": 400,
+ "a": "Imposters",
+ "score_a": -0.915,
+ "pnl_a": -6.83,
+ "b": "Trade Transmitters",
+ "score_b": 0.707,
+ "pnl_b": 5.52,
+ "plays": [
+  {
+   "seats": [
+    "Imposters",
+    "Trade Transmitters"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 105.0,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 108.09,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 114.29,
+       "qty": 0,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 117.09,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "3♠",
+       "in": "K♣"
+      },
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 116.38,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 117.34,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      {
+       "kind": "swap",
+       "out": "Q♦",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 121.61,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 127.01,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 123.2,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 128.98,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 127,
+   "final_hands": [
+    [
+     "K♣",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "10♠",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    4,
+    -4
+   ],
+   "paid": [
+    0.0,
+    0.0
+   ],
+   "pnl": [
+    1.02,
+    -1.02
+   ]
+  },
+  {
+   "seats": [
+    "Trade Transmitters",
+    "Imposters"
+   ],
+   "hands": [
+    [
+     "3♠",
+     "4♦",
+     "J♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "2♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "board": [
+    "J♠",
+    "2♦",
+    "Q♠",
+    "Q♥",
+    "10♦"
+   ],
+   "hand_ranks": [
+    [
+     3,
+     4,
+     11,
+     9,
+     5
+    ],
+    [
+     2,
+     10,
+     12,
+     8,
+     8
+    ]
+   ],
+   "board_ranks": [
+    11,
+    2,
+    12,
+    12,
+    10
+   ],
+   "rounds": [
+    {
+     "round": 1,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 103.18,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 101.18,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 2,
+     "moves": [
+      null,
+      {
+       "kind": "peek",
+       "card": null,
+       "raw": "Imposters peeks: sees 3♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 106.16,
+       "qty": -1,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 104.42,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 3,
+     "moves": [
+      {
+       "kind": "swap",
+       "out": "J♣",
+       "in": "K♣"
+      },
+      {
+       "kind": "swap",
+       "out": "2♠",
+       "in": "10♠"
+      }
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 106.89,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 113.29,
+       "qty": -2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 4,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 1,
+       "price": 108.46,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 0,
+       "price": 114.09,
+       "qty": 2,
+       "auto": false
+      }
+     ]
+    },
+    {
+     "round": 5,
+     "moves": [
+      null,
+      null
+     ],
+     "quotes": [
+      {
+       "maker": 0,
+       "price": 120.6,
+       "qty": 2,
+       "auto": false
+      },
+      {
+       "maker": 1,
+       "price": 128.4,
+       "qty": -1,
+       "auto": false
+      }
+     ]
+    }
+   ],
+   "V": 129,
+   "final_hands": [
+    [
+     "3♠",
+     "4♦",
+     "K♣",
+     "9♦",
+     "5♣"
+    ],
+    [
+     "10♠",
+     "10♣",
+     "Q♦",
+     "8♠",
+     "8♦"
+    ]
+   ],
+   "positions": [
+    -10,
+    10
+   ],
+   "paid": [
+    0.0,
+    3.0
+   ],
+   "pnl": [
+    -145.78,
+    142.78
+   ]
+  }
+ ],
+ "entry_ids": {
+  "Imposters": 217,
+  "Trade Transmitters": 236
+ },
+ "when": "Wed 07 Oct, 22:53"
+}
