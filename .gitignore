@@ -1,0 +1,9 @@
+# Python bytecode caches (rebuilt automatically on every run)
+__pycache__/
+*.pyc
+
+# macOS folder metadata
+.DS_Store
+
+# Large generated data from tools/gen_data.py (roadmap S12)
+data/

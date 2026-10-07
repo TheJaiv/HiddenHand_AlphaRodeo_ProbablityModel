@@ -1,0 +1,19 @@
+{
+  "naive": 1.0,
+  "reader": 1.0,
+  "sharp": 1.0,
+  "sharp_t05": 1.0,
+  "sharp_t10": 1.0,
+  "hider": 1.0,
+  "liar": 1.0,
+  "swapper": 1.0,
+  "peeker": 1.0,
+  "ai_typical": 2.0,
+  "rival_*": 2.0,
+  "red_*": 1.5,
+  "arena_*": 2.0,
+  "champ_*": 1.0,
+  "mid_*": 1.5,
+  "old_plan": 1.5,
+  "bridge_*": 1.5
+}
