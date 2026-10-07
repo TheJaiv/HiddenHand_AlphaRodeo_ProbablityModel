@@ -30,3 +30,11 @@ accepted one by one against their parent on seeds 1 2 and confirmed on 5 6.
 | 3 | versions/attack_v06.py | +8.50 | +0.09 (paired test +0.23) | +1.0 |
 | 4 | versions/merge_v07a.py | +9.26 | +0.76 | +3.3 |
 | 5 | versions/merge_v07.py | +9.50 | +0.24 (paired, seeds 17 18) | +3.4 |
+
+## LIVE OVERRIDE (Thursday)
+
+Live arena: merge_v07 and attack_v05 performed clearly WORSE than rival_2, although they beat it locally.
+The local pool is mis-calibrated (too many reader-family bots). Until a calibrated pool says otherwise,
+the entry to keep live is uploads/06_rival_2.py (entry #129: +5.96 mean over 38 teams, 32/38 wins).
+The "Path after rival_2" above is suspended. New candidates come from prompts/claude_desktop_hunt.md
+(versions/hunt_vNN.py) and must beat rival_2 on the calibrated pool before they go live.
