@@ -12,3 +12,4 @@ and python backtester.py --validate passes.
 | Version | Parent | Branch | Pool | Weighted | vs r1 | vs r2 | vs r3 | Idea |
 |---|---|---|---|---|---|---|---|---|
 | bridge_v01 | - | lab | +10.08 | +8.51 | +2.73 | -2.41 | +3.13 | zoo/bridge_11_strong.py as built |
+| merge_v05 | duel_v04 + farm_v04 | lab | +10.33 | +9.23 | +4.11 | +0.80 | +3.99 | 3-way merge over bridge_v01; quote: guard vs detected hider, else duel's 40% hiding (seeds 9 10) |
