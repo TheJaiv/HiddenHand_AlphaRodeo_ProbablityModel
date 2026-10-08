@@ -10,7 +10,7 @@ Repo /Users/jaiv/Coding/hiddenhand/tqc-hiddenhand-moneyheist, git branch `heist`
   - `tools/live_ab.py`: reads the public fight list and compares our live uploads on the same opponents.
   - `tools/speed.py`: per-call timing.
   - `tools/eval.py`: local matches, only with the field imitations described below.
-  - `zoo/arena_raw/`: older public replays. Its README.md documents the JSON format; refresh the data.
+  - `zoo/arena_raw/`: older public replays. Its README.md documents the and uJSON format; refresh the data.
 
 ## Hard rules (breaking them can disqualify the team)
 - `exploiter.py` in the repo root is another team's code. NEVER open, read, import, run or copy it, and never use another team's code or numbers. Learn about other teams ONLY from the public arena pages: standings, fight lists, replays.

@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Fight · Hidden Hand</title>
+<style>
+:root{--bg:#060a0a;--sunken:#040707;--surface:#0b1312;--raised:#111c1b;--line:#1b2a28;--line2:#28403c;
+--ink:#e8f4f1;--dim:#93a9a4;--faint:#6d847f;--mint:#5ef2c1;--mint-dim:#2a6f5b;--up:#5ef2c1;--down:#ff6b63}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+-webkit-font-smoothing:antialiased}
+a{color:var(--mint);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px 64px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);margin-bottom:28px;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:.06em;font-size:20px;color:var(--ink)}.brand b{color:var(--mint)}
+nav{display:flex;gap:18px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}nav a{color:var(--dim)}nav a:hover{color:var(--mint)}
+h1{font-size:clamp(30px,6vw,52px);line-height:1;margin:8px 0 6px;font-weight:900;letter-spacing:.02em;text-transform:uppercase}
+h1 em{color:var(--mint);font-style:italic}
+h2{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--mint);margin:40px 0 12px;font-weight:600}
+.lede{color:var(--dim);max-width:62ch;margin:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+tr:last-child td{border-bottom:0}td.n,th.n{text-align:right}
+tr.house td{color:var(--faint)}tr.house a{color:var(--dim)}
+tr.top td:first-child{color:var(--mint);font-weight:800}
+.pos{color:var(--up)}.neg{color:var(--down)}.muted{color:var(--faint)}
+.tag{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid var(--line2);color:var(--dim)}
+.tag.ok{border-color:var(--mint-dim);color:var(--mint)}.tag.bad{border-color:#6b2b28;color:var(--down)}
+.c{display:inline-block;min-width:2.3em;padding:1px 5px;margin:1px;border-radius:4px;background:#eef3f1;color:#0b0f0f;font-weight:700;text-align:center;font-size:13px}
+.c.r{color:#c2252b}.c.down{background:var(--raised);color:var(--faint);border:1px dashed var(--line2)}
+.c.dim{opacity:.35}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.deal td{white-space:normal;vertical-align:top}
+form{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+input[type=text],input[type=password],input[type=file]{background:var(--sunken);color:var(--ink);border:1px solid var(--line2);border-radius:8px;padding:10px 12px;font:inherit;min-width:0;flex:1 1 220px}
+button{background:var(--mint);color:#04211a;border:0;border-radius:8px;padding:11px 18px;font:inherit;font-weight:800;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.flash{border-left:3px solid var(--mint);padding:10px 14px;background:var(--raised);border-radius:6px;margin:0 0 18px}
+.foot{margin-top:56px;color:var(--faint);font-size:12px;letter-spacing:.08em}
+</style></head><body><div class="wrap">
+<header><a class="brand" href="/">HIDDEN <b>HAND</b></a>
+<nav><a href="/">Standings</a><a href="/fights">Fights</a><a href="/kit.zip">Kit</a><a href="/rules">Rules</a><a href="/submit">Submit</a></nav></header>
+<h1>Genz7 <em>vs</em> Alpha Rodeo</h1>
+<p class="lede">Live fight, 200 deals.
+<a href="/team/Genz7">Genz7</a> score <span class="pos">+2.660</span> (<span class="pos">+11.57</span> PnL per deal),
+<a href="/team/Alpha%20Rodeo">Alpha Rodeo</a> score <span class="neg">-2.660</span> (<span class="neg">-11.57</span> PnL per deal).
+Below is the first deal, played both ways round: same cards, seats swapped.</p><h2>Deal 1, as dealt</h2><div class="grid">
+<div class="panel"><b>Genz7</b> holds<br><span class="c ">3♠</span><span class="c r ">4♦</span><span class="c ">J♣</span><span class="c r ">9♦</span><span class="c ">5♣</span></div>
+<div class="panel"><b>Alpha Rodeo</b> holds<br><span class="c ">2♠</span><span class="c ">10♣</span><span class="c r ">Q♦</span><span class="c ">8♠</span><span class="c r ">8♦</span></div>
+<div class="panel"><b>Board</b>, one card turned per round<br><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c ">Q♠</span><span class="c r ">Q♥</span><span class="c r ">10♦</span></div></div>
+<div class="scroll" style="margin-top:14px"><table class="deal"><thead><tr><th>Rnd</th><th>Board</th><th>Moves</th>
+<th>Trading</th></tr></thead><tbody><tr><td>1</td><td><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span></td><td><span class="muted">-</span></td>
+<td>Genz7 quotes <b>105.96</b>; Alpha Rodeo <span class="muted">passes</span><br>Alpha Rodeo quotes <b>108.32</b>; Genz7 <span class="neg">sells 1 at 106.32</span></td></tr><tr><td>2</td><td><span class="c ">J♠</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span></td><td>Alpha Rodeo swaps <span class="c ">2♠</span> → <span class="c ">K♣</span></td>
+<td>Alpha Rodeo quotes <b>111.29</b>; Genz7 <span class="muted">passes</span><br>Genz7 quotes <b>113.69</b>; Alpha Rodeo <span class="pos">buys 2 at 115.69</span></td></tr><tr><td>3</td><td><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span></td><td><span class="muted">-</span></td>
+<td>Genz7 quotes <b>117.79</b>; Alpha Rodeo <span class="muted">passes</span><br>Alpha Rodeo quotes <b>115.2</b>; Genz7 <span class="neg">sells 2 at 113.2</span></td></tr><tr><td>4</td><td><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c ">Q♠</span><span class="c down">?</span><span class="c down">?</span></td><td><span class="muted">-</span></td>
+<td>Alpha Rodeo quotes <b>118.92</b>; Genz7 <span class="neg">sells 2 at 116.92</span><br>Genz7 quotes <b>119.18</b>; Alpha Rodeo <span class="pos">buys 2 at 121.18</span></td></tr><tr><td>5</td><td><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c ">Q♠</span><span class="c r ">Q♥</span><span class="c down">?</span></td><td>Genz7 swaps <span class="c ">J♣</span> → <span class="c ">10♠</span></td>
+<td>Genz7 quotes <b>123.02</b>; Alpha Rodeo <span class="muted">passes</span><br>Alpha Rodeo quotes <b>119.56</b>; Genz7 <span class="muted">passes</span></td></tr></tbody></table></div>
+<div class="scroll" style="margin-top:14px"><table><thead><tr><th>Settles at 129</th><th>Final hand</th>
+<th class="n">Position</th><th class="n">Paid</th><th class="n">PnL</th></tr></thead><tbody><tr><td><b>Genz7</b></td><td><span class="c ">3♠</span><span class="c r ">4♦</span><span class="c ">10♠</span><span class="c r ">9♦</span><span class="c ">5♣</span></td>
+<td class="n">-9</td><td class="n">0</td><td class="n"><span class="neg">-120.70</span></td></tr><tr><td><b>Alpha Rodeo</b></td><td><span class="c ">K♣</span><span class="c ">10♣</span><span class="c r ">Q♦</span><span class="c ">8♠</span><span class="c r ">8♦</span></td>
+<td class="n">+9</td><td class="n">0</td><td class="n"><span class="pos">+120.70</span></td></tr></tbody></table></div><h2>Deal 1, hands swapped</h2><div class="grid">
+<div class="panel"><b>Alpha Rodeo</b> holds<br><span class="c ">3♠</span><span class="c r ">4♦</span><span class="c ">J♣</span><span class="c r ">9♦</span><span class="c ">5♣</span></div>
+<div class="panel"><b>Genz7</b> holds<br><span class="c ">2♠</span><span class="c ">10♣</span><span class="c r ">Q♦</span><span class="c ">8♠</span><span class="c r ">8♦</span></div>
+<div class="panel"><b>Board</b>, one card turned per round<br><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c ">Q♠</span><span class="c r ">Q♥</span><span class="c r ">10♦</span></div></div>
+<div class="scroll" style="margin-top:14px"><table class="deal"><thead><tr><th>Rnd</th><th>Board</th><th>Moves</th>
+<th>Trading</th></tr></thead><tbody><tr><td>1</td><td><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span></td><td><span class="muted">-</span></td>
+<td>Alpha Rodeo quotes <b>105.49</b>; Genz7 <span class="muted">passes</span><br>Genz7 quotes <b>105.3</b>; Alpha Rodeo <span class="muted">passes</span></td></tr><tr><td>2</td><td><span class="c ">J♠</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span></td><td><span class="muted">-</span></td>
+<td>Genz7 quotes <b>109.1</b>; Alpha Rodeo <span class="muted">passes</span><br>Alpha Rodeo quotes <b>106.56</b>; Genz7 <span class="pos">buys 2 at 108.56</span></td></tr><tr><td>3</td><td><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c down">?</span><span class="c down">?</span><span class="c down">?</span></td><td>Alpha Rodeo swaps <span class="c ">J♣</span> → <span class="c ">K♣</span></td>
+<td>Alpha Rodeo quotes <b>106.49</b>; Genz7 <span class="muted">passes</span><br>Genz7 quotes <b>102.61</b>; Alpha Rodeo <span class="muted">passes</span></td></tr><tr><td>4</td><td><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c ">Q♠</span><span class="c down">?</span><span class="c down">?</span></td><td><span class="muted">-</span></td>
+<td>Genz7 quotes <b>106.83</b>; Alpha Rodeo <span class="muted">passes</span><br>Alpha Rodeo quotes <b>109.37</b>; Genz7 <span class="pos">buys 1 at 111.37</span></td></tr><tr><td>5</td><td><span class="c ">J♠</span><span class="c r ">2♦</span><span class="c ">Q♠</span><span class="c r ">Q♥</span><span class="c down">?</span></td><td>Genz7 swaps <span class="c ">2♠</span> → <span class="c ">10♠</span></td>
+<td>Alpha Rodeo quotes <b>119.71</b>; Genz7 <span class="pos">buys 2 at 121.71</span><br>Genz7 quotes <b>119.25</b>; Alpha Rodeo <span class="pos">buys 2 at 121.25</span></td></tr></tbody></table></div>
+<div class="scroll" style="margin-top:14px"><table><thead><tr><th>Settles at 129</th><th>Final hand</th>
+<th class="n">Position</th><th class="n">Paid</th><th class="n">PnL</th></tr></thead><tbody><tr><td><b>Alpha Rodeo</b></td><td><span class="c ">3♠</span><span class="c r ">4♦</span><span class="c ">K♣</span><span class="c r ">9♦</span><span class="c ">5♣</span></td>
+<td class="n">-3</td><td class="n">0</td><td class="n"><span class="neg">-57.59</span></td></tr><tr><td><b>Genz7</b></td><td><span class="c ">10♠</span><span class="c ">10♣</span><span class="c r ">Q♦</span><span class="c ">8♠</span><span class="c r ">8♦</span></td>
+<td class="n">+3</td><td class="n">0</td><td class="n"><span class="pos">+57.59</span></td></tr></tbody></table></div>
+<p class="foot">THE QUANT CLUB · IIT (BHU) VARANASI · ANALYZE. DEVELOP. OUTPLAY.</p>
+</div></body></html>

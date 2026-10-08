@@ -1,0 +1,4 @@
+start tape 3.833 cal 4.405 {'r1': -2.33, 'r2': -1.3, 'h1': 1.91, 'h2': 4.77, 'naive': -9.61}
+0 tape 3.995 cal 3.914 {'r1': -2.8, 'r2': -1.84, 'h1': 1.47, 'h2': 4.59, 'naive': -9.06}
+10 tape 4.209 cal 3.795 {'r1': -2.73, 'r2': -1.65, 'h1': 2.0, 'h2': 4.79, 'naive': -8.87}
+BEST {"T": 0.16, "T_PRICE": false, "R1_QUOTE": "pub", "R1_ADD": 0.0, "W": 0.446, "SKEW_Q": -0.29, "C_Q": -0.909, "HIDE": 0.521, "SNAP": null, "SNAP_IN": 1.95, "SKEW_R": 1.066, "TH1": 3.614, "TH2": 2.756, "R1_MAXLOT": 2, "SWAP": "round", "AVG_Q": 3, "TRADE_EV": 1.093, "AGGRO_K": 0.0, "AGGRO_LIM": 10, "TB": 1, "TB_G": 2, "TB_F": 0.387, "SWAP_R": 2, "SWAP_G": 0.394, "SWAP_FLAT": 0, "MIRROR": 0, "SANE_LO": 12.0, "SANE_HI": 60.451}

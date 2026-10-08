@@ -1,0 +1,17 @@
+48 matches in 33s
+
+=== hunt_v01 - hunt_v01, seeds [5, 6, 7, 8], 400 deals ===
+  naive                    new +10.111  old +10.111  diff  +0.000 +-0.000
+  reader                   new +20.278  old +20.278  diff  +0.000 +-0.000
+  sharp                    new +18.872  old +18.872  diff  +0.000 +-0.000
+  rival_1                  new  +0.084  old  +0.084  diff  +0.000 +-0.000
+  rival_2                  new  +4.061  old  +4.061  diff  +0.000 +-0.000
+  arena_imposters          new  +1.986  old  +1.986  diff  +0.000 +-0.000
+  arena_pokemons           new  +1.167  old  +1.167  diff  +0.000 +-0.000
+  arena_sattebaaz          new  +3.181  old  +3.181  diff  +0.000 +-0.000
+  arena_quants_treasure    new  +5.155  old  +5.155  diff  +0.000 +-0.000
+  arena_outliers           new  +3.841  old  +3.841  diff  +0.000 +-0.000
+  arena_teenpatti_v4       new  +1.472  old  +1.472  diff  +0.000 +-0.000
+  arena_paperhands_v5      new  +3.380  old  +3.380  diff  +0.000 +-0.000
+  POOL AVERAGE             new  +6.132  diff  +0.000 +-0.000
+  slowest call 8.09 ms; notes none

@@ -1,0 +1,926 @@
+[
+ {
+  "opp": "Explorers",
+  "opp_id": 455,
+  "me": 280,
+  "score": 13.496
+ },
+ {
+  "opp": "Double Dividend",
+  "opp_id": 453,
+  "me": 280,
+  "score": -2.116
+ },
+ {
+  "opp": "Chill Chips",
+  "opp_id": 451,
+  "me": 280,
+  "score": 9.986
+ },
+ {
+  "opp": "Alpha Rodeo",
+  "opp_id": 452,
+  "me": 280,
+  "score": -0.678
+ },
+ {
+  "opp": "Team How",
+  "opp_id": 449,
+  "me": 280,
+  "score": -0.04
+ },
+ {
+  "opp": "Alpha Rodeo",
+  "opp_id": 448,
+  "me": 280,
+  "score": 0.724
+ },
+ {
+  "opp": "Deal & Steal",
+  "opp_id": 447,
+  "me": 280,
+  "score": -0.037
+ },
+ {
+  "opp": "Deal & Steal",
+  "opp_id": 446,
+  "me": 280,
+  "score": 0.057
+ },
+ {
+  "opp": "Deal & Steal",
+  "opp_id": 445,
+  "me": 280,
+  "score": 3.13
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 444,
+  "me": 280,
+  "score": 9.905
+ },
+ {
+  "opp": "Deal & Steal",
+  "opp_id": 442,
+  "me": 280,
+  "score": 5.57
+ },
+ {
+  "opp": "Alpha Hunters",
+  "opp_id": 443,
+  "me": 280,
+  "score": -1.011
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 441,
+  "me": 280,
+  "score": 10.083
+ },
+ {
+  "opp": "Algo X",
+  "opp_id": 439,
+  "me": 280,
+  "score": 7.647
+ },
+ {
+  "opp": "Deal & Steal",
+  "opp_id": 438,
+  "me": 280,
+  "score": 9.686
+ },
+ {
+  "opp": "Alpha Hunters",
+  "opp_id": 437,
+  "me": 280,
+  "score": -0.046
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 436,
+  "me": 280,
+  "score": 6.659
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 435,
+  "me": 280,
+  "score": 9.949
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 433,
+  "me": 280,
+  "score": 6.563
+ },
+ {
+  "opp": "Alpha Hunters",
+  "opp_id": 432,
+  "me": 280,
+  "score": -1.325
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 431,
+  "me": 280,
+  "score": 22.53
+ },
+ {
+  "opp": "OptiMystics",
+  "opp_id": 430,
+  "me": 280,
+  "score": 3.32
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 429,
+  "me": 280,
+  "score": 6.659
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 428,
+  "me": 280,
+  "score": 23.867
+ },
+ {
+  "opp": "OptiMystics",
+  "opp_id": 427,
+  "me": 280,
+  "score": -5.765
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 426,
+  "me": 280,
+  "score": 30.141
+ },
+ {
+  "opp": "Balls of Wall Street",
+  "opp_id": 425,
+  "me": 280,
+  "score": 6.704
+ },
+ {
+  "opp": "PaperHands",
+  "opp_id": 424,
+  "me": 280,
+  "score": -3.672
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 423,
+  "me": 280,
+  "score": 9.275
+ },
+ {
+  "opp": "OptiMystics",
+  "opp_id": 422,
+  "me": 280,
+  "score": 4.359
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 421,
+  "me": 280,
+  "score": 10.023
+ },
+ {
+  "opp": "Techy Traders",
+  "opp_id": 420,
+  "me": 280,
+  "score": 1.557
+ },
+ {
+  "opp": "Balls of Wall Street",
+  "opp_id": 419,
+  "me": 280,
+  "score": 6.842
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 418,
+  "me": 280,
+  "score": 23.591
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 417,
+  "me": 280,
+  "score": 6.659
+ },
+ {
+  "opp": "Techy Traders",
+  "opp_id": 416,
+  "me": 280,
+  "score": -5.97
+ },
+ {
+  "opp": "PaperHands",
+  "opp_id": 415,
+  "me": 280,
+  "score": -4.67
+ },
+ {
+  "opp": "OptiMystics",
+  "opp_id": 414,
+  "me": 280,
+  "score": 7.76
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 412,
+  "me": 280,
+  "score": 31.007
+ },
+ {
+  "opp": "TEAM ERROr",
+  "opp_id": 413,
+  "me": 280,
+  "score": 5.237
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 410,
+  "me": 280,
+  "score": 6.563
+ },
+ {
+  "opp": "Techy Traders",
+  "opp_id": 409,
+  "me": 280,
+  "score": -4.377
+ },
+ {
+  "opp": "PaperHands",
+  "opp_id": 408,
+  "me": 280,
+  "score": -4.483
+ },
+ {
+  "opp": "TEAM ERROr",
+  "opp_id": 406,
+  "me": 280,
+  "score": 16.367
+ },
+ {
+  "opp": "Hidden Alpha",
+  "opp_id": 404,
+  "me": 280,
+  "score": 13.286
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 405,
+  "me": 280,
+  "score": 11.756
+ },
+ {
+  "opp": "Happy Happy",
+  "opp_id": 402,
+  "me": 280,
+  "score": -3.23
+ },
+ {
+  "opp": "Techy Traders",
+  "opp_id": 401,
+  "me": 280,
+  "score": -5.97
+ },
+ {
+  "opp": "Dark Pool Divers",
+  "opp_id": 226,
+  "me": 280,
+  "score": 0.908
+ },
+ {
+  "opp": "TEAM ERROr",
+  "opp_id": 398,
+  "me": 280,
+  "score": 7.779
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 397,
+  "me": 280,
+  "score": 11.735
+ },
+ {
+  "opp": "QuantXAlpha",
+  "opp_id": 264,
+  "me": 280,
+  "score": 5.094
+ },
+ {
+  "opp": "Bulls Squad",
+  "opp_id": 370,
+  "me": 280,
+  "score": 4.859
+ },
+ {
+  "opp": "Chanakya",
+  "opp_id": 200,
+  "me": 280,
+  "score": 9.906
+ },
+ {
+  "opp": "Bayes and Bulls",
+  "opp_id": 394,
+  "me": 280,
+  "score": 7.108
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 388,
+  "me": 280,
+  "score": 32.821
+ },
+ {
+  "opp": "Alpha Rodeo",
+  "opp_id": 393,
+  "me": 280,
+  "score": 0.724
+ },
+ {
+  "opp": "Alpha Predators",
+  "opp_id": 269,
+  "me": 280,
+  "score": 7.379
+ },
+ {
+  "opp": "Void Stalkers",
+  "opp_id": 195,
+  "me": 280,
+  "score": 9.353
+ },
+ {
+  "opp": "Team How",
+  "opp_id": 110,
+  "me": 280,
+  "score": 3.528
+ },
+ {
+  "opp": "TEAM ERROr",
+  "opp_id": 392,
+  "me": 280,
+  "score": 8.617
+ },
+ {
+  "opp": "The Risk Violators",
+  "opp_id": 391,
+  "me": 280,
+  "score": -1.001
+ },
+ {
+  "opp": "Algo X",
+  "opp_id": 365,
+  "me": 280,
+  "score": 7.45
+ },
+ {
+  "opp": "IITBHUAVENGERS",
+  "opp_id": 389,
+  "me": 280,
+  "score": 7.46
+ },
+ {
+  "opp": "Deal & Steal",
+  "opp_id": 161,
+  "me": 280,
+  "score": 7.014
+ },
+ {
+  "opp": "Dalal Street",
+  "opp_id": 362,
+  "me": 280,
+  "score": 9.475
+ },
+ {
+  "opp": "QUANTSTATIC",
+  "opp_id": 185,
+  "me": 280,
+  "score": 8.78
+ },
+ {
+  "opp": "Money Heist",
+  "opp_id": 115,
+  "me": 280,
+  "score": 0.165
+ },
+ {
+  "opp": "KRYPTEX",
+  "opp_id": 387,
+  "me": 280,
+  "score": -1.927
+ },
+ {
+  "opp": "Apex Syndicate",
+  "opp_id": 294,
+  "me": 280,
+  "score": 7.101
+ },
+ {
+  "opp": "House · reader",
+  "opp_id": 2,
+  "me": 280,
+  "score": 10.683
+ },
+ {
+  "opp": "House · naive",
+  "opp_id": 1,
+  "me": 280,
+  "score": 9.361
+ },
+ {
+  "opp": "Bayes and Bulls",
+  "opp_id": 385,
+  "me": 280,
+  "score": 5.033
+ },
+ {
+  "opp": "ASYMMETRIC EDGE",
+  "opp_id": 384,
+  "me": 280,
+  "score": 3.747
+ },
+ {
+  "opp": "TEAM ERROr",
+  "opp_id": 381,
+  "me": 280,
+  "score": 8.73
+ },
+ {
+  "opp": "Alpha Rodeo",
+  "opp_id": 383,
+  "me": 280,
+  "score": -0.777
+ },
+ {
+  "opp": "Hidden Alpha",
+  "opp_id": 382,
+  "me": 280,
+  "score": -4.815
+ },
+ {
+  "opp": "IITBHUAVENGERS",
+  "opp_id": 380,
+  "me": 280,
+  "score": 4.006
+ },
+ {
+  "opp": "Specter",
+  "opp_id": 379,
+  "me": 280,
+  "score": 7.241
+ },
+ {
+  "opp": "Bayes and Bulls",
+  "opp_id": 372,
+  "me": 280,
+  "score": 6.613
+ },
+ {
+  "opp": "Phantom Halo",
+  "opp_id": 378,
+  "me": 280,
+  "score": -0.179
+ },
+ {
+  "opp": "Quants Treasure",
+  "opp_id": 377,
+  "me": 280,
+  "score": -2.661
+ },
+ {
+  "opp": "HAN SOLO",
+  "opp_id": 375,
+  "me": 280,
+  "score": -5.982
+ },
+ {
+  "opp": "Godtier",
+  "opp_id": 376,
+  "me": 280,
+  "score": 6.925
+ },
+ {
+  "opp": "KRYPTEX",
+  "opp_id": 374,
+  "me": 280,
+  "score": -2.011
+ },
+ {
+  "opp": "OptiMystics",
+  "opp_id": 373,
+  "me": 280,
+  "score": 4.231
+ },
+ {
+  "opp": "Pokemons",
+  "opp_id": 214,
+  "me": 280,
+  "score": -1.983
+ },
+ {
+  "opp": "Chill Chips",
+  "opp_id": 125,
+  "me": 280,
+  "score": 9.986
+ },
+ {
+  "opp": "Trade Transmitters",
+  "opp_id": 371,
+  "me": 280,
+  "score": -0.45
+ },
+ {
+  "opp": "THUGS OF BHU",
+  "opp_id": 369,
+  "me": 280,
+  "score": 2.004
+ },
+ {
+  "opp": "Alpha Rodeo",
+  "opp_id": 368,
+  "me": 280,
+  "score": -0.011
+ },
+ {
+  "opp": "Quants Treasure",
+  "opp_id": 367,
+  "me": 280,
+  "score": 0.824
+ },
+ {
+  "opp": "Godtier",
+  "opp_id": 366,
+  "me": 280,
+  "score": 5.655
+ },
+ {
+  "opp": "HAN SOLO",
+  "opp_id": 364,
+  "me": 280,
+  "score": -1.801
+ },
+ {
+  "opp": "Double Dividend",
+  "opp_id": 361,
+  "me": 280,
+  "score": 3.661
+ },
+ {
+  "opp": "Bayes and Bulls",
+  "opp_id": 359,
+  "me": 280,
+  "score": 4.909
+ },
+ {
+  "opp": "Happy Happy",
+  "opp_id": 307,
+  "me": 280,
+  "score": -4.801
+ },
+ {
+  "opp": "Quantumlesssss",
+  "opp_id": 333,
+  "me": 280,
+  "score": 0.263
+ },
+ {
+  "opp": "Godtier",
+  "opp_id": 336,
+  "me": 280,
+  "score": 5.455
+ },
+ {
+  "opp": "Trade Transmitters",
+  "opp_id": 358,
+  "me": 280,
+  "score": 0.192
+ },
+ {
+  "opp": "Sattebaaz",
+  "opp_id": 357,
+  "me": 280,
+  "score": -1.884
+ },
+ {
+  "opp": "Hidden Alpha",
+  "opp_id": 356,
+  "me": 280,
+  "score": -1.987
+ },
+ {
+  "opp": "TeenPatti",
+  "opp_id": 330,
+  "me": 280,
+  "score": -3.666
+ },
+ {
+  "opp": "PaperHands",
+  "opp_id": 353,
+  "me": 280,
+  "score": -4.559
+ },
+ {
+  "opp": "MNC Traders",
+  "opp_id": 346,
+  "me": 280,
+  "score": -6.247
+ },
+ {
+  "opp": "Alpha Rodeo",
+  "opp_id": 351,
+  "me": 280,
+  "score": -4.186
+ },
+ {
+  "opp": "HAN SOLO",
+  "opp_id": 350,
+  "me": 280,
+  "score": 6.658
+ },
+ {
+  "opp": "THUGS OF BHU",
+  "opp_id": 349,
+  "me": 280,
+  "score": 3.289
+ },
+ {
+  "opp": "AJ_The_Trader",
+  "opp_id": 344,
+  "me": 280,
+  "score": -3.114
+ },
+ {
+  "opp": "AJ_The_Trader",
+  "opp_id": 310,
+  "me": 280,
+  "score": -3.317
+ },
+ {
+  "opp": "ASYMMETRIC EDGE",
+  "opp_id": 323,
+  "me": 280,
+  "score": 1.748
+ },
+ {
+  "opp": "Balls of Wall Street",
+  "opp_id": 342,
+  "me": 280,
+  "score": 5.258
+ },
+ {
+  "opp": "The Risk Violators",
+  "opp_id": 341,
+  "me": 280,
+  "score": -2.276
+ },
+ {
+  "opp": "HAN SOLO",
+  "opp_id": 337,
+  "me": 280,
+  "score": -0.682
+ },
+ {
+  "opp": "PaperHands",
+  "opp_id": 304,
+  "me": 280,
+  "score": -3.657
+ },
+ {
+  "opp": "MNC Traders",
+  "opp_id": 292,
+  "me": 280,
+  "score": -5.349
+ },
+ {
+  "opp": "Cyberpsycho",
+  "opp_id": 316,
+  "me": 280,
+  "score": 1.707
+ },
+ {
+  "opp": "Sattebaaz",
+  "opp_id": 325,
+  "me": 280,
+  "score": -1.415
+ },
+ {
+  "opp": "KRYPTEX",
+  "opp_id": 317,
+  "me": 280,
+  "score": -0.579
+ },
+ {
+  "opp": "Trade Transmitters",
+  "opp_id": 320,
+  "me": 280,
+  "score": 5.664
+ },
+ {
+  "opp": "Balls of Wall Street",
+  "opp_id": 321,
+  "me": 280,
+  "score": 7.268
+ },
+ {
+  "opp": "Hidden Alpha",
+  "opp_id": 315,
+  "me": 280,
+  "score": 2.358
+ },
+ {
+  "opp": "QUANTUMLYSTUPID",
+  "opp_id": 314,
+  "me": 280,
+  "score": 7.214
+ },
+ {
+  "opp": "IITBHUAVENGERS",
+  "opp_id": 296,
+  "me": 280,
+  "score": 3.676
+ },
+ {
+  "opp": "Godtier",
+  "opp_id": 305,
+  "me": 280,
+  "score": 0.6
+ },
+ {
+  "opp": "Sattebaaz",
+  "opp_id": 301,
+  "me": 280,
+  "score": 0.107
+ },
+ {
+  "opp": "ThunderX",
+  "opp_id": 299,
+  "me": 280,
+  "score": 4.941
+ },
+ {
+  "opp": "Cyberpsycho",
+  "opp_id": 298,
+  "me": 280,
+  "score": -1.806
+ },
+ {
+  "opp": "Imposters",
+  "opp_id": 288,
+  "me": 280,
+  "score": -3.599
+ },
+ {
+  "opp": "Godtier",
+  "opp_id": 66,
+  "me": 280,
+  "score": 5.434
+ },
+ {
+  "opp": "Quant Qods",
+  "opp_id": 247,
+  "me": 280,
+  "score": 2.351
+ },
+ {
+  "opp": "AnalysisParalysis",
+  "opp_id": 242,
+  "me": 280,
+  "score": -0.654
+ },
+ {
+  "opp": "The Risk Violators",
+  "opp_id": 284,
+  "me": 280,
+  "score": -1.692
+ },
+ {
+  "opp": "HAN SOLO",
+  "opp_id": 283,
+  "me": 280,
+  "score": 1.001
+ },
+ {
+  "opp": "Sattebaaz",
+  "opp_id": 281,
+  "me": 280,
+  "score": 5.799
+ },
+ {
+  "opp": "Techy Traders",
+  "opp_id": 277,
+  "me": 280,
+  "score": -3.654
+ },
+ {
+  "opp": "Happy Happy",
+  "opp_id": 276,
+  "me": 280,
+  "score": -4.96
+ },
+ {
+  "opp": "Quantumlesssss",
+  "opp_id": 272,
+  "me": 280,
+  "score": 4.742
+ },
+ {
+  "opp": "HAN SOLO",
+  "opp_id": 225,
+  "me": 280,
+  "score": 6.658
+ },
+ {
+  "opp": "AJ_The_Trader",
+  "opp_id": 270,
+  "me": 280,
+  "score": -1.881
+ },
+ {
+  "opp": "ThunderX",
+  "opp_id": 194,
+  "me": 280,
+  "score": 0.65
+ },
+ {
+  "opp": "alpha",
+  "opp_id": 238,
+  "me": 280,
+  "score": 2.722
+ },
+ {
+  "opp": "IITBHUAVENGERS",
+  "opp_id": 235,
+  "me": 280,
+  "score": 3.676
+ },
+ {
+  "opp": "Alpha Hunters",
+  "opp_id": 210,
+  "me": 280,
+  "score": -1.103
+ },
+ {
+  "opp": "Pravichayah",
+  "opp_id": 275,
+  "me": 280,
+  "score": 0.78
+ },
+ {
+  "opp": "ASYMMETRIC EDGE",
+  "opp_id": 251,
+  "me": 280,
+  "score": 4.341
+ },
+ {
+  "opp": "Outliers",
+  "opp_id": 271,
+  "me": 280,
+  "score": -0.547
+ },
+ {
+  "opp": "Trinomial",
+  "opp_id": 192,
+  "me": 280,
+  "score": 0.957
+ },
+ {
+  "opp": "Genz7",
+  "opp_id": 262,
+  "me": 280,
+  "score": -5.591
+ },
+ {
+  "opp": "Cyberpsycho",
+  "opp_id": 228,
+  "me": 280,
+  "score": -2.521
+ },
+ {
+  "opp": "Quants Treasure",
+  "opp_id": 256,
+  "me": 280,
+  "score": -1.812
+ },
+ {
+  "opp": "House · sharp",
+  "opp_id": 3,
+  "me": 280,
+  "score": 9.533
+ },
+ {
+  "opp": "Trade Transmitters",
+  "opp_id": 257,
+  "me": 280,
+  "score": 2.975
+ },
+ {
+  "opp": "Imposters",
+  "opp_id": 217,
+  "me": 280,
+  "score": -1.813
+ }
+]
