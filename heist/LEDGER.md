@@ -20,6 +20,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 | v07 | oslo | helsinki | field model vs helsinki (800 deals): seeds 10 11 +0.116 +-0.049, seeds 12 13 +0.200 +-0.049 | not uploaded alone (in lisbon) | P_NAIVE 0.45 -> 0.3 |
 | v08 | lisbon | oslo | field model: no-op (no double peekers in it); decisions = oslo except vs teams that peek twice in a deal | #565 (13:48) vs #561 helsinki: -0.02 +-0.26 (n=57): neutral; peeker defence HURT: Quants Treasure #514 -0.65 (helsinki +0.01), Team How #549 -1.41 -> defence dropped | peeker defence: after 2 opponent peeks, quote 1.3 from its last quote, take only with 3 more points of edge (QT: top teams +8 more than us) |
 
+| v09 | stockholm | oslo | field model vs helsinki (800 deals): old field seeds 12 13 +0.304 +-0.050, 14 15 +0.311 +-0.049; refreshed field2 seeds 12 13 +0.183 +-0.064, 14 15 +0.169 +-0.065 | pending (sent 15:20) | quote moved 15% towards the safe quote unless reader / limit + no paid probes / model crush (house attack kept) |
+
 ## Candidates and rejected ideas
 
 | Candidate | Change | Local | Live | Verdict |
@@ -80,3 +82,6 @@ Blind_Ambition: +29.7 / +19.1 / +7.5; Double Dividend: +24.6 / +13.2 / +4.2). It
 against 9 of our live files: 16 imitations within mean 1.5 of every planner-family file (data/field2.json).
 Oracle check (35 opponents all five planner versions fought): best single version +6.57, best version per opponent +7.32
 (part of that is selection noise); a per-opponent switch needs an in-deal detector, and the 'honest' detector misfired (c24).
+| q01_blend30 / q02_blend15 | helsinki, quote moved 30% / 15% towards the safe quote | old field -0.068 / +0.008; field2 +0.091 / +0.097 | - | q02 -> stockholm bundle |
+| r01_onelot | helsinki, 1-lot answers allowed | -0.033 / -0.031 | - | rejected |
+| h01_noprobe (field2) | helsinki, no probes | field2 +0.016 +-0.011 (ThunderX imitation: one probe quote 146.18 cost -100 in a deal) | - | -> stockholm bundle |
