@@ -3,7 +3,7 @@
 
 # How to use this guide
 
-This guide explains **heist/manila.py** (v13), our final bot, line by line. heist/professor.py is the same code; only its line 4 is different. manila is marseille (v12) with one value changed on line 71: in round 5 it swaps whenever the expected gain is positive (marseille needed 4 points). Every other line, and every line number, is the same in both files.
+This guide explains **heist/pamplona.py** (v14), our final bot, line by line. heist/professor.py is the same code; only its line 4 is different. pamplona is marseille (v12) with two small changes to the round-5 swap: line 71 (swap whenever the expected gain is positive; marseille needed 4 points, changed in manila, v13) and line 1103 (decide on the average of the position we hold now and the position we expect to end with; pamplona, v14). Everything else is marseille's code.
 
 Read it in this order:
 - **The one-page summary and chapters 1–2** tell the whole story in a few pages. Read them twice.
@@ -28,7 +28,7 @@ Every chapter ends with a box for your notes, and there are blank note pages at 
 - **6.** Value: **E[V | O] = α + β·O**.
 - **7.** Quote: stage 1 finds the best immediate profit (including **adverse selection**); stage 2 adds a play-out of the rest of the deal under the 6 likeliest hypotheses, through a square-root-like **utility** (like the score). Then the final quote is **70% planner + 30% safe quote** (their last quote, 1.3 towards our value).
 - **8.** Answer: buy, pass or sell, compared with the same yardstick.
-- **9.** Move: **never peek**. Swap at most once, **only in round 5**: our lowest card if we expect to end long, our highest if short, whenever the expected gain is positive.
+- **9.** Move: **never peek**. Swap at most once, **only in round 5**: our lowest card if we expect to end long, our highest if short, whenever the expected gain is positive, judged on the average of our current and our expected final position.
 - **10.** An exact attack on the house bots (off against real teams), try/except fallbacks everywhere, nothing kept between deals, standard library only (heapq, math).
 
 ## Key numbers
@@ -42,10 +42,11 @@ Every chapter ends with a box for your notes, and there are blank note pages at 
 | prior: does not read my quotes | 30% (P_NAIVE) | line 51 |
 | opponent take threshold | 2 points (75%) or 7 (25%) | line 60 |
 | swap bar in round 5 | 0: any positive expected gain (marseille: 4) | line 71 |
+| swap decided on | average of current and expected final position | line 1103 |
 | speed (local) | median 0.20 ms, 99% under 1 ms per call | ledger |
 
-## Live record of this file (entry #665)
-45 of 49 real-team fights won. Paired against its parent marseille on the same 37 opponents: +0.10 ± 0.05, better against 27 of them. On the same opponent uploads it is ahead of every leader: Imposters +0.04, PaperHands +0.35, MNC Traders +1.02, Genz7 +1.24, TeenPatti +0.96. (marseille, entry #636: 47 of 50 won, +0.02 ± 0.07 against its parent bogota.)
+## Live record of this file (entry #689)
+Paired against its parent manila on the same 24 opponents: +0.40 ± 0.13, better against 23 of them, including PaperHands (+0.84), Imposters (+1.24), TeenPatti (+1.19), Genz7 (+0.34) and HAN SOLO (+0.30). Before it, manila (entry #665) beat marseille by +0.10 ± 0.05 and marseille (#636) matched bogota (+0.02 ± 0.07). The last test, rr02 (#701), did not beat pamplona (−0.11 ± 0.27), so pamplona is the final.
 
 %notes 5
 
@@ -113,7 +114,7 @@ We keep a list of 216 **hypotheses**, each a possible opponent style: does it re
 For each possible action (a price to quote; buy, pass or sell) we compute the expected profit now plus a quick simulation of the rest of the deal under the 6 most likely hypotheses, score the total with a concave utility that mirrors the √ in the score, and take the best. Our final quote is then moved 30% of the way towards a **safe quote**: the opponent's last quote, moved 1.3 towards our value.
 
 ## Moves
-We never peek. We swap at most once, only in round 5: our lowest card if we expect to end long, our highest if we expect to end short, whenever the expected gain is positive.
+We never peek. We swap at most once, only in round 5: our lowest card if we expect to end long, our highest if we expect to end short, whenever the expected gain is positive. The decision uses the average of the position we hold now and the position we expect to end with.
 
 ## Two safety layers
 - An exact attack on the house bots "reader" and "sharp" (class _Reader). It switches on only when the opponent's quotes match the house formula to the cent, and off at the first surprise. Against real teams it stays off.
@@ -134,7 +135,7 @@ We never peek. We swap at most once, only in round 5: our lowest card if we expe
 | 907–1019 | _quote: choosing a price |
 | 1021–1037 | _safe_quote: the nudge target |
 | 1039–1069 | _respond: buy, pass or sell |
-| 1071–1111 | _move: the round-5 swap |
+| 1071–1112 | _move: the round-5 swap |
 
 > "Our bot is a Bayesian trader. It keeps 216 guesses about the opponent's style, each with a belief about the opponent's hand that a Kalman filter updates from every quote and answer. To act, it scores each option by profit now plus a play-out of the rest of the deal under the six likeliest guesses, through a utility shaped like the score, and then hides a little by moving its quote 30% towards the opponent's last quote."
 
@@ -142,7 +143,7 @@ We never peek. We swap at most once, only in round 5: our lowest card if we expe
 
 # 3. Five ideas, with worked examples
 
-All numbers in this chapter come from running the functions in manila.py.
+All numbers in this chapter come from running the functions in pamplona.py.
 
 ## 3.1 The value of the stock given O (_ev, line 666)
 The unknowns for me are the opponent's 5 cards (sum O) and the hidden board cards. If I knew O, the hidden board cards would be random cards from the rest of my unseen pool. So
@@ -211,7 +212,7 @@ Each hypothesis' log-weight adds log(the probability it gave to what happened). 
 util(x) = x / √(1 + |x| / 60). Small amounts count fully (util(10) = 9.3); large amounts are shrunk like a square root (util(100) = 61.2, util(400) = 144.5). The score uses sign(p)√|p| per deal pair, so we choose actions by the same shape: a sure +30 is worth more to us than a coin flip between 0 and +60, because util(30) = 24.5 is more than (0 + util(60)) / 2 = 21.2.
 
 ## 3.9 The swap (_move, line 1071)
-In round 5, before the last two quotes: if we expect to end long by fpos lots, swapping our lowest card c for a random stack card (worth mstack on average) changes our PnL by about fpos × (mstack − c). Example: fpos = +6, lowest card 2, mstack 7: gain 6 × 5 = 30, which is positive, so we swap. (marseille only swapped when the gain was above 4; manila swaps on any positive expected gain.) If we expect to end short, we throw our highest card instead.
+In round 5, before the last two quotes, let pos be the position we hold now and fpos the position we expect to end with (from play-outs of round 5). pamplona uses x = (pos + fpos) / 2. If x > 0 (we will be long), swapping our lowest card c for a random stack card (worth mstack on average) changes our PnL by about x × (mstack − c); if x < 0 we throw our highest card instead. We swap whenever that expected gain is positive. Example: pos = +4 and fpos = +8, so x = +6; lowest card 2, mstack 7: gain 6 × 5 = 30, which is positive, so we swap. Why the average: the play-out tends to predict more round-5 trading than really happens, and averaging it with the real position made the decision steadier (+0.40 live).
 
 %notes 6
 
@@ -221,15 +222,15 @@ This chapter covers the top of the file: the required header, the description, t
 
 @code 1-4 The required header
 L1-3: The three lines every submission must start with, exactly as the rules give them: team name, member, mentor.
-L4: Our version line: its name (manila, v13 in our ledger), its parent (marseille) and the one idea it adds: swap in round 5 whenever the expected gain is positive. It also records the evidence: two local seed pairs (+0.087, +0.078) and the live result (+0.10 ± 0.05 against marseille). (marseille itself was bogota made 30–40% faster after the arena reported calls over 50 ms.)
+L4: Our version line: its name (pamplona, v14 in our ledger), its parent (manila) and the one idea it adds: the round-5 swap is decided on the average of the current and the expected final position. It also records the evidence: two local seed pairs (+0.115, +0.129) and the live result (+0.40 ± 0.13 against manila, better on 23 of 24 opponents). (manila added the swap bar 0; marseille was bogota made 30–40% faster.)
 > "Lines 1–3 are the required header. Line 4 says which version this is and what it changed."
 
 @code 6-40 The description at the top
 The text between the triple quotes is the module docstring: a summary of the whole bot. Python ignores it when running.
-L7: "rival_2.py" was the name of the first file of this family; we kept its description. Our versions since: tokyo, berlin, … bogota, marseille, manila.
+L7: "rival_2.py" was the name of the first file of this family; we kept its description. Our versions since: tokyo, berlin, … bogota, marseille, manila, pamplona.
 L9-10: The key sentence: the stock is my hand + the board + O, so the game is estimating O, and knowing how the opponent estimates my hand.
 L12-25: Inference: what each part of a hypothesis means (reads, rule, lam, tau, kappa), the 2-D Gaussian over (O, t), the Kalman update for quotes, the truncated-normal update for answers, reweighting, and the allowance for outliers.
-L27-37: Decisions: every action is scored by profit now plus a play-out, through a concave utility. "Readers are steerable" describes the free extreme quote at ±10 lots and the paid probes. In manila (as in marseille) the paid probes are switched off (P_EXT = P_PROBE = 2.0, lines 74 and 76); only the free extreme quote at the limit is still used.
+L27-37: Decisions: every action is scored by profit now plus a play-out, through a concave utility. "Readers are steerable" describes the free extreme quote at ±10 lots and the paid probes. In pamplona (as in marseille) the paid probes are switched off (P_EXT = P_PROBE = 2.0, lines 74 and 76); only the free extreme quote at the limit is still used.
 L38-39: The swap rule.
 
 @code 42-43 Imports
@@ -264,7 +265,7 @@ L66-67: EPS_Q = 0.1 and U_Q = 0.02: 10% of quotes may be "unexplained"; such a q
 L68: SIG_R = 1.0: noise on the take threshold when we read answers.
 L69: EPS_R = 0.06: 6% of answers may be random (each of buy, pass and sell then has 2%).
 L70: PRUNE = 6.0: drop hypotheses 6 log-units (403 times) less likely than the best. It was 12 in bogota; 6 makes calls about 40% faster and changed only about 5% of decisions in our check (local score +0.014).
-L71: SWAP_TH: the gain needed to swap, by round: 15, 12, 9, 6, 0. We only swap in round 5, so only the last value is used, and it is 0: we swap whenever the expected gain is positive. This is the one line where manila differs from marseille, which had 4.
+L71: SWAP_TH: the gain needed to swap, by round: 15, 12, 9, 6, 0. We only swap in round 5, so only the last value is used, and it is 0: we swap whenever the expected gain is positive. manila (v13) changed it from marseille's 4 to 0, and pamplona keeps it.
 L72: DELTAS: how far from their fair value the stage-1 price candidates are: 2, 2.5, 3, 3.5, 4.5, 6.
 L73: NPLAN = 6: number of most likely hypotheses used in decisions (a speed versus accuracy choice).
 L74: P_EXT = 2.0: the confidence needed to PAY for an extreme quote. A probability is never above 1, so 2.0 switches paid extremes off.
@@ -555,7 +556,7 @@ L750: Return t if every quote fits within 0.02, else None. _quote adds extreme p
 
 %notes 5
 
-# 8. The Bot: planning and decisions (lines 752–1111)
+# 8. The Bot: planning and decisions (lines 752–1112)
 
 How the bot chooses a quote, an answer and a move.
 
@@ -665,14 +666,16 @@ L1066: The utility of the whole deal.
 L1067-1068: Keep the best; ties go to the earlier option (pass first).
 > "To answer a quote we compare buy, pass and sell with one yardstick: the profit now plus a play-out of the rest of the deal under the six likeliest opponent models, through the utility."
 
-@code 1071-1111 _move: never peek, swap only in round 5
+@code 1071-1112 _move: never peek, swap only in round 5
 L1072: Keep the beliefs current.
 L1073-1074: Do nothing before round 5, or if I have already swapped.
 L1078-1095: The expected final position fpos: play out round 5's two quotes under the top hypotheses (both seatings if unknown).
 L1096-1101: mstack = the expected value of a fresh card: the unseen total minus their expected unknown cards, divided by the remaining count.
-L1103-1108: Long → throw my lowest card; short → my highest. gain = fpos × (mstack − card).
-L1109-1110: Swap if the expected gain is positive (SWAP_TH for round 5 is 0 in manila; it was 4 in marseille).
-! Swapping only in round 5 (rio, v03) gained +0.86 ± 0.39 live on real teams, and local tests of swapping from round 4 lost about 0.3. Lowering the round-5 bar from 4 to 0 (manila, v13) gained another +0.10 ± 0.05 live. By round 5 we know which way we are positioned, and the thrown card (which is public) leaves the opponent only two quotes to react.
+L1102: My hand.
+L1103: pamplona's change: decide on the average of the position I hold now (pos) and the position I expect to end with (fpos). The play-out tends to predict more round-5 trading than really happens, so the average is steadier.
+L1104-1109: Long → throw my lowest card; short → my highest. gain = (that average position) × (mstack − card).
+L1110-1111: Swap if the expected gain is positive (SWAP_TH for round 5 is 0; it was 4 in marseille).
+! Swapping only in round 5 (rio, v03) gained +0.86 ± 0.39 live on real teams, and local tests of swapping from round 4 lost about 0.3. Lowering the round-5 bar from 4 to 0 (manila, v13) gained another +0.10 ± 0.05 live, and deciding on the average of the current and the expected final position (pamplona, v14) another +0.40 ± 0.13, better against 23 of 24 opponents. By round 5 we know which way we are positioned, and the thrown card (which is public) leaves the opponent only two quotes to react.
 ! We never peek: a peek costs 3 points for one random card (a fifth of the opponent's hand), while the opponent's quotes and answers already tell us most of O.
 
 %notes 6
@@ -741,6 +744,7 @@ Every version changed one idea. "Live" is the paired result on the arena against
 | 11 | bogota | the nudge against every opponent | +0.06 ± 0.08 vs palermo |
 | 12 | marseille | same play, 30–40% faster | +0.02 ± 0.07 vs bogota; 47 of 50 fights won |
 | 13 | manila | swap in round 5 whenever the expected gain is positive | +0.10 ± 0.05 vs marseille; 45 of 49 fights won |
+| 14 | pamplona | round-5 swap decided on the average of current and expected final position | +0.40 ± 0.13 vs manila; better on 23 of 24 |
 
 ## Ideas tested live and dropped
 %cols 30,70
@@ -752,6 +756,7 @@ Every version changed one idea. "Live" is the paired result on the arena against
 | ll01: opponent-swap pricing back | −0.02 ± 0.20 (tie) |
 | mm03: threshold prior 60/40 | −0.53 ± 0.32 |
 | mm04: nudge 40% | −0.00 ± 0.12 (tie: 30% stays) |
+| rr02: play-out weighted 0.75 when quoting / answering | −0.36 ± 0.33 (14 opponents), −0.11 ± 0.27 (26): rejected, although it was +0.28 locally |
 
 ## How we tested
 - **Locally**: against imitation bots of each live team, fitted to that team's public replays and calibrated so that our local scores against them match our live scores. One change at a time; a change was kept only if it was more than two standard errors better on two different sets of deals.
@@ -796,7 +801,7 @@ Every version changed one idea. "Live" is the paired result on the arena against
 = A peek costs 3 points and shows one random card out of five. The opponent's quotes and answers already tell us most of O, so the information is worth less than its price.
 
 ? Why swap only in round 5?
-= By round 5 we know which way we are positioned, so we know which card to throw, and the thrown card is public with only two quotes left for the opponent to react. Moving the swap to round 5 (rio) gained +0.86 live. Since manila we swap in round 5 whenever the expected gain is positive; that gained another +0.10 live over the old bar of 4.
+= By round 5 we know which way we are positioned, so we know which card to throw, and the thrown card is public with only two quotes left for the opponent to react. Moving the swap to round 5 (rio) gained +0.86 live. Since manila we swap in round 5 whenever the expected gain is positive (+0.10 live over the old bar of 4), and since pamplona the decision uses the average of the current and the expected final position (+0.40 live).
 
 ? What does the _Reader class do? Is it still needed?
 = It is an exact attack on the organisers' house bots (reader and sharp), which value the stock with a fixed formula. It switches on only when their quotes match that formula to the cent and off at the first surprise, so against real teams it never switches on. It is harmless, so we kept it.

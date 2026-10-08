@@ -1,4 +1,4 @@
-"""Build the manila.py study guide.  Usage: python build_pdf.py SRC.py content.txt OUT.pdf"""
+"""Build the pamplona.py study guide.  Usage: python build_pdf.py SRC.py content.txt OUT.pdf"""
 import re
 import sys
 
@@ -322,7 +322,7 @@ def flow_diagram():
 class Doc(BaseDocTemplate):
     def __init__(self, fn):
         super().__init__(fn, pagesize=A4, leftMargin=LM, rightMargin=RM, topMargin=TM, bottomMargin=BM,
-                         title='manila.py, line by line', author='Alpha Rodeo',
+                         title='pamplona.py, line by line', author='Alpha Rodeo',
                          subject='Study guide for the Alpha Rodeo Hidden Hand bot')
         frame = Frame(LM, BM, FW, PAGE_H - TM - BM, id='f', leftPadding=0, rightPadding=0,
                       topPadding=0, bottomPadding=0)
@@ -340,11 +340,11 @@ class Doc(BaseDocTemplate):
         canv.line(LM, PAGE_H - TM + 14, PAGE_W - RM, PAGE_H - TM + 14)
         canv.setFont('Sans', 7.6)
         canv.setFillColor(MUTED)
-        canv.drawString(LM, PAGE_H - TM + 19, 'Alpha Rodeo  ·  manila.py, line by line')
+        canv.drawString(LM, PAGE_H - TM + 19, 'Alpha Rodeo  ·  pamplona.py, line by line')
         canv.drawRightString(PAGE_W - RM, PAGE_H - TM + 19, self.chapter)
         canv.line(LM, BM - 16, PAGE_W - RM, BM - 16)
         canv.drawRightString(PAGE_W - RM, BM - 27, 'page %d' % doc.page)
-        canv.drawString(LM, BM - 27, 'heist/manila.py = heist/professor.py (final upload)')
+        canv.drawString(LM, BM - 27, 'heist/pamplona.py = heist/professor.py (final upload)')
         canv.restoreState()
 
     def afterFlowable(self, f):
@@ -370,14 +370,14 @@ def tagged(par, level, text, outline):
 
 def cover():
     out = [Spacer(1, 120)]
-    out.append(Paragraph('manila.py, line by line', ParagraphStyle(
+    out.append(Paragraph('pamplona.py, line by line', ParagraphStyle(
         'ct', fontName='Sans-Bold', fontSize=30, leading=36, textColor=ACCENT)))
     out.append(Spacer(1, 10))
     out.append(Paragraph('How the Alpha Rodeo Hidden Hand bot works: a study guide to read, annotate and explain',
                          ParagraphStyle('cs', fontName='Sans', fontSize=13.5, leading=18, textColor=INK)))
     out.append(Spacer(1, 26))
     rows = [['Team', 'Alpha Rodeo'], ['Member', 'Jaiv Patel (26075057)'], ['Mentor', 'Arpit Gupta'],
-            ['Final upload', 'heist/professor.py = heist/manila.py (v13), 1,111 lines'],
+            ['Final upload', 'heist/professor.py = heist/pamplona.py (v14), 1,112 lines'],
             ['Event', 'Hidden Hand, The Quant Club, IIT BHU'], ['Prepared', 'Thursday 8 October 2026']]
     t = Table([[Paragraph('<b>%s</b>' % a, td), Paragraph(b, td)] for a, b in rows], colWidths=[90, FW - 90],
               hAlign='LEFT')
@@ -389,7 +389,7 @@ def cover():
            '<font color="#8250df"><b>function names</b></font>, <font color="#0550ae">numbers</font>, '
            '<font color="#0a3069">"strings"</font>, <font color="#6e7781"><i># comments</i></font>, '
            '<font color="#3b6e3b"><i>docstrings</i></font>. Grey numbers on the left are the line numbers of '
-           'heist/manila.py.')
+           'heist/pamplona.py.')
     out.append(Paragraph(key, small))
     out += [NextPageTemplate('main'), PageBreak()]
     return out
