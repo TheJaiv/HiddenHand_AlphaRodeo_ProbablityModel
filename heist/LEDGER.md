@@ -151,3 +151,6 @@ bogota is the best of our versions against every leader.
 17:50 arena team page ("Problems in your fights", only our team sees it) for ll01 #629: "Time limit exceeded: a call took over
 50 ms ... x2" - 2 calls in about 1.4 million (58 fights x 400 deals x 2 seats x ~30 calls): negligible, consistent with rare
 machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). marseille cuts the work per call by 30-40%.
+| mm01_naive015 / mm02_risk30 | marseille, P_NAIVE 0.15 / RISK 30 | field2 -0.107 +-0.059 / +0.001 +-0.023 | - | rejected locally |
+| mm03_th6040 (test_mm03_th6040.py) | marseille, take-threshold prior 2 / 7 at 0.6 / 0.4 | field2 +0.022 +-0.070 | sent 18:10 | live probe: removing thresholds cost -0.45 live (z02) |
+| mm04_nudge40 (test_mm04_nudge40.py) | marseille, nudge 40% | (cc01 on palermo: field2 +0.021) | queued | |
