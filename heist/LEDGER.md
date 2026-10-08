@@ -156,7 +156,8 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 | mm04_nudge40 (test_mm04_nudge40.py) | marseille, nudge 40% | (cc01 on palermo: field2 +0.021) | #656 (18:30): -0.00 +-0.12 vs marseille (n=44), 46 of 50 won, board #2 at +4.35; on the same 43 opponents equal to marseille against every leader (Imposters +0.11 vs +0.10, PaperHands +0.33 vs +0.32, MNC +1.07 vs +1.06, Genz7 +1.22 both, TeenPatti +1.15 vs +1.16) | tie: 30% stays |
 
 18:40 equal footing (marseille #636 minus each leader's newest, same 43 opponent uploads): Imposters +0.10, PaperHands #643 +0.32, MNC +1.06, Genz7 +1.22, TeenPatti +1.16, HAN SOLO +1.99, Techy #642 +0.50, QuantXAlpha +1.24, AJ +1.84. Head to head marseille still loses to PaperHands (-1.3..-1.5), HAN SOLO (-1.6), Genz7 (-1.1).
-| nn01_swap25 (test_nn01_swap25.py) | marseille, round-5 swap bar 4 -> 2.5 | field2 seeds 12 13: +0.029 +-0.016 | - | seeds 14 15 running |
+| nn01_swap25 (test_nn01_swap25.py) | marseille, round-5 swap bar 4 -> 2.5 | field2 seeds 12 13: +0.029 +-0.016; seeds 14 15: +0.023 +-0.016 | - | passes (2 seed pairs) |
 | nn02_swap6 | marseille, round-5 swap bar 4 -> 6 | field2 seeds 12 13: -0.060 +-0.023 | - | rejected (lower bar is the right direction) |
-| nn03_nplan8 (test_nn03_nplan8.py) | marseille, plan with the 8 likeliest hypotheses (NPLAN 6 -> 8) | field2 seeds 12 13: +0.083 +-0.060; speed under load: quote median 0.64 vs 0.50 ms | sent 18:48 | |
-| nn04_swap1 | marseille, round-5 swap bar 4 -> 1 | seeds 14 15 running | - | trend check |
+| nn03_nplan8 (test_nn03_nplan8.py) | marseille, plan with the 8 likeliest hypotheses (NPLAN 6 -> 8) | field2 seeds 12 13: +0.083 +-0.060; seeds 14 15: +0.056 +-0.063; speed under load: quote median 0.64 vs 0.50 ms | held (not uploaded) | fails the second seed pair |
+| nn04_swap1 (test_nn04_swap1.py) | marseille, round-5 swap bar 4 -> 1 | field2 seeds 14 15: +0.059 +-0.023 (bar 6 -0.060, 4 0, 2.5 +0.023..+0.029, 1 +0.059) | - | seeds 12 13 running |
+| nn05_swap0 | marseille, round-5 swap bar 4 -> 0 | seeds 12 13 running | - | trend check |
