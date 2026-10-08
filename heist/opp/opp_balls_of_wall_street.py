@@ -2,12 +2,12 @@
 # Members: none (local imitation, never uploaded)
 # Mentor: none
 """opp_balls_of_wall_street.py - imitation of live team Balls of Wall Street #425, fitted to its public replays
-(heist/fit_opp.py): quote err 1.62, respond miss 0.20, move miss 0.14.
+(heist/fit_opp.py): quote err 1.55, respond miss 0.17, move miss 0.14.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -95,7 +95,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +104,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": 0.3621, "H1": 0.1676, "T": 0.4228, "SANE": 60.0, "TL": 1.0428, "SA": 1.17, "W": 0.0, "C": -0.1937, "CSIGN": 0, "HIDE": 0.065, "QA": 0.7508, "SKEW": -0.0545, "TP": 1, "TR": 0.3076, "TH": 5.9374, "TH2": 7.0922, "R1L": 2, "SANR": 55.5869, "RS": 2, "SG": 3.2952})
+Bot = make_bot({"FQ": 0.3486, "H1": 0.1794, "T": 0.2059, "SANE": 40.8813, "TL": -0.1823, "SA": 1.2, "W": 0.0313, "C": -3.5, "CSIGN": 1, "HIDE": -0.1196, "QA": 0.9082, "SKEW": 0.8914, "TP": 0, "TR": 0.2337, "TH": 7.0, "TH2": 8.9162, "ASYM": 3.1514, "R1L": 0, "SANR": 101.6013, "RS": 2, "SG": 1.2615})

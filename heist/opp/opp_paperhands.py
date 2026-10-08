@@ -1,13 +1,13 @@
 # Team Name: Field model - PaperHands
 # Members: none (local imitation, never uploaded)
 # Mentor: none
-"""opp_paperhands.py - imitation of live team PaperHands #485, fitted to its public replays
-(heist/fit_opp.py): quote err 1.76, respond miss 0.22, move miss 0.01.
+"""opp_paperhands.py - imitation of live team PaperHands #508, fitted to its public replays
+(heist/fit_opp.py): quote err 2.26, respond miss 0.24, move miss 0.02.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TH=2.0, TH2=3.0, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -38,13 +38,15 @@ def make_bot(P):
             E = sum(obs.hand) + sum(obs.board) + sum(obs.opp_known) + (10 - nb - nk) * m
             pub = self._public(obs)
             theirs = [px for r, who, px, q in obs.tape if who == "opp"]
+            T = P["T"]
             if P["TP"] and price is not None:
                 theirs.append(price)
-            if theirs and P["T"]:
+                T = P["TR"]
+            if theirs and T:
                 last = theirs[-1]
                 if abs(last - pub) <= P["SANE"]:
                     implied = last - sum(obs.board) - (5 + 5 - nb) * m
-                    E += P["T"] * (implied - 5 * m)
+                    E += T * (implied - 5 * m)
             if P["TL"]:
                 net = sum(q for r, who, px, q in obs.tape if who == "me")
                 E += P["TL"] * net
@@ -93,18 +95,13 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
-            if e > P["TH2"]:
-                return 2
-            if e > P["TH"]:
-                return 1
-            if e < -P["TH2"]:
-                return -2
-            if e < -P["TH"]:
-                return -1
-            return 0
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
+            n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
+            if obs.round == 1:
+                n = min(n, P["R1L"])
+            return n if e > 0 else -n
 
     return Bot
 
 
-Bot = make_bot({"FQ": 0.4704, "H1": 0.8064, "T": 0.1933, "SANE": 17.425, "TL": 3.0, "SA": 0.5463, "W": 0.6306, "C": -0.7553, "CSIGN": 0, "HIDE": -0.2528, "QA": -0.0049, "SKEW": -0.0331, "TP": 1, "TH": 4.3608, "TH2": 4.3608, "SANR": 100.1096, "RS": 5, "SG": 2.6881})
+Bot = make_bot({"FQ": 3.7755, "H1": 0.4138, "T": 0.3996, "SANE": 53.1664, "TL": 2.073, "SA": 0.1862, "W": 0.4822, "C": -2.068, "CSIGN": 1, "HIDE": -0.207, "QA": -0.3199, "SKEW": -0.0248, "TP": 0, "TR": 1.1886, "TH": 4.6174, "TH2": 4.6174, "ASYM": 1.556, "R1L": 2, "SANR": 119.6879, "RS": 5, "SG": 1.1056})

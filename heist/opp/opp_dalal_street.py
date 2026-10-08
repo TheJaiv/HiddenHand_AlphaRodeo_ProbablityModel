@@ -2,12 +2,12 @@
 # Members: none (local imitation, never uploaded)
 # Mentor: none
 """opp_dalal_street.py - imitation of live team Dalal Street #444, fitted to its public replays
-(heist/fit_opp.py): quote err 1.63, respond miss 0.36, move miss 0.07.
+(heist/fit_opp.py): quote err 1.56, respond miss 0.29, move miss 0.07.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -95,7 +95,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +104,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": 0.3523, "H1": 0.7037, "T": 0.1041, "SANE": 60.0, "TL": 0.1082, "SA": 0.3588, "W": 0.0, "C": -0.2235, "CSIGN": 1, "HIDE": 0.336, "QA": 1.7999, "SKEW": -0.0437, "TP": 1, "TR": 1.2, "TH": 0.3384, "TH2": 4.3848, "R1L": 2, "SANR": 92.5473, "RS": 5, "SG": 3.3225})
+Bot = make_bot({"FQ": 1.1148, "H1": 0.3568, "T": 0.1018, "SANE": 60.0, "TL": 0.2756, "SA": 0.0936, "W": 0.0, "C": -0.719, "CSIGN": 0, "HIDE": 0.2951, "QA": 2.2584, "SKEW": 0.2401, "TP": 1, "TR": 1.0016, "TH": 1.6524, "TH2": 6.6474, "ASYM": 1.3547, "R1L": 2, "SANR": 61.8805, "RS": 5, "SG": 3.7699})

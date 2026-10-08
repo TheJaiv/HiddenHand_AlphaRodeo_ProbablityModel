@@ -19,8 +19,11 @@ sys.path.insert(0, HERE)
 import feval   # noqa: E402
 
 
+FIELD_FILE = os.environ.get("FIELD", "field.json")
+
+
 def field():
-    f = json.load(open(os.path.join(HERE, "data", "field.json")))
+    f = json.load(open(os.path.join(HERE, "data", FIELD_FILE)))
     out = [(os.path.join(KIT, "strategies", f"{h}.py"), 1.0, h) for h in ("naive", "reader", "sharp")]
     for name, d in f.items():
         out.append((os.path.join(KIT, d["file"]), float(d["weight"]), name))

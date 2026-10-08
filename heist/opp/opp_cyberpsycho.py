@@ -2,12 +2,12 @@
 # Members: none (local imitation, never uploaded)
 # Mentor: none
 """opp_cyberpsycho.py - imitation of live team Cyberpsycho #316, fitted to its public replays
-(heist/fit_opp.py): quote err 2.52, respond miss 0.19, move miss 0.14.
+(heist/fit_opp.py): quote err 2.46, respond miss 0.18, move miss 0.11.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -95,7 +95,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +104,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": 4.6309, "H1": 0.1349, "T": 0.8124, "SANE": 43.1219, "TL": 1.5619, "SA": 0.0285, "W": 0.4684, "C": -3.5, "CSIGN": 1, "HIDE": 0.568, "QA": -0.6077, "SKEW": -0.3015, "TP": 1, "TR": 0.4363, "TH": 7.0, "TH2": 7.0, "R1L": 1, "SANR": 80.6296, "RS": 5, "SG": 2.9709})
+Bot = make_bot({"FQ": 2.7763, "H1": 0.9283, "T": 0.8337, "SANE": 58.7436, "TL": 1.9789, "SA": 0.2217, "W": 0.4588, "C": -3.5, "CSIGN": 1, "HIDE": 0.4203, "QA": -0.6611, "SKEW": -0.2883, "TP": 1, "TR": 0.3727, "TH": 7.0, "TH2": 7.0, "ASYM": -0.5885, "R1L": 2, "SANR": 113.4302, "RS": 5, "SG": 4.684})

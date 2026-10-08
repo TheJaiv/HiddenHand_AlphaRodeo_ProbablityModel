@@ -2,12 +2,12 @@
 # Members: none (local imitation, never uploaded)
 # Mentor: none
 """opp_pravichayah.py - imitation of live team Pravichayah #275, fitted to its public replays
-(heist/fit_opp.py): quote err 1.31, respond miss 0.29, move miss 0.00.
+(heist/fit_opp.py): quote err 1.23, respond miss 0.24, move miss 0.00.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -95,7 +95,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +104,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": -0.2758, "H1": 0.1033, "T": 0.4534, "SANE": 33.8849, "TL": -0.9988, "SA": 0.0, "W": 0.7216, "C": 0.5949, "CSIGN": 1, "HIDE": 0.5009, "QA": 1.1653, "SKEW": 0.5933, "TP": 0, "TR": 0.0106, "TH": 5.8437, "TH2": 5.8437, "R1L": 2, "SANR": 99.8201, "RS": 5, "SG": 1.0822})
+Bot = make_bot({"FQ": -0.1359, "H1": 0.0871, "T": 0.6281, "SANE": 56.5413, "TL": 0.2653, "SA": 0.3565, "W": 0.6575, "C": -0.5809, "CSIGN": 0, "HIDE": -0.0876, "QA": 0.8637, "SKEW": 0.5628, "TP": 1, "TR": 0.2661, "TH": 3.5088, "TH2": 3.5088, "ASYM": -1.0381, "R1L": 2, "SANR": 50.4334, "RS": 5, "SG": 2.1841})

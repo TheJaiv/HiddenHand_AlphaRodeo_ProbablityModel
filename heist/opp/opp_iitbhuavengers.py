@@ -1,13 +1,13 @@
 # Team Name: Field model - IITBHUAVENGERS
 # Members: none (local imitation, never uploaded)
 # Mentor: none
-"""opp_iitbhuavengers.py - imitation of live team IITBHUAVENGERS #389, fitted to its public replays
-(heist/fit_opp.py): quote err 1.25, respond miss 0.17, move miss 0.07.
+"""opp_iitbhuavengers.py - imitation of live team IITBHUAVENGERS #527, fitted to its public replays
+(heist/fit_opp.py): quote err 1.70, respond miss 0.22, move miss 0.04.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0, PKN=0)
 
 
 def make_bot(P):
@@ -57,6 +57,8 @@ def make_bot(P):
         def move(self, obs):
             if P["PK"] and obs.round == P["PK"] and not any(w == "me" for _, w in obs.peeks):
                 return "PEEK"
+            if obs.round <= P["PKN"]:
+                return "PEEK"
             if obs.round < P["RS"] or any(w == "me" for _, w, _ in obs.discards):
                 return None
             E, pub = self._est(obs)
@@ -95,7 +97,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +106,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": -0.5315, "H1": 0.8921, "T": 0.2164, "SANE": 30.3673, "TL": -0.4836, "SA": 1.1782, "W": 0.5849, "C": -2.459, "CSIGN": 0, "HIDE": -0.4305, "QA": 1.3039, "SKEW": 0.462, "TP": 1, "TR": 1.1178, "TH": 4.674, "TH2": 5.0047, "R1L": 2, "SANR": 44.5877, "RS": 2, "SG": 1.8597})
+Bot = make_bot({"FQ": -0.3184, "H1": 0.0434, "T": 0.7509, "SANE": 58.0356, "TL": 0.0158, "SA": 0.7829, "W": 0.8101, "C": 0.4849, "CSIGN": 0, "HIDE": -0.2965, "QA": 0.0661, "SKEW": 0.6097, "TP": 0, "TR": 0.2909, "TH": 0.6895, "TH2": 1.2994, "ASYM": 4.0074, "R1L": 2, "SANR": 110.5081, "RS": 2, "SG": 3.3594})

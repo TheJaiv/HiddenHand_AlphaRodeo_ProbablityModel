@@ -1,13 +1,13 @@
 # Team Name: Field model - Hidden Alpha
 # Members: none (local imitation, never uploaded)
 # Mentor: none
-"""opp_hidden_alpha.py - imitation of live team Hidden Alpha #404, fitted to its public replays
-(heist/fit_opp.py): quote err 3.20, respond miss 0.47, move miss 0.15.
+"""opp_hidden_alpha.py - imitation of live team Hidden Alpha #543, fitted to its public replays
+(heist/fit_opp.py): quote err 2.00, respond miss 0.44, move miss 0.03.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0, PKN=0)
 
 
 def make_bot(P):
@@ -57,6 +57,8 @@ def make_bot(P):
         def move(self, obs):
             if P["PK"] and obs.round == P["PK"] and not any(w == "me" for _, w in obs.peeks):
                 return "PEEK"
+            if obs.round <= P["PKN"]:
+                return "PEEK"
             if obs.round < P["RS"] or any(w == "me" for _, w, _ in obs.discards):
                 return None
             E, pub = self._est(obs)
@@ -95,7 +97,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +106,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": -1.3845, "H1": 0.5729, "T": 0.6599, "SANE": 32.1241, "TL": 2.9064, "SA": 0.3242, "W": 0.484, "C": -1.1477, "CSIGN": 0, "HIDE": -0.1604, "QA": 2.3654, "SKEW": -0.5, "TP": 1, "TR": 0.1405, "TH": 6.7717, "TH2": 7.0, "R1L": 0, "SANR": 64.54, "RS": 2, "SG": 2.058})
+Bot = make_bot({"FQ": -0.624, "H1": 0.2365, "T": 0.6399, "SANE": 27.901, "TL": 2.1018, "SA": 0.0974, "W": 0.7728, "C": 1.2664, "CSIGN": 1, "HIDE": 0.3477, "QA": -0.2202, "SKEW": 1.5, "TP": 0, "TR": 0.0, "TH": 7.0, "TH2": 8.4004, "ASYM": 2.6016, "R1L": 1, "SANR": 29.2673, "RS": 2, "SG": 0.0})

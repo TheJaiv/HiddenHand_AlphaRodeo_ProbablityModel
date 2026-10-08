@@ -1,13 +1,13 @@
 # Team Name: Field model - Outliers
 # Members: none (local imitation, never uploaded)
 # Mentor: none
-"""opp_outliers.py - imitation of live team Outliers #468, fitted to its public replays
-(heist/fit_opp.py): quote err 1.84, respond miss 0.33, move miss 0.05.
+"""opp_outliers.py - imitation of live team Outliers #553, fitted to its public replays
+(heist/fit_opp.py): quote err 3.65, respond miss 0.27, move miss 0.03.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0, PKN=0)
 
 
 def make_bot(P):
@@ -57,6 +57,8 @@ def make_bot(P):
         def move(self, obs):
             if P["PK"] and obs.round == P["PK"] and not any(w == "me" for _, w in obs.peeks):
                 return "PEEK"
+            if obs.round <= P["PKN"]:
+                return "PEEK"
             if obs.round < P["RS"] or any(w == "me" for _, w, _ in obs.discards):
                 return None
             E, pub = self._est(obs)
@@ -95,7 +97,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +106,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": 1.0502, "H1": 0.9625, "T": 0.2879, "SANE": 52.8035, "TL": -0.075, "SA": 0.2997, "W": 0.6942, "C": -3.3734, "CSIGN": 0, "HIDE": 0.9379, "QA": 2.0201, "SKEW": 0.8693, "TP": 1, "TR": 0.4747, "TH": 0.0, "TH2": 2.6414, "R1L": 2, "SANR": 101.8827, "RS": 2, "SG": 2.016})
+Bot = make_bot({"FQ": 3.4197, "H1": 0.4553, "T": 0.4963, "SANE": 17.392, "TL": 1.7545, "SA": 0.6857, "W": 0.2859, "C": -0.4578, "CSIGN": 0, "HIDE": -0.2343, "QA": -2.9996, "SKEW": -0.4382, "TP": 1, "TR": 0.2504, "TH": 3.6155, "TH2": 3.6155, "ASYM": 1.8922, "R1L": 2, "SANR": 120.0, "RS": 4, "SG": 3.3912})

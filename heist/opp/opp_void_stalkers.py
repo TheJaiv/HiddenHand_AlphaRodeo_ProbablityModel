@@ -2,12 +2,12 @@
 # Members: none (local imitation, never uploaded)
 # Mentor: none
 """opp_void_stalkers.py - imitation of live team Void Stalkers #195, fitted to its public replays
-(heist/fit_opp.py): quote err 0.37, respond miss 0.05, move miss 0.10.
+(heist/fit_opp.py): quote err 0.32, respond miss 0.02, move miss 0.10.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -95,7 +95,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +104,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": 2.6468, "H1": 0.92, "T": 0.0698, "SANE": 44.5041, "TL": -0.2398, "SA": 0.0881, "W": 0.0, "C": 0.2921, "CSIGN": 0, "HIDE": -0.1032, "QA": -2.8634, "SKEW": 0.3077, "TP": 1, "TR": 0.0879, "TH": 6.7683, "TH2": 6.7683, "R1L": 2, "SANR": 37.8836, "RS": 1, "SG": 0.196})
+Bot = make_bot({"FQ": 2.7349, "H1": 0.9351, "T": 0.0, "SANE": 7.259, "TL": -0.4673, "SA": 0.0026, "W": 0.0, "C": -0.8591, "CSIGN": 1, "HIDE": -0.0144, "QA": -1.4509, "SKEW": 0.3645, "TP": 1, "TR": 0.2231, "TH": 6.5558, "TH2": 6.5558, "ASYM": 0.2749, "R1L": 2, "SANR": 58.4847, "RS": 1, "SG": 2.647})

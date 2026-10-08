@@ -1,13 +1,13 @@
 # Team Name: Field model - Money Heist
 # Members: none (local imitation, never uploaded)
 # Mentor: none
-"""opp_money_heist.py - imitation of live team Money Heist #115, fitted to its public replays
-(heist/fit_opp.py): quote err 2.05, respond miss 0.38, move miss 0.07.
+"""opp_money_heist.py - imitation of live team Money Heist #550, fitted to its public replays
+(heist/fit_opp.py): quote err 1.52, respond miss 0.44, move miss 0.05.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0, PKN=0)
 
 
 def make_bot(P):
@@ -57,6 +57,8 @@ def make_bot(P):
         def move(self, obs):
             if P["PK"] and obs.round == P["PK"] and not any(w == "me" for _, w in obs.peeks):
                 return "PEEK"
+            if obs.round <= P["PKN"]:
+                return "PEEK"
             if obs.round < P["RS"] or any(w == "me" for _, w, _ in obs.discards):
                 return None
             E, pub = self._est(obs)
@@ -95,7 +97,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +106,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": 3.0173, "H1": 0.0086, "T": 0.5423, "SANE": 37.3153, "TL": -0.2319, "SA": 0.0, "W": 0.2073, "C": -3.5, "CSIGN": 1, "HIDE": 1.0, "QA": -0.4227, "SKEW": -0.1817, "TP": 0, "TR": 0.2343, "TH": 5.9216, "TH2": 5.9216, "R1L": 2, "SANR": 100.8749, "RS": 5, "SG": 1.4832})
+Bot = make_bot({"FQ": -2.1493, "H1": 0.7549, "T": 0.1849, "SANE": 44.5075, "TL": 0.5209, "SA": 1.2, "W": 0.2306, "C": -2.9776, "CSIGN": 1, "HIDE": 0.3739, "QA": -1.1387, "SKEW": -0.4852, "TP": 0, "TR": 0.5591, "TH": 0.9068, "TH2": 3.995, "ASYM": -1.2928, "R1L": 2, "SANR": 22.8075, "RS": 2, "SG": 0.0})

@@ -2,12 +2,12 @@
 # Members: none (local imitation, never uploaded)
 # Mentor: none
 """opp_dark_pool_divers.py - imitation of live team Dark Pool Divers #226, fitted to its public replays
-(heist/fit_opp.py): quote err 1.10, respond miss 0.20, move miss 0.38.
+(heist/fit_opp.py): quote err 0.75, respond miss 0.21, move miss 0.38.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -95,7 +95,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])
@@ -104,4 +104,4 @@ def make_bot(P):
     return Bot
 
 
-Bot = make_bot({"FQ": -0.8658, "H1": 0.5298, "T": 0.7499, "SANE": 41.0124, "TL": -0.4391, "SA": 0.4999, "W": 0.5683, "C": 1.9797, "CSIGN": 1, "HIDE": 0.3764, "QA": -1.2944, "SKEW": 0.312, "TP": 0, "TR": 0.3953, "TH": 4.5177, "TH2": 6.2723, "R1L": 0, "SANR": 58.0396, "RS": 5, "SG": 1.9657})
+Bot = make_bot({"FQ": -1.2124, "H1": 0.7378, "T": 1.0, "SANE": 53.6095, "TL": 0.0891, "SA": 0.2293, "W": 0.6052, "C": 2.0622, "CSIGN": 1, "HIDE": 0.5484, "QA": -1.2584, "SKEW": -0.0279, "TP": 0, "TR": 0.1427, "TH": 5.2639, "TH2": 6.685, "ASYM": -2.1269, "R1L": 2, "SANR": 107.8223, "RS": 5, "SG": 0.2008})

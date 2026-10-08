@@ -66,8 +66,17 @@ Structural changes found from live data (house attack, swap timing) are what mov
 | g01_th027 | helsinki, take thresholds 0 / 2 / 7 | -0.024 +-0.030 | - | rejected |
 | h01_noprobe | helsinki, no paid probes / model crush (house attack kept) | +0.000 +-0.008 (probes almost never fire) | - | rejected: no effect |
 | i01_lam0 / i02_liar | helsinki, more 'quotes say nothing' / add 'quotes against their hand' (lam -0.5) | -0.086 +-0.038 / -0.143 +-0.039 | - | rejected |
-| j01_safeq | helsinki, safe quote (top teams' style) unless confident reader / limit / house attack | house bots: naive -1.1, reader -0.2, sharp -2.2; earlier on moscow (c17) -1.15 on the field model | live concept test sent 14:08 (heist/test_j01_safeq.py) | pending |
+| j01_safeq | helsinki, safe quote (top teams' style) unless confident reader / limit / house attack | house bots: naive -1.1, reader -0.2, sharp -2.2; earlier on moscow (c17) -1.15 on the field model | #569 (14:09): -0.85 +-0.82 vs lisbon (n=58) | rejected: safe quoting gives away the maker edge (local said -1.3) |
 
 Finding (14:00, live fight pages): against the mid-field the top teams make far more PnL per deal than we do
 (ThunderX: PaperHands +23.4, Imposters +17.9, us +1.3; Pokemons: +26.0 / +11.1 / +3.3; MNC: +23.2 / +12.8 / +6.6;
 Blind_Ambition: +29.7 / +19.1 / +7.5; Double Dividend: +24.6 / +13.2 / +4.2). It is extraction, not consistency.
+| e01_thonly (test_e01_thonly.py) | moscow + take thresholds, no P_NAIVE change | field model +0.558 vs moscow | #573 (14:29): -0.06 +-0.19 vs helsinki (n=53), +0.03 +-0.20 vs moscow | equal: five planner versions (rio, moscow, helsinki, lisbon, e01) all about +5.3 live |
+| p01_follow / p02_follow2 | helsinki, P_BLEND 0.3 + W_MEAN 0.7 / P_BLEND 0.3 | refreshed field (field2): -0.082 +-0.060 / -0.144 +-0.055 | - | rejected |
+| m01_swap4 / m02_swap4big | helsinki, swap from round 4 / round 4 only if gain > 10 | field2: -0.348 +-0.048 / -0.296 +-0.042 | - | rejected (round 5 stays) |
+| k01_earlycap / k02_widetaker | helsinki, |pos| <= 4 before round 4 / 3 more taker edge every round | +0.019 +-0.018 / -0.284 +-0.081 | - | rejected |
+
+14:45 field refresh: 24 teams had uploaded newer entries since 10:30; all refetched (12 fights each) and refitted; calibration
+against 9 of our live files: 16 imitations within mean 1.5 of every planner-family file (data/field2.json).
+Oracle check (35 opponents all five planner versions fought): best single version +6.57, best version per opponent +7.32
+(part of that is selection noise); a per-opponent switch needs an in-deal detector, and the 'honest' detector misfired (c24).

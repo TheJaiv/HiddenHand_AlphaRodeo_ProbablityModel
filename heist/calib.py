@@ -21,6 +21,11 @@ KNOWN = {          # our live entry -> the file that plays exactly like it
     "466": "heist/berlin.py", "459": "heist/berlin.py",
     "495": "heist/nairobi.py",
     "505": "heist/rio.py",
+    "513": "heist/moscow.py",
+    "561": "heist/cand/c23_thfix.py",
+    "565": "heist/lisbon.py",
+    "569": "heist/test_j01_safeq.py",
+    "573": "heist/test_e01_thonly.py",
 }
 
 
