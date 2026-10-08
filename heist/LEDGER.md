@@ -153,4 +153,6 @@ bogota is the best of our versions against every leader.
 machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). marseille cuts the work per call by 30-40%.
 | mm01_naive015 / mm02_risk30 | marseille, P_NAIVE 0.15 / RISK 30 | field2 -0.107 +-0.059 / +0.001 +-0.023 | - | rejected locally |
 | mm03_th6040 (test_mm03_th6040.py) | marseille, take-threshold prior 2 / 7 at 0.6 / 0.4 | field2 +0.022 +-0.070 | #647 (18:10): -0.53 +-0.32 vs marseille (n=41), -0.43 vs bogota, -0.39 vs ll01; 41 of 45 won; worst Pokemons #641 -4.4, Sattebaaz -2.1, MNC -1.7; vs leaders worse (Imposters -0.76 vs +0.01) | rejected: more weight on the 7-point threshold hurts live |
-| mm04_nudge40 (test_mm04_nudge40.py) | marseille, nudge 40% | (cc01 on palermo: field2 +0.021) | sent 18:27 | |
+| mm04_nudge40 (test_mm04_nudge40.py) | marseille, nudge 40% | (cc01 on palermo: field2 +0.021) | #656 (18:30): -0.00 +-0.12 vs marseille (n=44), 46 of 50 won, board #2 at +4.35; on the same 43 opponents equal to marseille against every leader (Imposters +0.11 vs +0.10, PaperHands +0.33 vs +0.32, MNC +1.07 vs +1.06, Genz7 +1.22 both, TeenPatti +1.15 vs +1.16) | tie: 30% stays |
+
+18:40 equal footing (marseille #636 minus each leader's newest, same 43 opponent uploads): Imposters +0.10, PaperHands #643 +0.32, MNC +1.06, Genz7 +1.22, TeenPatti +1.16, HAN SOLO +1.99, Techy #642 +0.50, QuantXAlpha +1.24, AJ +1.84. Head to head marseille still loses to PaperHands (-1.3..-1.5), HAN SOLO (-1.6), Genz7 (-1.1).
