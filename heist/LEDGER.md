@@ -131,3 +131,5 @@ Imposters #615 -0.05 (n=53), PaperHands #624 -0.90 (n=35), MNC #594 -1.10 (n=51)
 TeenPatti #330 -0.99 (n=53). On equal footing bogota is level with Imposters and ahead of every other top team; the
 standings' raw means differ because entries played different opponent sets. Remaining gaps: Blind_Ambition (top
 teams +3.7..+6.6 more) and HAN SOLO (+3.1..+4.9); both swing +-3 between our versions.
+| ll01_oppswap (test_ll01_oppswap.py) | bogota + opponent-swap pricing back (half of palermo's undo) | field2 -0.056 +-0.050 | sent 17:25 | pending |
+| ll02_pubfirst (test_ll02_pubfirst.py) | bogota + public-estimate first quote back (the other half) | field2 -0.035 +-0.067 | queued | |

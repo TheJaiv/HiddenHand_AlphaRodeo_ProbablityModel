@@ -1,12 +1,12 @@
 # Heist status (the one file to look at)
 
-Updated 17:35, Thu 8 Oct. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
+Updated 17:25, Thu 8 Oct. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
 
 | | File | Why |
 |---|---|---|
 | BEST LIVE | heist/bogota.py (= test_ee01_nudgeall.py, #611, up 16:45; = professor.py) | +0.06 +-0.08 vs palermo; >= palermo against every top team (Imposters #615 +1.98, MNC +2.95, Techy #606 +0.57) |
 | ALSO PROVEN | heist/palermo.py (#591) | best live file: +0.43 +-0.38 vs the 30% nudge #588, +0.61 vs stockholm, +1.17 vs rio on real teams; wins back Imposters (+1.91), QuantXAlpha (+1.86), TeenPatti (+2.77), AJ (+0.74) |
-| UPLOAD NOW | heist/bogota.py (re-upload after the z02 test) | the final candidate |
+| UPLOAD NOW | heist/bogota.py (re-upload after the z02 test), then heist/test_ll01_oppswap.py | bogota = the final; ll01 = half of palermo's undo (may win back Blind_Ambition / HAN SOLO) |
 | FALLBACK (proven live) | heist/bogota.py or heist/palermo.py | re-upload if a test comes out worse |
 
 Live results on real teams (paired: same opponent uploads, newest minus the previous):
