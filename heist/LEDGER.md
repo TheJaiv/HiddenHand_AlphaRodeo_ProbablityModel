@@ -176,3 +176,4 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 
 19:36 FINAL: heist/professor.py = pamplona (v14), live #689 +0.40 +-0.13 vs manila. Last test rr02 (#701) rejected.
 19:45 FINAL UPLOADED: heist/professor.py as committed here = pamplona's code byte for byte, with the version line and the description docstring removed by the user before upload (1,076 lines; code lines are 36 lower than in pamplona.py).
+20:08 final #713 (professor.py as uploaded): 41 fights, 38 won, mean +3.37; = pamplona +0.002 +-0.010 (n=24); vs manila +0.33 +-0.13, vs marseille +0.37 +-0.13. Equal footing (ours minus theirs, same opponents): Imposters #722 +0.16, PaperHands #712 +0.42, MNC +1.68, Genz7 +1.98, TeenPatti +1.22, HAN SOLO +2.19, QuantXAlpha +1.88. Head to head vs PaperHands #712 -0.56. Board #4 at 3.48 (37 fights) behind MNC 3.78 / Genz7 3.71 / TeenPatti 3.57, ahead of PaperHands 3.36 and Imposters 3.02.
