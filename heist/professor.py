@@ -1,6 +1,8 @@
 # Team Name: Alpha Rodeo
 # Members: Jaiv Patel(26075057)
 # Mentor: Arpit Gupta
+# Version: professor = matias (v15) (final, live as #862 since 22:41): pamplona with NPLAN 8 and the round-5 swap on 0.3 x expected final + 0.7 x current position
+
 
 
 import heapq
@@ -34,7 +36,7 @@ EPS_R = 0.06      # chance a response is unexplained
 PRUNE = 6.0       # drop hypotheses this many log-units behind the best
 SWAP_TH = (15.0, 12.0, 9.0, 6.0, 0.0)   # by round: waiting has option value
 DELTAS = (2.0, 2.5, 3.0, 3.5, 4.5, 6.0)
-NPLAN = 6         # hypotheses used in play-outs
+NPLAN = 8         # hypotheses used in play-outs
 P_EXT = 2.0       # confidence in a raw reader needed to PAY for an extreme quote
 EX_TOL = 0.02      # exact-reader test: every quote within this of the house reader formula
 P_PROBE = 2.0    # confidence in any reader needed to pay for a probe (implied 63 / 7)
@@ -1064,7 +1066,7 @@ class Bot:
         eo = self._mo() - sum(obs.opp_known)
         mstack = (S - eo) / (U - k)
         hand = obs.hand
-        fpos = 0.5 * (fpos + pos)
+        fpos = 0.3 * fpos + 0.7 * pos
         if fpos > 0:
             i = min(range(5), key=lambda x: hand[x])
             gain = fpos * (mstack - hand[i])

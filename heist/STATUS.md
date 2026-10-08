@@ -1,6 +1,6 @@
 # Heist status (the one file to look at)
 
-Updated 21:28, Thu 8 Oct. FINAL UPLOADED (#713): board #1 at 3.25. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
+Updated 22:45, Thu 8 Oct. FINAL = matias (v15), live as #862 (uploaded as heist/test_tt01_plan8w3.py): board #1 at 3.24. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
 
 | | File | Why |
 |---|---|---|
