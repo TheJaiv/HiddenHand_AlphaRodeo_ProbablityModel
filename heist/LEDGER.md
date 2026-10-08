@@ -20,7 +20,7 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 | v07 | oslo | helsinki | field model vs helsinki (800 deals): seeds 10 11 +0.116 +-0.049, seeds 12 13 +0.200 +-0.049 | not uploaded alone (in lisbon) | P_NAIVE 0.45 -> 0.3 |
 | v08 | lisbon | oslo | field model: no-op (no double peekers in it); decisions = oslo except vs teams that peek twice in a deal | #565 (13:48) vs #561 helsinki: -0.02 +-0.26 (n=57): neutral; peeker defence HURT: Quants Treasure #514 -0.65 (helsinki +0.01), Team How #549 -1.41 -> defence dropped | peeker defence: after 2 opponent peeks, quote 1.3 from its last quote, take only with 3 more points of edge (QT: top teams +8 more than us) |
 
-| v09 | stockholm | oslo | field model vs helsinki (800 deals): old field seeds 12 13 +0.304 +-0.050, 14 15 +0.311 +-0.049; refreshed field2 seeds 12 13 +0.183 +-0.064, 14 15 +0.169 +-0.065 | pending (sent 15:20) | quote moved 15% towards the safe quote unless reader / limit + no paid probes / model crush (house attack kept) |
+| v09 | stockholm | oslo | field model vs helsinki (800 deals): old field seeds 12 13 +0.304 +-0.050, 14 15 +0.311 +-0.049; refreshed field2 seeds 12 13 +0.183 +-0.064, 14 15 +0.169 +-0.065 | #586 (15:19): vs #565 lisbon +0.43 +-0.22 (n=48), vs #561 helsinki +0.44 +-0.29, vs #573 e01 +0.53 +-0.35; #2 at +5.45 (53/59 wins). Gains alpha +2.5, Blind +2.2, OptiMystics +2.8, Code Riders +2.6; costs PaperHands -1.3, Quant Qods -1.3, Sattebaaz -1.2 | quote moved 15% towards the safe quote unless reader / limit + no paid probes / model crush (house attack kept) |
 
 ## Candidates and rejected ideas
 
