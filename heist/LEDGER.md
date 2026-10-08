@@ -133,3 +133,13 @@ standings' raw means differ because entries played different opponent sets. Rema
 teams +3.7..+6.6 more) and HAN SOLO (+3.1..+4.9); both swing +-3 between our versions.
 | ll01_oppswap (test_ll01_oppswap.py) | bogota + opponent-swap pricing back (half of palermo's undo) | field2 -0.056 +-0.050 | sent 17:25 | pending |
 | ll02_pubfirst (test_ll02_pubfirst.py) | bogota + public-estimate first quote back (the other half) | field2 -0.035 +-0.067 | queued | |
+
+### 17:30 our versions vs the leaders (ours minus theirs on shared opponent uploads, real teams)
+| Ours minus | rio | stockholm | 30% nudge | palermo | bogota | z02 |
+|---|---|---|---|---|---|---|
+| Imposters #615 | -1.00 | -0.60 | -0.46 | +0.02 | +0.05 | -0.65 |
+| PaperHands #624 | -0.29 | +0.47 | +0.65 | +1.08 | +1.22 | +0.37 |
+| MNC #594 | -0.75 | +0.08 | +0.15 | +0.80 | +1.10 | +0.37 |
+| Genz7 #262 | -0.22 | +0.28 | +0.31 | +0.95 | +1.15 | +0.43 |
+| TeenPatti #330 | -0.08 | +0.34 | +0.40 | +0.90 | +0.99 | +0.27 |
+bogota is the best of our versions against every leader.
