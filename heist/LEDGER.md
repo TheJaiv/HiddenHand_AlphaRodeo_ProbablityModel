@@ -22,6 +22,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 
 | v09 | stockholm | oslo | field model vs helsinki (800 deals): old field seeds 12 13 +0.304 +-0.050, 14 15 +0.311 +-0.049; refreshed field2 seeds 12 13 +0.183 +-0.064, 14 15 +0.169 +-0.065 | #586 (15:19): vs #565 lisbon +0.43 +-0.22 (n=48), vs #561 helsinki +0.44 +-0.29, vs #573 e01 +0.53 +-0.35; #2 at +5.45 (53/59 wins). Gains alpha +2.5, Blind +2.2, OptiMystics +2.8, Code Riders +2.6; costs PaperHands -1.3, Quant Qods -1.3, Sattebaaz -1.2 | quote moved 15% towards the safe quote unless reader / limit + no paid probes / model crush (house attack kept) |
 
+| v10 | palermo | stockholm | (y01) field2 +0.016 vs the 30% nudge (no calibrated top team locally) | #591 (15:55): vs #588 +0.43 +-0.38 (n=46), vs stockholm +0.61 +-0.37, vs rio +1.17 +-0.82; top teams: Imposters +1.91 (was -0.48), QuantXAlpha +1.86, TeenPatti +2.77, AJ +0.74; still PaperHands -1.60, Genz7 -1.04, HAN SOLO -1.67 | 30% quote nudge + undo moscow's public first quote and opponent-swap pricing |
+
 ## Candidates and rejected ideas
 
 | Candidate | Change | Local | Live | Verdict |
@@ -101,3 +103,6 @@ heist/field.py now leaves the house bots out (HOUSE=1 to add them).
 Top-team trade-off (live, real teams): rio beat PaperHands +0.40, Genz7 +0.55, Imposters +0.82; every later version lost to
 them (stockholm: PaperHands -1.57, Genz7 -1.11, Imposters #574 -0.77; 30% nudge: -1.73 / -0.54 / -0.48) while gaining more on
 the mid-field. With top teams likely to upload their best at the end, the final must not give these matchups away.
+| x01 / x02 | 30% nudge scaled by (1 - P(reader)) | field2 -0.018 / -0.036 vs stockholm | - | rejected |
+| z01_rionudge30 | rio + 30% nudge + no probes | field2 -0.854 +-0.112 vs the 30% nudge | - | parked (risky) |
+| aa01_naive06 (test_aa01_naive06.py) | palermo with P_NAIVE 0.6 | live split: lowering P_NAIVE cost -0.17 vs top teams (helsinki - e01 on 10 top-team entries) | queued 16:05 | |
