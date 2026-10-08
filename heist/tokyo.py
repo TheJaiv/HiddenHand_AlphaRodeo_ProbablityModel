@@ -1,7 +1,7 @@
 # Team Name: Alpha Rodeo
 # Members: Jaiv Patel(26075057)
 # Mentor: Arpit Gupta
-# Version: field_v00 = versions/hunt_v10.py (live entry #452, best paired live record so far): the reference to beat
+# Version: tokyo (v00) = versions/hunt_v10.py (live entry #452, best paired live record so far): the reference to beat
 
 """
 rival_2.py - Bayesian opponent model + a planner that exploits readers.
