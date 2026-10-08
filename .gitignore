@@ -7,3 +7,6 @@ __pycache__/
 
 # Large generated data from tools/gen_data.py (roadmap S12)
 data/
+
+# Another team's code: never commit, never use (rules: no sharing code)
+exploiter.py
