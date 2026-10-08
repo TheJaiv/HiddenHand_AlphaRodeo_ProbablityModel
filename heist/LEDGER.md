@@ -94,3 +94,10 @@ nairobi - tokyo +0.03 (the house attack no longer counts), rio - nairobi +0.86 +
 within +-0.06 of each other, stockholm - lisbon +0.46 +-0.23, - helsinki +0.47 +-0.31, - e01 +0.56 +-0.37, - rio +0.63 +-0.67.
 Real-team means (old fights): Imposters +5.31, TeenPatti +4.94, Genz7 +4.71, PaperHands +4.67, stockholm +4.44.
 heist/field.py now leaves the house bots out (HOUSE=1 to add them).
+| u01_nudge30 (test_u01_nudge30.py) | stockholm, nudge 30% | field2 (no house) +0.098 +-0.047 | #588 (15:43): real teams +4.59 (#3), vs #586 stockholm +0.13 +-0.16 (n=55), vs lisbon +0.63 +-0.32, vs e01 +0.66 +-0.34 | best live so far, not significant vs stockholm |
+| w01_step2 / w02_early / w03_nudge45 | 30% nudge with step 2.0 / only rounds 2-3 / 45% | field2 vs stockholm +0.136 / +0.083 / +0.059 (+-0.05) | - | w01 queued |
+| y01_topfix (test_y01_topfix.py) | 30% nudge minus moscow's public first quote and opponent-swap pricing | field2 +0.016 +-0.079 (field2 has no calibrated top team) | sent 15:55 | live test: those two changes cost 0.5-0.9 vs PaperHands, Genz7, Imposters |
+
+Top-team trade-off (live, real teams): rio beat PaperHands +0.40, Genz7 +0.55, Imposters +0.82; every later version lost to
+them (stockholm: PaperHands -1.57, Genz7 -1.11, Imposters #574 -0.77; 30% nudge: -1.73 / -0.54 / -0.48) while gaining more on
+the mid-field. With top teams likely to upload their best at the end, the final must not give these matchups away.
