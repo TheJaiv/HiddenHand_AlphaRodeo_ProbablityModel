@@ -1,0 +1,34 @@
+110 matches in 76s
+
+=== b24_crushexact - hunt_v12, seeds [7, 8], 400 deals ===
+  naive                    new  +9.993  old  +9.993  diff  +0.000 +-0.000
+  reader                   new +23.352  old +20.085  diff  +3.267 +-0.268
+  sharp                    new +19.561  old +18.483  diff  +1.078 +-0.205
+  sharp_t05                new +12.485  old +12.938  diff  -0.454 +-0.213
+  sharp_t10                new +21.785  old +21.785  diff  +0.000 +-0.000
+  hider                    new  +5.919  old  +5.919  diff  +0.000 +-0.000
+  liar                     new +13.037  old +13.026  diff  +0.011 +-0.016
+  ai_typical               new +12.326  old +12.884  diff  -0.558 +-0.228
+  mid_bayes                new  +3.433  old  +3.454  diff  -0.021 +-0.041
+  mid_guard                new  +5.389  old  +5.439  diff  -0.050 +-0.301
+  swapper                  new +16.447  old +16.076  diff  +0.372 +-0.116
+  peeker                   new +16.560  old +16.423  diff  +0.137 +-0.070
+  arena_imposters          new  +2.400  old  +2.400  diff  +0.000 +-0.000
+  arena_pokemons           new  +1.112  old  +1.148  diff  -0.037 +-0.052
+  arena_sattebaaz          new  +3.605  old  +3.605  diff  +0.000 +-0.000
+  arena_quants_treasure    new  +5.148  old  +5.129  diff  +0.019 +-0.054
+  arena_outliers           new  +6.659  old  +6.659  diff  +0.000 +-0.000
+  arena_teenpatti_v4       new  +2.038  old  +2.047  diff  -0.008 +-0.016
+  arena_paperhands_v5      new  +4.563  old  +4.584  diff  -0.021 +-0.042
+  rival_1                  new  +0.037  old  +0.037  diff  +0.000 +-0.000
+  rival_2                  new  +3.982  old  +3.982  diff  +0.000 +-0.000
+  arena_genz7              new  +2.268  old  +2.297  diff  -0.029 +-0.048
+  arena_aj_the_trader      new  +4.738  old  +4.738  diff  +0.000 +-0.000
+  arena_kryptex            new  +1.950  old  +1.950  diff  +0.000 +-0.000
+  arena_quantumlesssss     new  +4.082  old  +4.082  diff  +0.000 +-0.000
+  POOL AVERAGE             new  +8.115  diff  +0.148 +-0.024
+  READER FAMILY (12)       diff  +0.315 +-0.049    OTHERS (13) diff  -0.006 +-0.007
+  H2H vs hunt_v12           -0.033 +-0.048
+  H2H vs hunt_v01           +0.204 +-0.295
+  H2H vs arena_techy_traders_v10  +1.532 +-0.536
+  slowest call 14.71 ms; notes none

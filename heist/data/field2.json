@@ -1,0 +1,114 @@
+{
+ "Alpha Hunters": {
+  "file": "heist/opp/opp_alpha_hunters.py",
+  "weight": 3.429,
+  "style": "blend",
+  "entry": 443,
+  "calib_mean_abs": 0.9
+ },
+ "Apex Syndicate": {
+  "file": "heist/opp/opp_apex_syndicate.py",
+  "weight": 4.0,
+  "style": "reader",
+  "entry": 294,
+  "calib_mean_abs": 0.6
+ },
+ "Code Riders": {
+  "file": "heist/opp/opp_code_riders.py",
+  "weight": 3.429,
+  "style": "blend",
+  "entry": 533,
+  "calib_mean_abs": 0.69
+ },
+ "Deal & Steal": {
+  "file": "heist/opp/opp_deal_steal.py",
+  "weight": 3.429,
+  "style": "blend",
+  "entry": 447,
+  "calib_mean_abs": 0.36
+ },
+ "Godtier": {
+  "file": "heist/opp/opp_godtier.py",
+  "weight": 2.0,
+  "style": "honest",
+  "entry": 465,
+  "calib_mean_abs": 0.57
+ },
+ "IITBHUAVENGERS": {
+  "file": "heist/opp/opp_iitbhuavengers.py",
+  "weight": 7.0,
+  "style": "follower",
+  "entry": 527,
+  "calib_mean_abs": 0.88
+ },
+ "Money Heist": {
+  "file": "heist/opp/opp_money_heist.py",
+  "weight": 2.0,
+  "style": "honest",
+  "entry": 550,
+  "calib_mean_abs": 1.0
+ },
+ "Outliers": {
+  "file": "heist/opp/opp_outliers.py",
+  "weight": 3.429,
+  "style": "blend",
+  "entry": 553,
+  "calib_mean_abs": 0.38
+ },
+ "Pravichayah": {
+  "file": "heist/opp/opp_pravichayah.py",
+  "weight": 7.0,
+  "style": "follower",
+  "entry": 275,
+  "calib_mean_abs": 1.42
+ },
+ "QUANTSTATIC": {
+  "file": "heist/opp/opp_quantstatic.py",
+  "weight": 2.0,
+  "style": "honest",
+  "entry": 185,
+  "calib_mean_abs": 0.79
+ },
+ "QUANTUMLYSTUPID": {
+  "file": "heist/opp/opp_quantumlystupid.py",
+  "weight": 3.429,
+  "style": "blend",
+  "entry": 568,
+  "calib_mean_abs": 0.3
+ },
+ "Quant Qods": {
+  "file": "heist/opp/opp_quant_qods.py",
+  "weight": 2.0,
+  "style": "honest",
+  "entry": 247,
+  "calib_mean_abs": 0.52
+ },
+ "Specter": {
+  "file": "heist/opp/opp_specter.py",
+  "weight": 2.0,
+  "style": "honest",
+  "entry": 541,
+  "calib_mean_abs": 1.12
+ },
+ "TEAM ERROr": {
+  "file": "heist/opp/opp_team_error.py",
+  "weight": 2.0,
+  "style": "honest",
+  "entry": 528,
+  "calib_mean_abs": 1.08
+ },
+ "THUGS OF BHU": {
+  "file": "heist/opp/opp_thugs_of_bhu.py",
+  "weight": 3.429,
+  "style": "blend",
+  "entry": 369,
+  "calib_mean_abs": 0.76
+ },
+ "ThunderX": {
+  "file": "heist/opp/opp_thunderx.py",
+  "weight": 3.429,
+  "style": "blend",
+  "entry": 523,
+  "calib_mean_abs": 1.25
+ }
+}

@@ -1,0 +1,58 @@
+[
+ {
+  "opp": "House · reader",
+  "opp_id": 2,
+  "me": 368,
+  "score": 22.322,
+  "pnl": 271.26
+ },
+ {
+  "opp": "Godtier",
+  "opp_id": 366,
+  "me": 368,
+  "score": 6.761,
+  "pnl": 40.19
+ },
+ {
+  "opp": "MNC Traders",
+  "opp_id": 346,
+  "me": 368,
+  "score": 0.187,
+  "pnl": -0.17
+ },
+ {
+  "opp": "Imposters",
+  "opp_id": 288,
+  "me": 368,
+  "score": -0.546,
+  "pnl": -3.61
+ },
+ {
+  "opp": "PaperHands",
+  "opp_id": 353,
+  "me": 368,
+  "score": -1.045,
+  "pnl": -4.21
+ },
+ {
+  "opp": "TeenPatti",
+  "opp_id": 330,
+  "me": 368,
+  "score": -2.563,
+  "pnl": -11.24
+ },
+ {
+  "opp": "Genz7",
+  "opp_id": 262,
+  "me": 368,
+  "score": -2.91,
+  "pnl": -11.49
+ },
+ {
+  "opp": "AJ_The_Trader",
+  "opp_id": 344,
+  "me": 368,
+  "score": -3.107,
+  "pnl": -15.83
+ }
+]

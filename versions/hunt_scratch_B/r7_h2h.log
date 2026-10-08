@@ -1,0 +1,8 @@
+0 matches in 0s
+
+=== b17_btau - hunt_v11, seeds [9, 10, 11, 12], 400 deals ===
+  hunt_v01                 new  +0.239  old  +0.300  diff  -0.062 +-0.206
+  hunt_v10                 new  +0.444  old  +0.497  diff  -0.053 +-0.214
+  POOL AVERAGE             new  +0.341  diff  -0.057 +-0.199
+  H2H vs hunt_v11           +0.006 +-0.203
+  slowest call 11.14 ms; notes none
