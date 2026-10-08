@@ -163,3 +163,6 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 | nn03_nplan8 (test_nn03_nplan8.py) | marseille, plan with the 8 likeliest hypotheses (NPLAN 6 -> 8) | field2 seeds 12 13: +0.083 +-0.060; seeds 14 15: +0.056 +-0.063; speed under load: quote median 0.64 vs 0.50 ms | held (not uploaded) | fails the second seed pair |
 | nn04_swap1 (test_nn04_swap1.py) | marseille, round-5 swap bar 4 -> 1 | field2 seeds 12 13: +0.049 +-0.023; seeds 14 15: +0.059 +-0.023 (bar 6 -0.060, 4 0, 2.5 +0.023..+0.029) | not uploaded (nn05 went up instead) | superseded by nn05 |
 | nn05_swap0 (test_nn05_swap0.py) | marseille, round-5 swap bar 4 -> 0 (swap whenever the expected gain is positive) | field2 seeds 12 13: +0.087 +-0.028; seeds 14 15: +0.078 +-0.026 | #665 (18:48): +0.101 +-0.047 vs marseille (n=37) | -> manila (v13) = professor.py |
+| pp01_nplan8 (test_pp01_nplan8.py) | manila, NPLAN 6 -> 8 | field2 vs manila +0.079 +-0.058 (12 13), +0.056 +-0.062 (14 15); on marseille +0.083 / +0.056 | sent 19:04 as a live probe | fails the 2nd seed pair narrowly; positive in all 4 runs |
+| pp02_deltas | manila, 10 stage-1 price offsets instead of 6 | +0.012 +-0.024 / +0.020 +-0.025 | - | rejected (flat) |
+| qq01_swappos / qq02_swapmix | manila, round-5 swap by current position / by the average of current and expected final position | running | - | |
