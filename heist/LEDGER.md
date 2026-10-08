@@ -106,7 +106,7 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 | x01 / x02 | 30% nudge scaled by (1 - P(reader)) | field2 -0.018 / -0.036 vs stockholm | - | rejected |
 | z01_rionudge30 | rio + 30% nudge + no probes | field2 -0.854 +-0.112 vs the 30% nudge | - | parked (risky) |
 | aa01_naive06 (test_aa01_naive06.py) | palermo with P_NAIVE 0.6 | field2 -0.551 +-0.090 vs palermo | #596 (16:12): -0.91 +-0.64 vs palermo (n=26): HAN SOLO +3.0, AJ +1.4 but QuantXAlpha -2.8, Pokemons -4.1, Imposters -1.0 | rejected |
-| bb01_step2 (test_bb01_step2.py) | palermo, safe-quote step 1.3 -> 2.0 | field2 +0.037 +-0.035; bb02 (22% nudge) -0.026 | sent 16:22 | |
+| bb01_step2 (test_bb01_step2.py) | palermo, safe-quote step 1.3 -> 2.0 | field2 +0.037 +-0.035; bb02 (22% nudge) -0.026 | #601 (16:30): -0.07 +-0.10 vs palermo (n=45) | tie |
 
 ## Endgame (drafted 16:30)
 
@@ -119,3 +119,4 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 | cc01_nudge40 | palermo, nudge 40% | field2 +0.021 +-0.040 | - | flat: 30% stays |
 | dd01_clip5 / dd02_clip8 | palermo, clip my quote to +-5 / +-8 of the safe quote | field2 -0.162 / -0.107 | - | rejected: shrinking beats clipping |
 | ee01_nudgeall (test_ee01_nudgeall.py) | palermo, nudge also against confident readers | field2 seeds 12 13 +0.099 +-0.014, 14 15 +0.074 +-0.013; old field +0.051 +-0.010 (Outliers +0.4, QUANTUMLYSTUPID +0.3, ThunderX +0.2) | sent 16:30 | passes the gate |
+| gg01 / gg02 | ee01 with soft compression of large deviations (k 20 / 10) | field2 -0.085 / -0.193 vs ee01 | - | rejected: large planner deviations carry value |
