@@ -26,7 +26,7 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 
 | v11 | bogota | palermo | (ee01) field2 +0.099 +-0.014 (12 13), +0.074 +-0.013 (14 15); old field +0.051 +-0.010 | #611 (16:45): +0.06 +-0.08 vs palermo (n=30), +0.17 +-0.15 vs bb01; vs newest top teams: Imposters #615 +1.98, MNC #594 +2.95, Techy #606 +0.57, QuantXAlpha +2.35, TeenPatti +2.79; still PaperHands -1.46, HAN SOLO -1.63, Genz7 -0.84 | the 30% quote nudge also against confident readers |
 
-| v12 | marseille | bogota | field2 vs bogota +0.014 +-0.009 (fast02 exact: -0.001, fast03 prune 8: +0.002); same-play check: 32 of 720 plays differ; speed: median 0.20 vs 0.29 ms, p99 0.99 vs 1.18 ms, total -32%; vs naive p99 0.59 vs 0.84 ms | pending (sent 17:45) | speed only (arena warned of calls over 50 ms): answer model cached per quote, fused Kalman step, heapq top-N, PRUNE 12 -> 6 |
+| v12 | marseille | bogota | field2 vs bogota +0.014 +-0.009 (fast02 exact: -0.001, fast03 prune 8: +0.002); same-play check: 32 of 720 plays differ; speed: median 0.20 vs 0.29 ms, p99 0.99 vs 1.18 ms, total -32%; vs naive p99 0.59 vs 0.84 ms | #636 (17:50): +0.02 +-0.07 vs bogota (n=44), 47 of 50 won; vs leaders (same opponents): Imposters +0.01, PaperHands #638 +0.35, MNC +0.86, Genz7 +1.09, TeenPatti +0.95 | speed only (arena warned of calls over 50 ms): answer model cached per quote, fused Kalman step, heapq top-N, PRUNE 12 -> 6 |
 
 ## Candidates and rejected ideas
 
@@ -119,7 +119,7 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 - It is copied to heist/professor.py (4th line names the original) and committed; validate + speed checked again.
 - Optional decoy: an older file (e.g. heist/tokyo.py) in the early evening so other teams do not tune against our final,
   then the final uploaded 1-2 hours before close (never in the last minutes). Needs the exact deadline from the organisers.
-- Current best live: bogota (#611) = palermo (#591) within noise; professor.py = bogota since 17:05.
+- Current best live: marseille (#636) = bogota (#611) = palermo (#591) within noise; professor.py = marseille since 18:00 (fastest).
 | cc01_nudge40 | palermo, nudge 40% | field2 +0.021 +-0.040 | - | flat: 30% stays |
 | dd01_clip5 / dd02_clip8 | palermo, clip my quote to +-5 / +-8 of the safe quote | field2 -0.162 / -0.107 | - | rejected: shrinking beats clipping |
 | ee01_nudgeall (test_ee01_nudgeall.py) | palermo, nudge also against confident readers | field2 seeds 12 13 +0.099 +-0.014, 14 15 +0.074 +-0.013; old field +0.051 +-0.010 | #611: +0.06 +-0.08 vs palermo | -> bogota |

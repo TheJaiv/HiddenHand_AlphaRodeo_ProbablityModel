@@ -1,10 +1,10 @@
 # Heist status (the one file to look at)
 
-Updated 17:45, Thu 8 Oct. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
+Updated 18:00, Thu 8 Oct. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
 
 | | File | Why |
 |---|---|---|
-| FINAL CANDIDATE | heist/marseille.py (bogota's strategy, 30-40% faster; sent 17:45) | after its live check it becomes professor.py |
+| FINAL | heist/marseille.py = heist/professor.py (#636) | bogota's strategy, 30-40% faster; live +0.02 vs bogota; level with Imposters, ahead of PaperHands / MNC / Genz7 / TeenPatti on the same opponents |
 | BEST LIVE | heist/bogota.py (= test_ee01_nudgeall.py, #611, up 16:45; = professor.py) | +0.06 +-0.08 vs palermo; >= palermo against every top team (Imposters #615 +1.98, MNC +2.95, Techy #606 +0.57) |
 | ALSO PROVEN | heist/palermo.py (#591) | best live file: +0.43 +-0.38 vs the 30% nudge #588, +0.61 vs stockholm, +1.17 vs rio on real teams; wins back Imposters (+1.91), QuantXAlpha (+1.86), TeenPatti (+2.77), AJ (+0.74) |
 | UPLOAD NOW | heist/bogota.py (re-upload after the z02 test), then heist/test_ll01_oppswap.py | bogota = the final; ll01 = half of palermo's undo (may win back Blind_Ambition / HAN SOLO) |

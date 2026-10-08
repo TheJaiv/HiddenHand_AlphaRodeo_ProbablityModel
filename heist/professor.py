@@ -1,7 +1,7 @@
 # Team Name: Alpha Rodeo
 # Members: Jaiv Patel(26075057)
 # Mentor: Arpit Gupta
-# Version: professor = bogota (v11) (provisional final 17:05): the 30% quote nudge also against confident readers (field2 +0.099 / +0.074 on two seed pairs; live #611 +0.06 +-0.08 vs palermo, equal or better against every top team incl. Imposters #615 +1.98)
+# Version: professor = marseille (v12) (final candidate 18:00): same strategy, ~40% less work per call (arena reported calls over 50 ms): the answer model is computed once per quote, the Kalman step is fused (no tuple per hypothesis), heapq picks the top hypotheses, and hypotheses 6 log-units behind the best are dropped (was 12); field model vs bogota +0.014 +-0.009
 
 """
 rival_2.py - Bayesian opponent model + a planner that exploits readers.
@@ -39,6 +39,7 @@ Decisions
     expected final position x (new card - old card) is large enough.
 """
 
+import heapq
 import math
 
 MAXP = 195.0
@@ -66,7 +67,7 @@ EPS_Q = 0.1       # chance a quote is unexplained
 U_Q = 0.02        # density of an unexplained quote
 SIG_R = 1.0       # response threshold noise
 EPS_R = 0.06      # chance a response is unexplained
-PRUNE = 12.0      # drop hypotheses this many log-units behind the best
+PRUNE = 6.0       # drop hypotheses this many log-units behind the best
 SWAP_TH = (15.0, 12.0, 9.0, 6.0, 4.0)   # by round: waiting has option value
 DELTAS = (2.0, 2.5, 3.0, 3.5, 4.5, 6.0)
 NPLAN = 6         # hypotheses used in play-outs
@@ -169,6 +170,38 @@ def mix_into(h, r, new):
         h[H_P01] = lim
     elif h[H_P01] < -lim:
         h[H_P01] = -lim
+
+
+def ekf_mix(h, r, Ho, Ht, d, S, Vy):
+    """ekf() followed by mix_into(h, r, ...), fused: the same arithmetic in the same order,
+    without building a tuple for every hypothesis and observation."""
+    P00, P01, P11 = h[H_P00], h[H_P01], h[H_P11]
+    PHo = P00 * Ho + P01 * Ht
+    PHt = P01 * Ho + P11 * Ht
+    k0 = PHo / S
+    k1 = PHt / S
+    g = S - Vy
+    o0, o1 = h[H_MO], h[H_MT]
+    m0 = o0 + k0 * d
+    m1 = o1 + k1 * d
+    a = P00 - g * k0 * k0
+    b = P01 - g * k0 * k1
+    c = P11 - g * k1 * k1
+    n0 = r * m0 + (1 - r) * o0
+    n1 = r * m1 + (1 - r) * o1
+    p00 = max(0.05, r * (a + m0 * m0) + (1 - r) * (P00 + o0 * o0) - n0 * n0)
+    p01 = r * (b + m0 * m1) + (1 - r) * (P01 + o0 * o1) - n0 * n1
+    p11 = max(1e-5, r * (c + m1 * m1) + (1 - r) * (P11 + o1 * o1) - n1 * n1)
+    h[H_P00] = p00
+    h[H_P11] = p11
+    h[H_MO] = n0
+    h[H_MT] = min(1.15, max(0.0, n1))
+    lim = math.sqrt(p00 * p11) * 0.999
+    if p01 > lim:
+        p01 = lim
+    elif p01 < -lim:
+        p01 = -lim
+    h[H_P01] = p01
 
 
 # ── exact house-reader attack ───────────────────────────────────────────────
@@ -550,7 +583,7 @@ class Bot:
                 dens = math.exp(-d * d / (2 * S)) * ISQ2PI / math.sqrt(S)
                 ev = (1 - EPS_Q) * dens + EPS_Q * U_Q
                 rr = (1 - EPS_Q) * dens / ev
-                mix_into(h, rr, ekf(h, Ho, Ht, d, S, 0.0))
+                ekf_mix(h, rr, Ho, Ht, d, S, 0.0)
                 h[H_LW] += math.log(ev)
             else:
                 th = h[H_TH]
@@ -587,7 +620,7 @@ class Bot:
                 rr = (1 - EPS_R) * Z / ev
                 m1 = (pa - pb) / Z
                 vy = S * (1 + (ta - tb) / Z - m1 * m1)
-                mix_into(h, rr, ekf(h, Ho, Ht, sy * m1, S, vy))
+                ekf_mix(h, rr, Ho, Ht, sy * m1, S, vy)
         self._prune()
 
     def _see_swap(self, obs, card):
@@ -806,7 +839,7 @@ class Bot:
 
     def _plan_setup(self, obs, k):
         st = self._state(obs, obs.round, self.obar)
-        hs = sorted(self.H, key=lambda h: -h[H_LW])[:NPLAN]
+        hs = heapq.nlargest(NPLAN, self.H, key=lambda h: h[H_LW])
         ws = [math.exp(h[H_LW]) for h in hs]
         tw = sum(ws)
         ws = [w / tw for w in ws]
@@ -890,8 +923,19 @@ class Bot:
             V = alpha + beta * h[H_MO]
             comps.append((w, h, V))
 
+        rd_cache = {}
+
         def resp_dist(h, p):
-            """Mean, sd and cov(O, .)/sd of their fair when answering price p."""
+            """Mean, sd and cov(O, .)/sd of their fair when answering price p (cached when
+            their answer does not read p, which is every hypothesis but the CUR readers)."""
+            if not (h[H_READS] and h[H_RULE] == CUR):
+                got = rd_cache.get(id(h))
+                if got is None:
+                    got = rd_cache[id(h)] = resp_dist_raw(h, p)
+                return got
+            return resp_dist_raw(h, p)
+
+        def resp_dist_raw(h, p):
             q = p if (h[H_READS] and h[H_RULE] == CUR) else qe[h[H_RULE]]
             f, _ = self._bel(st, h, h[H_MO], q, Q, ks)
             L = None
@@ -1032,7 +1076,7 @@ class Bot:
         r = obs.round
         # expected final position, from play-outs of the rest of the deal
         st = self._state(obs, r, self.obar)
-        hs = sorted(self.H, key=lambda h: -h[H_LW])[:NPLAN]
+        hs = heapq.nlargest(NPLAN, self.H, key=lambda h: h[H_LW])
         ws = [math.exp(h[H_LW]) for h in hs]
         tw = sum(ws)
         alpha, beta = self._ev(obs)
