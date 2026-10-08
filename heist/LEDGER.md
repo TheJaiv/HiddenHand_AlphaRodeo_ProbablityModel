@@ -120,3 +120,4 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 | dd01_clip5 / dd02_clip8 | palermo, clip my quote to +-5 / +-8 of the safe quote | field2 -0.162 / -0.107 | - | rejected: shrinking beats clipping |
 | ee01_nudgeall (test_ee01_nudgeall.py) | palermo, nudge also against confident readers | field2 seeds 12 13 +0.099 +-0.014, 14 15 +0.074 +-0.013; old field +0.051 +-0.010 (Outliers +0.4, QUANTUMLYSTUPID +0.3, ThunderX +0.2) | sent 16:30 | passes the gate |
 | gg01 / gg02 | ee01 with soft compression of large deviations (k 20 / 10) | field2 -0.085 / -0.193 vs ee01 | - | rejected: large planner deviations carry value |
+| hh01 / hh02 | ee01 + 1 / 2 more points of taker edge | field2 -0.098 / -0.382 vs ee01 | - | rejected |
