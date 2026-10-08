@@ -18,7 +18,7 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 | v06 | helsinki | moscow | field model vs moscow, 800 deals: seeds 10 11 +0.855 +-0.069, seeds 12 13 +0.865 +-0.071 (avengers captain_america, same idea with the fill-price bug: +0.706 +-0.070); biggest gains Pokemons +2.7, Happy463 +2.8, ThunderX +2.2, Phantom +2.0, QUANTUMLYSTUPID +2.0, Godtier +1.7; costs HAN SOLO -0.8, Double Dividend -0.8, Quant Qods -0.3 | #561 (13:28) vs #513 moscow: -0.03 +-0.34 (n=49): neutral. Gains Dark Pool +2.7, Godtier +2.6, OptiMystics +2.3, Cyberpsycho +2.2, QUANTUMLYSTUPID +1.9; costs Techy -1.9, HAN SOLO -1.9, ThunderX -1.8, Imposters -1.6, Double Dividend -1.3 | per-hypothesis opponent take threshold 2 / 7 + P_NAIVE 0.45 |
 
 | v07 | oslo | helsinki | field model vs helsinki (800 deals): seeds 10 11 +0.116 +-0.049, seeds 12 13 +0.200 +-0.049 | not uploaded alone (in lisbon) | P_NAIVE 0.45 -> 0.3 |
-| v08 | lisbon | oslo | field model: no-op (no double peekers in it); decisions = oslo except vs teams that peek twice in a deal | pending (sent ~13:50) | peeker defence: after 2 opponent peeks, quote 1.3 from its last quote, take only with 3 more points of edge (QT: top teams +8 more than us) |
+| v08 | lisbon | oslo | field model: no-op (no double peekers in it); decisions = oslo except vs teams that peek twice in a deal | #565 (13:48) vs #561 helsinki: -0.02 +-0.26 (n=57): neutral; peeker defence HURT: Quants Treasure #514 -0.65 (helsinki +0.01), Team How #549 -1.41 -> defence dropped | peeker defence: after 2 opponent peeks, quote 1.3 from its last quote, take only with 3 more points of edge (QT: top teams +8 more than us) |
 
 ## Candidates and rejected ideas
 
@@ -62,3 +62,12 @@ all flat or negative; its imitations of Cyberpsycho / Imposters / QT / Godtier /
 
 Lesson (13:45): the field model over-predicts live gains (rio +1.9 local / +0.85 live; moscow +0.2 / 0.0; helsinki +0.86 / 0.0).
 Structural changes found from live data (house attack, swap timing) are what moved the live score.
+| f01_picky | helsinki, 1.5 more edge to take in rounds 1-3 | -0.071 +-0.053 | - | rejected |
+| g01_th027 | helsinki, take thresholds 0 / 2 / 7 | -0.024 +-0.030 | - | rejected |
+| h01_noprobe | helsinki, no paid probes / model crush (house attack kept) | +0.000 +-0.008 (probes almost never fire) | - | rejected: no effect |
+| i01_lam0 / i02_liar | helsinki, more 'quotes say nothing' / add 'quotes against their hand' (lam -0.5) | -0.086 +-0.038 / -0.143 +-0.039 | - | rejected |
+| j01_safeq | helsinki, safe quote (top teams' style) unless confident reader / limit / house attack | house bots: naive -1.1, reader -0.2, sharp -2.2; earlier on moscow (c17) -1.15 on the field model | live concept test sent 14:08 (heist/test_j01_safeq.py) | pending |
+
+Finding (14:00, live fight pages): against the mid-field the top teams make far more PnL per deal than we do
+(ThunderX: PaperHands +23.4, Imposters +17.9, us +1.3; Pokemons: +26.0 / +11.1 / +3.3; MNC: +23.2 / +12.8 / +6.6;
+Blind_Ambition: +29.7 / +19.1 / +7.5; Double Dividend: +24.6 / +13.2 / +4.2). It is extraction, not consistency.
