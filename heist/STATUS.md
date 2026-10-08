@@ -1,6 +1,6 @@
 # Heist status (the one file to look at)
 
-Updated 20:08, Thu 8 Oct. FINAL UPLOADED (#713). The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
+Updated 21:28, Thu 8 Oct. FINAL UPLOADED (#713): board #1 at 3.25. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
 
 | | File | Why |
 |---|---|---|
