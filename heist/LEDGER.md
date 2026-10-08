@@ -160,4 +160,4 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 | nn02_swap6 | marseille, round-5 swap bar 4 -> 6 | field2 seeds 12 13: -0.060 +-0.023 | - | rejected (lower bar is the right direction) |
 | nn03_nplan8 (test_nn03_nplan8.py) | marseille, plan with the 8 likeliest hypotheses (NPLAN 6 -> 8) | field2 seeds 12 13: +0.083 +-0.060; seeds 14 15: +0.056 +-0.063; speed under load: quote median 0.64 vs 0.50 ms | held (not uploaded) | fails the second seed pair |
 | nn04_swap1 (test_nn04_swap1.py) | marseille, round-5 swap bar 4 -> 1 | field2 seeds 12 13: +0.049 +-0.023; seeds 14 15: +0.059 +-0.023 (bar 6 -0.060, 4 0, 2.5 +0.023..+0.029) | sent 18:45 | passes (2 seed pairs) -> live probe |
-| nn05_swap0 | marseille, round-5 swap bar 4 -> 0 | field2 seeds 12 13: +0.087 +-0.028; seeds 14 15 running | - | trend check |
+| nn05_swap0 (test_nn05_swap0.py) | marseille, round-5 swap bar 4 -> 0 (swap whenever the expected gain is positive) | field2 seeds 12 13: +0.087 +-0.028; seeds 14 15: +0.078 +-0.026 | - | passes (2 seed pairs); best of the swap-bar line |
