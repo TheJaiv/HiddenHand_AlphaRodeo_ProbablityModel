@@ -24,7 +24,9 @@ FIELD_FILE = os.environ.get("FIELD", "field.json")
 
 def field():
     f = json.load(open(os.path.join(HERE, "data", FIELD_FILE)))
-    out = [(os.path.join(KIT, "strategies", f"{h}.py"), 1.0, h) for h in ("naive", "reader", "sharp")]
+    # since 15:30 on 8 Oct the house bots play no part in the arena score (rules page); HOUSE=1 adds them back
+    out = ([(os.path.join(KIT, "strategies", f"{h}.py"), 1.0, h) for h in ("naive", "reader", "sharp")]
+           if os.environ.get("HOUSE") == "1" else [])
     for name, d in f.items():
         out.append((os.path.join(KIT, d["file"]), float(d["weight"]), name))
     return out

@@ -85,3 +85,12 @@ Oracle check (35 opponents all five planner versions fought): best single versio
 | q01_blend30 / q02_blend15 | helsinki, quote moved 30% / 15% towards the safe quote | old field -0.068 / +0.008; field2 +0.091 / +0.097 | - | q02 -> stockholm bundle |
 | r01_onelot | helsinki, 1-lot answers allowed | -0.033 / -0.031 | - | rejected |
 | h01_noprobe (field2) | helsinki, no probes | field2 +0.016 +-0.011 (ThunderX imitation: one probe quote 146.18 cost -100 in a deal) | - | -> stockholm bundle |
+
+## 15:40 rule change: house bots out of the arena score
+
+The arena rules now say the house bots play no part in the score (only a 5-deal naive load check), and uploads are limited
+to one every 15 minutes. All fights were re-run without them. Live paired results recomputed without house fights:
+nairobi - tokyo +0.03 (the house attack no longer counts), rio - nairobi +0.86 +-0.39, moscow / helsinki / lisbon / e01 all
+within +-0.06 of each other, stockholm - lisbon +0.46 +-0.23, - helsinki +0.47 +-0.31, - e01 +0.56 +-0.37, - rio +0.63 +-0.67.
+Real-team means (old fights): Imposters +5.31, TeenPatti +4.94, Genz7 +4.71, PaperHands +4.67, stockholm +4.44.
+heist/field.py now leaves the house bots out (HOUSE=1 to add them).
