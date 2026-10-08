@@ -107,3 +107,12 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 | z01_rionudge30 | rio + 30% nudge + no probes | field2 -0.854 +-0.112 vs the 30% nudge | - | parked (risky) |
 | aa01_naive06 (test_aa01_naive06.py) | palermo with P_NAIVE 0.6 | field2 -0.551 +-0.090 vs palermo | #596 (16:12): -0.91 +-0.64 vs palermo (n=26): HAN SOLO +3.0, AJ +1.4 but QuantXAlpha -2.8, Pokemons -4.1, Imposters -1.0 | rejected |
 | bb01_step2 (test_bb01_step2.py) | palermo, safe-quote step 1.3 -> 2.0 | field2 +0.037 +-0.035; bb02 (22% nudge) -0.026 | sent 16:22 | |
+
+## Endgame (drafted 16:30)
+
+- Final = the file with the best paired live record on real teams (house bots no longer count), checked against the current
+  newest entry of every team, especially the top ten (they are likely to upload their best at the end).
+- It is copied to heist/professor.py (4th line names the original) and committed; validate + speed checked again.
+- Optional decoy: an older file (e.g. heist/tokyo.py) in the early evening so other teams do not tune against our final,
+  then the final uploaded 1-2 hours before close (never in the last minutes). Needs the exact deadline from the organisers.
+- Current best live: palermo (#591). Candidates still testing: bb01 (step 2.0).
