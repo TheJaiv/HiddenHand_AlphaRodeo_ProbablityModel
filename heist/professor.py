@@ -1,7 +1,7 @@
 # Team Name: Alpha Rodeo
 # Members: Jaiv Patel(26075057)
 # Mentor: Arpit Gupta
-# Version: professor = marseille (v12) (final candidate 18:00): same strategy, ~40% less work per call (arena reported calls over 50 ms): the answer model is computed once per quote, the Kalman step is fused (no tuple per hypothesis), heapq picks the top hypotheses, and hypotheses 6 log-units behind the best are dropped (was 12); field model vs bogota +0.014 +-0.009
+# Version: professor = manila (v13) (final candidate 19:00): marseille with the round-5 swap bar 4 -> 0; live #665 +0.10 +-0.05 vs marseille
 
 """
 rival_2.py - Bayesian opponent model + a planner that exploits readers.
@@ -68,7 +68,7 @@ U_Q = 0.02        # density of an unexplained quote
 SIG_R = 1.0       # response threshold noise
 EPS_R = 0.06      # chance a response is unexplained
 PRUNE = 6.0       # drop hypotheses this many log-units behind the best
-SWAP_TH = (15.0, 12.0, 9.0, 6.0, 4.0)   # by round: waiting has option value
+SWAP_TH = (15.0, 12.0, 9.0, 6.0, 0.0)   # by round: waiting has option value
 DELTAS = (2.0, 2.5, 3.0, 3.5, 4.5, 6.0)
 NPLAN = 6         # hypotheses used in play-outs
 P_EXT = 2.0       # confidence in a raw reader needed to PAY for an extreme quote

@@ -28,6 +28,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 
 | v12 | marseille | bogota | field2 vs bogota +0.014 +-0.009 (fast02 exact: -0.001, fast03 prune 8: +0.002); same-play check: 32 of 720 plays differ; speed: median 0.20 vs 0.29 ms, p99 0.99 vs 1.18 ms, total -32%; vs naive p99 0.59 vs 0.84 ms | #636 (17:50): +0.02 +-0.07 vs bogota (n=44), 47 of 50 won; vs leaders (same opponents): Imposters +0.01, PaperHands #638 +0.35, MNC +0.86, Genz7 +1.09, TeenPatti +0.95 | speed only (arena warned of calls over 50 ms): answer model cached per quote, fused Kalman step, heapq top-N, PRUNE 12 -> 6 |
 
+| v13 | manila | marseille | (nn05) field2 vs marseille +0.087 +-0.028 (seeds 12 13), +0.078 +-0.026 (14 15); swap-bar trend: 6 -0.060, 4 0, 2.5 +0.026, 1 +0.054, 0 +0.083 | #665 (18:48): +0.101 +-0.047 vs marseille (n=37; better on 27, worse on 9), +0.13 vs bogota; vs leaders on the same opponents +0.09..+0.12 each (Imposters +0.04, PaperHands #667 +0.35, MNC +1.02, Genz7 +1.24, TeenPatti +0.96); head to head Imposters +2.33 (marseille +1.84), Genz7 -0.90 (-1.06) | swap in round 5 whenever the expected gain is positive (SWAP_TH round 5: 4 -> 0) |
+
 ## Candidates and rejected ideas
 
 | Candidate | Change | Local | Live | Verdict |
@@ -119,7 +121,7 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 - It is copied to heist/professor.py (4th line names the original) and committed; validate + speed checked again.
 - Optional decoy: an older file (e.g. heist/tokyo.py) in the early evening so other teams do not tune against our final,
   then the final uploaded 1-2 hours before close (never in the last minutes). Needs the exact deadline from the organisers.
-- Current best live: marseille (#636) = bogota (#611) = palermo (#591) within noise; professor.py = marseille since 18:00 (fastest).
+- Current best live: manila (#665, v13) +0.10 +-0.05 over marseille (#636); professor.py = manila since 19:00.
 | cc01_nudge40 | palermo, nudge 40% | field2 +0.021 +-0.040 | - | flat: 30% stays |
 | dd01_clip5 / dd02_clip8 | palermo, clip my quote to +-5 / +-8 of the safe quote | field2 -0.162 / -0.107 | - | rejected: shrinking beats clipping |
 | ee01_nudgeall (test_ee01_nudgeall.py) | palermo, nudge also against confident readers | field2 seeds 12 13 +0.099 +-0.014, 14 15 +0.074 +-0.013; old field +0.051 +-0.010 | #611: +0.06 +-0.08 vs palermo | -> bogota |
@@ -159,5 +161,5 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 | nn01_swap25 (test_nn01_swap25.py) | marseille, round-5 swap bar 4 -> 2.5 | field2 seeds 12 13: +0.029 +-0.016; seeds 14 15: +0.023 +-0.016 | - | passes (2 seed pairs) |
 | nn02_swap6 | marseille, round-5 swap bar 4 -> 6 | field2 seeds 12 13: -0.060 +-0.023 | - | rejected (lower bar is the right direction) |
 | nn03_nplan8 (test_nn03_nplan8.py) | marseille, plan with the 8 likeliest hypotheses (NPLAN 6 -> 8) | field2 seeds 12 13: +0.083 +-0.060; seeds 14 15: +0.056 +-0.063; speed under load: quote median 0.64 vs 0.50 ms | held (not uploaded) | fails the second seed pair |
-| nn04_swap1 (test_nn04_swap1.py) | marseille, round-5 swap bar 4 -> 1 | field2 seeds 12 13: +0.049 +-0.023; seeds 14 15: +0.059 +-0.023 (bar 6 -0.060, 4 0, 2.5 +0.023..+0.029) | sent 18:45 | passes (2 seed pairs) -> live probe |
-| nn05_swap0 (test_nn05_swap0.py) | marseille, round-5 swap bar 4 -> 0 (swap whenever the expected gain is positive) | field2 seeds 12 13: +0.087 +-0.028; seeds 14 15: +0.078 +-0.026 | - | passes (2 seed pairs); best of the swap-bar line |
+| nn04_swap1 (test_nn04_swap1.py) | marseille, round-5 swap bar 4 -> 1 | field2 seeds 12 13: +0.049 +-0.023; seeds 14 15: +0.059 +-0.023 (bar 6 -0.060, 4 0, 2.5 +0.023..+0.029) | not uploaded (nn05 went up instead) | superseded by nn05 |
+| nn05_swap0 (test_nn05_swap0.py) | marseille, round-5 swap bar 4 -> 0 (swap whenever the expected gain is positive) | field2 seeds 12 13: +0.087 +-0.028; seeds 14 15: +0.078 +-0.026 | #665 (18:48): +0.101 +-0.047 vs marseille (n=37) | -> manila (v13) = professor.py |
