@@ -4,7 +4,8 @@ Judge: the live field. Local tests only against calibrated imitations of live te
 
 Naming: each accepted bot takes the next name in this order, never reused:
 tokyo (v00, reference), berlin (v01), nairobi (v02), rio (v03), denver (v04), moscow (v05), helsinki (v06),
-oslo (v07), lisbon (v08), stockholm (v09), palermo (v10), bogota (v11), marseille (v12), manila (v13).
+oslo (v07), lisbon (v08), stockholm (v09), palermo (v10), bogota (v11), marseille (v12), manila (v13);
+the list ended there, so the next city code names from the show follow: pamplona (v14), then matias (v15).
 professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th line names the original).
 
 | Version | Name | Parent | Field model gain (seeds) | Live paired vs previous upload | Idea |
@@ -29,6 +30,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 | v12 | marseille | bogota | field2 vs bogota +0.014 +-0.009 (fast02 exact: -0.001, fast03 prune 8: +0.002); same-play check: 32 of 720 plays differ; speed: median 0.20 vs 0.29 ms, p99 0.99 vs 1.18 ms, total -32%; vs naive p99 0.59 vs 0.84 ms | #636 (17:50): +0.02 +-0.07 vs bogota (n=44), 47 of 50 won; vs leaders (same opponents): Imposters +0.01, PaperHands #638 +0.35, MNC +0.86, Genz7 +1.09, TeenPatti +0.95 | speed only (arena warned of calls over 50 ms): answer model cached per quote, fused Kalman step, heapq top-N, PRUNE 12 -> 6 |
 
 | v13 | manila | marseille | (nn05) field2 vs marseille +0.087 +-0.028 (seeds 12 13), +0.078 +-0.026 (14 15); swap-bar trend: 6 -0.060, 4 0, 2.5 +0.026, 1 +0.054, 0 +0.083 | #665 (18:48): +0.101 +-0.047 vs marseille (n=37; better on 27, worse on 9), +0.13 vs bogota; vs leaders on the same opponents +0.09..+0.12 each (Imposters +0.04, PaperHands #667 +0.35, MNC +1.02, Genz7 +1.24, TeenPatti +0.96); head to head Imposters +2.33 (marseille +1.84), Genz7 -0.90 (-1.06), still LOSES to PaperHands (#658 -1.24, #667 -1.32; marseille -1.48 / -1.32) and HAN SOLO (-1.57) | swap in round 5 whenever the expected gain is positive (SWAP_TH round 5: 4 -> 0) |
+
+| v14 | pamplona | manila | (qq02) field2 vs manila +0.115 +-0.016 (12 13), +0.129 +-0.018 (14 15); weight 0.3 on the expected position +0.014 more, 0.7 worse | #689 (19:10): +0.401 +-0.134 vs manila (n=24 at 19:25; better on 23, worst Code Riders -0.02); PaperHands #667 +0.84, Imposters #688 +1.24, TeenPatti +1.19, Techy +0.71, MNC +0.45, Genz7 +0.34, HAN SOLO +0.30 | round-5 swap decided by the average of the current and the expected final position |
 
 ## Candidates and rejected ideas
 
@@ -166,7 +169,7 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 | pp01_nplan8 (test_pp01_nplan8.py) | manila, NPLAN 6 -> 8 | field2 vs manila +0.079 +-0.058 (12 13), +0.056 +-0.062 (14 15); on marseille +0.083 / +0.056 | queued behind qq02 | fails the 2nd seed pair narrowly; positive in all 4 runs |
 | pp02_deltas | manila, 10 stage-1 price offsets instead of 6 | +0.012 +-0.024 / +0.020 +-0.025 | - | rejected (flat) |
 | qq01_swappos | manila, round-5 swap decided by the current position instead of the expected final position | field2 vs manila +0.059 +-0.023 (12 13), +0.053 +-0.024 (14 15) | - | passes; superseded by qq02 |
-| qq02_swapmix (test_qq02_swapmix.py) | manila, round-5 swap decided by the average of the current and the expected final position | field2 vs manila +0.115 +-0.016 (12 13), +0.129 +-0.018 (14 15) | sent 19:07 | passes (largest local gain since helsinki) |
+| qq02_swapmix (test_qq02_swapmix.py) | manila, round-5 swap decided by the average of the current and the expected final position | field2 vs manila +0.115 +-0.016 (12 13), +0.129 +-0.018 (14 15) | #689: +0.40 +-0.13 vs manila (n=24) | -> pamplona (v14) = professor.py |
 | qq03_swap37 / qq04_swap73 | qq02 with weights 0.3 / 0.7 on the expected final position (0.7 / 0.3 on the current one) | vs qq02: +0.014 +-0.006 / +0.014 +-0.008; -0.059 +-0.011 / -0.066 +-0.013 | - | weight 0.3 slightly better than 0.5 (too small to see live); qq02 stays the probe |
 | rr01_roll05 | qq02, play-out of the rest of the deal weighted 0.5 in quote / respond | vs qq02 +0.089 +-0.125 (12 13), +0.122 +-0.124 (14 15) | - | not significant (noisy) |
 | rr02_roll075 (test_rr02_roll075.py) | qq02, play-out of the rest of the deal weighted 0.75 in quote / respond | vs qq02 +0.297 +-0.075 (12 13), +0.263 +-0.078 (14 15) | next live probe after qq02 | passes; big local gains have shrunk live before (helsinki +0.86 local, 0 live) |

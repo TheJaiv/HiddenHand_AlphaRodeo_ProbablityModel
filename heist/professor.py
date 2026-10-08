@@ -1,7 +1,7 @@
 # Team Name: Alpha Rodeo
 # Members: Jaiv Patel(26075057)
 # Mentor: Arpit Gupta
-# Version: professor = manila (v13) (final candidate 19:00): marseille with the round-5 swap bar 4 -> 0; live #665 +0.10 +-0.05 vs marseille
+# Version: professor = pamplona (v14) (final candidate 19:27): manila with the round-5 swap decided by the average of current and expected final position; live #689 +0.40 +-0.13 vs manila
 
 """
 rival_2.py - Bayesian opponent model + a planner that exploits readers.
@@ -1100,6 +1100,7 @@ class Bot:
         eo = self._mo() - sum(obs.opp_known)
         mstack = (S - eo) / (U - k)
         hand = obs.hand
+        fpos = 0.5 * (fpos + pos)
         if fpos > 0:
             i = min(range(5), key=lambda x: hand[x])
             gain = fpos * (mstack - hand[i])
