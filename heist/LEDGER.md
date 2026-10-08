@@ -167,3 +167,5 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 | pp02_deltas | manila, 10 stage-1 price offsets instead of 6 | +0.012 +-0.024 / +0.020 +-0.025 | - | rejected (flat) |
 | qq01_swappos | manila, round-5 swap decided by the current position instead of the expected final position | field2 vs manila +0.059 +-0.023 (12 13), +0.053 +-0.024 (14 15) | - | passes; superseded by qq02 |
 | qq02_swapmix (test_qq02_swapmix.py) | manila, round-5 swap decided by the average of the current and the expected final position | field2 vs manila +0.115 +-0.016 (12 13), +0.129 +-0.018 (14 15) | sent 19:07 | passes (largest local gain since helsinki) |
+| qq03_swap37 / qq04_swap73 | qq02 with weights 0.3 / 0.7 on the expected final position (0.7 / 0.3 on the current one) | vs qq02: +0.014 +-0.006 / +0.014 +-0.008; -0.059 +-0.011 / -0.066 +-0.013 | - | weight 0.3 slightly better than 0.5 (too small to see live); qq02 stays the probe |
+| rr01_roll05 / rr02_roll075 | qq02, play-out of the rest of the deal weighted 0.5 / 0.75 in quote / respond | running | - | |
