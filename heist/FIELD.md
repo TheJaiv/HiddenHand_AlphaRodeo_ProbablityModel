@@ -100,3 +100,9 @@ One parameterised bot (heist/opp_core.py) fitted to each team's replays (heist/f
 
 Not calibrated (left out): AJ_The_Trader, ASYMMETRIC EDGE, Algo X, Alpha Predators, AnalysisParalysis, Apex Syndicate, Balls of Wall Street, Bayes and Bulls, Blind_Ambition, Bulls Squad, Chanakya, Chill Chips, Code Riders, Cyberpsycho, Dalal Street, Dark Pool Divers, Deal & Steal, Double Dividend, Explorers, Genz7, HAN SOLO, Happy Happy, Hidden Alpha, Imposters, MNC Traders, Money Heist, OptiMystics, Outliers, PaperHands, Phantom Halo, Pokemons, Pravichayah, QuantXAlpha, Quants Treasure, Quantumlesssss, Sattebaaz, Specter, TEAM ERROr, Team How, Techy Traders, TeenPatti, The Risk Violators, ThunderX, Trade Transmitters, Trinomial, Void Stalkers, alpha.
 
+
+## Equal-footing check (17:40)
+
+Top team's score minus bogota #611's against the same opponent uploads (real teams only): Imposters #615 -0.05 (n=53),
+PaperHands #624 -0.90 (n=35), MNC #594 -1.10 (n=51), Genz7 -1.15 (n=52), TeenPatti -0.99 (n=53). In the final everyone
+plays everyone, so this paired view is the one that matters: bogota is level with the leader.

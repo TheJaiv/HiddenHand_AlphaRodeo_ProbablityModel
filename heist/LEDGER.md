@@ -125,3 +125,9 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 | hh01 / hh02 | ee01 + 1 / 2 more points of taker edge | field2 -0.098 / -0.382 vs ee01 | - | rejected |
 | ii01_nor5 / ii02_step07 | bogota, no nudge in round 5 / step 0.7 | field2 -0.022 / -0.028 | - | rejected |
 | z02_topbogota (test_z02_topbogota.py) | bogota minus take thresholds / P_NAIVE (= rio + 30% nudge for everyone + no probes) | field2 -0.948 +-0.104 vs bogota | #621 (17:09): 41 wins of 42, only loss Cyberpsycho -0.87; but -0.45 +-0.61 vs bogota (n=38); top-10 teams shared: +1.18 vs bogota +1.16 (Genz7 +0.8 / HAN SOLO +1.6 / AJ +2.7 better, TeenPatti / QuantXAlpha worse) | rejected for the final: lower average; bogota stays |
+
+### 17:40 equal-footing check (top team score minus bogota #611's, same opponent uploads, real teams)
+Imposters #615 -0.05 (n=53), PaperHands #624 -0.90 (n=35), MNC #594 -1.10 (n=51), Genz7 #262 -1.15 (n=52),
+TeenPatti #330 -0.99 (n=53). On equal footing bogota is level with Imposters and ahead of every other top team; the
+standings' raw means differ because entries played different opponent sets. Remaining gaps: Blind_Ambition (top
+teams +3.7..+6.6 more) and HAN SOLO (+3.1..+4.9); both swing +-3 between our versions.
