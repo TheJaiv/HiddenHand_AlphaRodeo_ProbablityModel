@@ -14,9 +14,10 @@ from reportlab.platypus import (BaseDocTemplate, CondPageBreak, Frame, KeepToget
 from reportlab.platypus.tableofcontents import TableOfContents
 
 SRC, CONTENT, OUT = sys.argv[1:4]
-NAME = os.environ.get('GUIDE_NAME', 'pamplona.py')
+NAME = os.environ.get('GUIDE_NAME', 'professor.py')
 FINAL_ROW = os.environ.get('GUIDE_FINAL', 'heist/professor.py = heist/pamplona.py (v14), 1,112 lines')
 FOOT = os.environ.get('GUIDE_FOOT', 'heist/pamplona.py = heist/professor.py (final upload)')
+NPL = int(os.environ.get('GUIDE_NPLAN', '8'))
 SHIFT = int(os.environ.get('GUIDE_SHIFT', '0'))   # code lines from 41 on are this much lower in SRC
 
 
@@ -303,9 +304,9 @@ def flow_diagram():
         'their swap  →  belief shifts and widens (_see_swap); reweight; prune (line %d)' % sl(461)], '#f6f8fa')
     arrow(W / 2, y, y - 14)
     y -= 14 + 45
-    box(0, y, W, 45, '_ev + _plan_setup: value and the 6 likeliest hypotheses', [
+    box(0, y, W, 45, '_ev + _plan_setup: value and the %d likeliest hypotheses' % NPL, [
         'E[V | O] = α + β·O  (line %d)' % sl(666),
-        'top 6 hypotheses, the quotes of mine they read, the slots left (line %d)' % sl(840)], '#f6f8fa')
+        'top %d hypotheses, the quotes of mine they read, the slots left (line %d)' % (NPL, sl(840))], '#f6f8fa')
     gap = 10
     bw = (W - 2 * gap) / 3
     xs = [0, bw + gap, 2 * (bw + gap)]
