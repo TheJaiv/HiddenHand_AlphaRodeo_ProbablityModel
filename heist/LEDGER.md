@@ -24,6 +24,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 
 | v10 | palermo | stockholm | (y01) field2 +0.016 vs the 30% nudge (no calibrated top team locally) | #591 (15:55): vs #588 +0.43 +-0.38 (n=46), vs stockholm +0.61 +-0.37, vs rio +1.17 +-0.82; top teams: Imposters +1.91 (was -0.48), QuantXAlpha +1.86, TeenPatti +2.77, AJ +0.74; still PaperHands -1.60, Genz7 -1.04, HAN SOLO -1.67 | 30% quote nudge + undo moscow's public first quote and opponent-swap pricing |
 
+| v11 | bogota | palermo | (ee01) field2 +0.099 +-0.014 (12 13), +0.074 +-0.013 (14 15); old field +0.051 +-0.010 | #611 (16:45): +0.06 +-0.08 vs palermo (n=30), +0.17 +-0.15 vs bb01; vs newest top teams: Imposters #615 +1.98, MNC #594 +2.95, Techy #606 +0.57, QuantXAlpha +2.35, TeenPatti +2.79; still PaperHands -1.46, HAN SOLO -1.63, Genz7 -0.84 | the 30% quote nudge also against confident readers |
+
 ## Candidates and rejected ideas
 
 | Candidate | Change | Local | Live | Verdict |
@@ -115,9 +117,10 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 - It is copied to heist/professor.py (4th line names the original) and committed; validate + speed checked again.
 - Optional decoy: an older file (e.g. heist/tokyo.py) in the early evening so other teams do not tune against our final,
   then the final uploaded 1-2 hours before close (never in the last minutes). Needs the exact deadline from the organisers.
-- Current best live: palermo (#591). Candidates still testing: bb01 (step 2.0).
+- Current best live: bogota (#611) = palermo (#591) within noise; professor.py = bogota since 17:05.
 | cc01_nudge40 | palermo, nudge 40% | field2 +0.021 +-0.040 | - | flat: 30% stays |
 | dd01_clip5 / dd02_clip8 | palermo, clip my quote to +-5 / +-8 of the safe quote | field2 -0.162 / -0.107 | - | rejected: shrinking beats clipping |
-| ee01_nudgeall (test_ee01_nudgeall.py) | palermo, nudge also against confident readers | field2 seeds 12 13 +0.099 +-0.014, 14 15 +0.074 +-0.013; old field +0.051 +-0.010 (Outliers +0.4, QUANTUMLYSTUPID +0.3, ThunderX +0.2) | sent 16:30 | passes the gate |
+| ee01_nudgeall (test_ee01_nudgeall.py) | palermo, nudge also against confident readers | field2 seeds 12 13 +0.099 +-0.014, 14 15 +0.074 +-0.013; old field +0.051 +-0.010 | #611: +0.06 +-0.08 vs palermo | -> bogota |
 | gg01 / gg02 | ee01 with soft compression of large deviations (k 20 / 10) | field2 -0.085 / -0.193 vs ee01 | - | rejected: large planner deviations carry value |
 | hh01 / hh02 | ee01 + 1 / 2 more points of taker edge | field2 -0.098 / -0.382 vs ee01 | - | rejected |
+| ii01_nor5 / ii02_step07 | bogota, no nudge in round 5 / step 0.7 | field2 -0.022 / -0.028 | - | rejected |

@@ -1,7 +1,7 @@
 # Team Name: Alpha Rodeo
 # Members: Jaiv Patel(26075057)
 # Mentor: Arpit Gupta
-# Version: professor = palermo (v10) (provisional final 16:50; replaced if a later file beats it live): quote nudge 15% -> 30% towards the safe quote (live #588: +0.13 vs stockholm) and undo moscow's public first quote and opponent-swap pricing (live #591: +0.43 +-0.38 vs #588; wins back Imposters, QuantXAlpha, TeenPatti, AJ)
+# Version: professor = bogota (v11) (provisional final 17:05): the 30% quote nudge also against confident readers (field2 +0.099 / +0.074 on two seed pairs; live #611 +0.06 +-0.08 vs palermo, equal or better against every top team incl. Imposters #615 +1.98)
 
 """
 rival_2.py - Bayesian opponent model + a planner that exploits readers.
@@ -968,7 +968,7 @@ class Bot:
             if bestv is None or v > bestv:
                 bestv, bestp = v, p
         bestp = min(MAXP, max(0.0, bestp))
-        if -10 < pos < 10 and self._p_reader()[0] < 0.85:
+        if -10 < pos < 10:
             safe = self._safe_quote(obs, alpha + beta * self._mo())
             if safe is not None:
                 return (1 - SAFE_W) * bestp + SAFE_W * safe
