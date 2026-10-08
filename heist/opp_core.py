@@ -13,13 +13,13 @@ Quote:   first quote of the deal: (1-H1)*E + H1*public + FQ
          later: W*(their last quote, carried for board cards, + C*s) + (1-W)*((1-HIDE)*E + HIDE*public) + QA
                 s = sign(E - their last quote) if CSIGN else +1;   minus SKEW * position
 Respond: edge = E (reading the price too if TP, with trust TR) - price; |edge| > TH -> 1 lot, > TH2 -> 2 lots,
-         at most R1L lots in round 1; a price further than SANR from the public estimate is ignored.
+         at most R1L lots in round 1; ASYM shifts the edge (buy more readily than sell); a price further than SANR from the public estimate is ignored.
 Move:    one swap from round RS on: lowest card when long (or flat and E > public), highest when short,
          if the card is at least SG from the unseen average. PK: peek in round PK (0 = never).
 """
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -107,7 +107,7 @@ def make_bot(P):
             E, pub = self._est(obs, price)
             if abs(price - pub) > P["SANR"]:
                 return 0
-            e = E - price
+            e = E - price + P["ASYM"]          # ASYM > 0: buys more readily than it sells
             n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
             if obs.round == 1:
                 n = min(n, P["R1L"])

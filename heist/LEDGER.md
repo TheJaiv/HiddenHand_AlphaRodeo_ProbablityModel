@@ -13,7 +13,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 | v01 | berlin | tokyo | house bots (exact, seeds 1-3 x 400): reader +3.0, sharp +0.9, naive 0.0 | #459 / #466 (same code) vs #452: +0.07 +-0.20 (n=51), +0.11 +-0.21 (n=49) | = versions/hunt_v14.py: blend quoters with lam 0.2, blend-only trade-learning prior, crush of exact house readers |
 | v02 | nairobi | berlin | house bots (exact, seeds 1-3 x 400): reader +7.5 (31.0 vs 23.6), sharp +9.7 (29.6 vs 20.0), naive 0.0; field weight 2/57 -> about +0.30. Decisions identical to berlin in all 418 cached live fights except vs house reader / sharp | #495 (10:21): vs #466 berlin +0.39 (n=45): differs ONLY vs reader +7.4, sharp +10.0 (no false trigger on 400 deals x 45 teams); vs #486 tokyo +0.41 +-0.54 (n=57) | exact house-reader attack (merge line's planner), only after two quotes fit the reader formula to 0.005; off at the first unexpected answer. Slowest quote 3.7 ms |
 | v03 | rio | nairobi | calibrated imitations (opp_happy_happy_463, opp_paperhands, opp_teenpatti: live within 1.5), seeds 1-3 and 4-7: Happy +2.5 / +3.4, PaperHands +2.3 / +3.0, TeenPatti +2.1 / +2.4; house bots +0.05..+0.5; other new imitations +1.7..+2.9 | #505 (10:41) vs #495 nairobi: +0.93 +-0.39 (n=50; Balls +4.5, IITBHU +4.5, Trade Transmitters +3.1; alpha -2.4, Quantumlesssss -1.7) | swap only in round 5. Field model (22 calibrated imitations + house, seeds 4 5): rio +5.68, nairobi +3.76, tokyo +3.30; rio - nairobi +1.92 +-0.15 |
-| v04 | denver | rio | field model vs rio: seeds 4 5 +0.114 +-0.049, seeds 6 7 +0.115 +-0.051 (all opponents within -0.3..+0.5) | pending | first quote of the deal = public estimate |
+| v04 | denver | rio | field model vs rio: seeds 4 5 +0.114 +-0.049, seeds 6 7 +0.115 +-0.051 (all opponents within -0.3..+0.5) | not uploaded alone (bundled into moscow) | first quote of the deal = public estimate |
+| v05 | moscow | denver | field model vs denver (c14_oppswap06): seeds 4 5 +0.105 +-0.062, 6 7 +0.129 +-0.059, 8 9 +0.109 +-0.063, 10 11 (800 deals) +0.077 +-0.044 -> above 2 se on 6 7 and 10 11; gains vs followers (Genz7, Pokemons, QuantXAlpha, QUANTUMLYSTUPID +0.5..+0.6), costs vs non-swappers (naive -0.7) | pending | price in the opponent's coming swap (K 0.6) |
 
 ## Candidates and rejected ideas
 
@@ -33,3 +34,10 @@ Our live entries identified from replays: #452 = #486 = tokyo; #459, #466 = hunt
 | c09_pblend25 | rio, P_BLEND 0.12 -> 0.25 | field model: +0.053 +-0.050 / +0.064 +-0.052 | - | not significant on either seed pair |
 | c10_risk30 / c10_risk120 | rio, RISK 60 -> 30 / 120 | field model: +0.046 +-0.028 and +0.057 +-0.027 / -0.077 +-0.037 | - | fails one seed pair / rejected |
 | c11_pen1 | rio, 1 point extra edge per lot when answering | field model: +0.035 +-0.075 | - | not significant |
+| c12_boffset | denver, blend quoters with a constant step (0 / +1.3 / -1.3) | field model: -0.008 +-0.030 | - | rejected |
+| c13_r1lot | denver, answer at most 1 lot in round 1 | field model: -0.060 +-0.047 | - | rejected |
+| c14_oppswap06 / 10 | denver, price in the opponent's coming swap, K 0.6 / 1.0 | K 0.6: see moscow; K 1.0: -0.001 +-0.073 | - | K 0.6 -> moscow |
+| c15_pen23a/b/c | denver, extra taker edge in rounds 2-3 (we lose as taker there against every fitted team) | +0.001 / +0.036 / +0.089 (+-0.06) | - | not significant |
+| c16_sigq10 / 15 | denver, SIG_Q 0.5 -> 1.0 / 1.5 | 1.0: seeds 4 5 +0.102 +-0.058, 6 7 +0.136 +-0.062, 8 9 +0.079 +-0.061, 10 11 (800) +0.048 +-0.043; 1.5: +0.069 +-0.067 | - | to be re-tested on moscow |
+| c17_safeq | denver, safe quote (their last quote +-1.3) unless reader / at the limit | field model: -1.149 +-0.121 | - | rejected again (on the calibrated field) |
+| c18_late | denver, take more readily in rounds 4-5 (-0.5 per lot) | -0.035 +-0.015 | - | rejected |
