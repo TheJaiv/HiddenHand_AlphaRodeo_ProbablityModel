@@ -26,6 +26,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 
 | v11 | bogota | palermo | (ee01) field2 +0.099 +-0.014 (12 13), +0.074 +-0.013 (14 15); old field +0.051 +-0.010 | #611 (16:45): +0.06 +-0.08 vs palermo (n=30), +0.17 +-0.15 vs bb01; vs newest top teams: Imposters #615 +1.98, MNC #594 +2.95, Techy #606 +0.57, QuantXAlpha +2.35, TeenPatti +2.79; still PaperHands -1.46, HAN SOLO -1.63, Genz7 -0.84 | the 30% quote nudge also against confident readers |
 
+| v12 | marseille | bogota | field2 vs bogota +0.014 +-0.009 (fast02 exact: -0.001, fast03 prune 8: +0.002); same-play check: 32 of 720 plays differ; speed: median 0.20 vs 0.29 ms, p99 0.99 vs 1.18 ms, total -32%; vs naive p99 0.59 vs 0.84 ms | pending (sent 17:45) | speed only (arena warned of calls over 50 ms): answer model cached per quote, fused Kalman step, heapq top-N, PRUNE 12 -> 6 |
+
 ## Candidates and rejected ideas
 
 | Candidate | Change | Local | Live | Verdict |
@@ -132,7 +134,7 @@ TeenPatti #330 -0.99 (n=53). On equal footing bogota is level with Imposters and
 standings' raw means differ because entries played different opponent sets. Remaining gaps: Blind_Ambition (top
 teams +3.7..+6.6 more) and HAN SOLO (+3.1..+4.9); both swing +-3 between our versions.
 | ll01_oppswap (test_ll01_oppswap.py) | bogota + opponent-swap pricing back (half of palermo's undo) | field2 -0.056 +-0.050 | #629 (17:26): -0.02 +-0.20 vs bogota (n=39); vs leaders weaker (Imposters -0.17 vs +0.05, TeenPatti +0.66 vs +0.99) | rejected: tie, bogota stays |
-| ll02_pubfirst (test_ll02_pubfirst.py) | bogota + public-estimate first quote back (the other half) | field2 -0.035 +-0.067 | sent 17:31 | pending |
+| ll02_pubfirst (test_ll02_pubfirst.py) | bogota + public-estimate first quote back (the other half) | field2 -0.035 +-0.067 | not uploaded | dropped for the speed fix |
 
 ### 17:30 our versions vs the leaders (ours minus theirs on shared opponent uploads, real teams)
 | Ours minus | rio | stockholm | 30% nudge | palermo | bogota | z02 |
@@ -143,3 +145,5 @@ teams +3.7..+6.6 more) and HAN SOLO (+3.1..+4.9); both swing +-3 between our ver
 | Genz7 #262 | -0.22 | +0.28 | +0.31 | +0.95 | +1.15 | +0.43 |
 | TeenPatti #330 | -0.08 | +0.34 | +0.40 | +0.90 | +0.99 | +0.27 |
 bogota is the best of our versions against every leader.
+| fast01 / fast02 (speed, exact) | bogota with the answer model cached per quote + heapq / + fused Kalman step | identical play on 600 plays; -13% total time | - | folded into marseille |
+| fast03_prune8 / fast04_prune6 | fast02 with PRUNE 8 / 6 | field2 +0.002 / +0.014; 3 / 28 of 600 plays differ; -25% / -40% total time | - | fast04 -> marseille |
