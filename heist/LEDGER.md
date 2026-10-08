@@ -147,3 +147,7 @@ teams +3.7..+6.6 more) and HAN SOLO (+3.1..+4.9); both swing +-3 between our ver
 bogota is the best of our versions against every leader.
 | fast01 / fast02 (speed, exact) | bogota with the answer model cached per quote + heapq / + fused Kalman step | identical play on 600 plays; -13% total time | - | folded into marseille |
 | fast03_prune8 / fast04_prune6 | fast02 with PRUNE 8 / 6 | field2 +0.002 / +0.014; 3 / 28 of 600 plays differ; -25% / -40% total time | - | fast04 -> marseille |
+
+17:50 arena team page ("Problems in your fights", only our team sees it) for ll01 #629: "Time limit exceeded: a call took over
+50 ms ... x2" - 2 calls in about 1.4 million (58 fights x 400 deals x 2 seats x ~30 calls): negligible, consistent with rare
+machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). marseille cuts the work per call by 30-40%.
