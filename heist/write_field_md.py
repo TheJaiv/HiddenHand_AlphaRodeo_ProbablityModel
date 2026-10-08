@@ -9,7 +9,7 @@ fits = json.load(open(os.path.join(HERE, "data", "fits.json")))
 cal = json.load(open(os.path.join(HERE, "data", "calib.json")))
 field = json.load(open(os.path.join(HERE, "data", "field2.json")))
 st, nw, ours, mat = m["standings"], m["newest"], m["ours"], m["matrix"]
-OURS = [e for e in ("573", "565", "561") if e in ours]
+OURS = [e for e in ("591", "588") if e in ours]
 
 
 def style(P):
@@ -30,20 +30,20 @@ L.append("# The live field (heist/FIELD.md)\n")
 L.append(f"Census {m['made']} from the public standings and fight list (heist/census.py; data in heist/data/). "
          "Every live fight uses the same hidden 400-deal set, so a deterministic bot scores exactly the same against an "
          "unchanged opponent upload: our paired live comparisons have no deal noise per opponent.\n")
-L.append("Our entries: #486 tokyo, #495 nairobi, #505 rio, #513 moscow, #561 helsinki, #565 lisbon, #569 j01 (safe-quote test), #573 e01.\n")
+L.append("Our entries: #486 tokyo, #495 nairobi, #505 rio, #513 moscow, #561 helsinki, #565 lisbon, #569 j01 (safe-quote test), #573 e01, #586 stockholm, #588 30% nudge, #591 palermo, #596 aa01. Since 15:40 the house bots no longer count.\n")
 L.append("## Top 15\n")
-L.append("| # | Team | Score | Won | Newest | e01 #573 vs it | helsinki #561 vs it | Style (fit) |")
+L.append("| # | Team | Score | Won | Newest | palermo #591 vs it | 30% nudge #588 vs it | Style (fit) |")
 L.append("|---|---|---|---|---|---|---|---|")
 for r in [x for x in st if x["rank"]][:15]:
     t = r["team"]
-    a = vs("573", t) if "573" in ours else None
-    b = vs("561", t)
+    a = vs("591", t) if "591" in ours else None
+    b = vs("588", t)
     sty = style(fits[t]["P"]) if t in fits else "-"
     L.append(f"| {r['rank']} | {t} | {r['score']:+.2f} | {r['won']}/{r['fights']} | #{nw[t]} | "
              f"{'-' if a is None else f'{a:+.2f}'} | {'-' if b is None else f'{b:+.2f}'} | {sty} |")
 L.append("")
-L.append("## Who beats us, whom we beat (e01 #573 against each team's newest entry)\n")
-row = ours["573"]
+L.append("## Who beats us, whom we beat (palermo #591 against each team's newest entry it played)\n")
+row = {k: v for k, v in ours["591"].items() if not k.startswith("House")}
 lose = sorted((s, k) for k, s in row.items() if s < 0)
 win = sorted(((s, k) for k, s in row.items() if s >= 0), reverse=True)
 L.append("Beat us: " + ", ".join(f"{k} {s:+.2f}" for s, k in lose) + ".\n")

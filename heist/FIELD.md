@@ -1,45 +1,45 @@
 # The live field (heist/FIELD.md)
 
-Census 2026-10-08 15:18 from the public standings and fight list (heist/census.py; data in heist/data/). Every live fight uses the same hidden 400-deal set, so a deterministic bot scores exactly the same against an unchanged opponent upload: our paired live comparisons have no deal noise per opponent.
+Census 2026-10-08 16:21 from the public standings and fight list (heist/census.py; data in heist/data/). Every live fight uses the same hidden 400-deal set, so a deterministic bot scores exactly the same against an unchanged opponent upload: our paired live comparisons have no deal noise per opponent.
 
-Our entries: #486 tokyo, #495 nairobi, #505 rio, #513 moscow, #561 helsinki, #565 lisbon, #569 j01 (safe-quote test), #573 e01.
+Our entries: #486 tokyo, #495 nairobi, #505 rio, #513 moscow, #561 helsinki, #565 lisbon, #569 j01 (safe-quote test), #573 e01, #586 stockholm, #588 30% nudge, #591 palermo, #596 aa01. Since 15:40 the house bots no longer count.
 
 ## Top 15
 
-| # | Team | Score | Won | Newest | e01 #573 vs it | helsinki #561 vs it | Style (fit) |
+| # | Team | Score | Won | Newest | palermo #591 vs it | 30% nudge #588 vs it | Style (fit) |
 |---|---|---|---|---|---|---|---|
-| 1 | PaperHands | +5.59 | 54/56 | #508 | -0.44 | -0.32 | blend |
-| 2 | Imposters | +5.34 | 55/56 | #574 | +0.14 | - | blend |
-| 3 | Alpha Rodeo | +5.01 | 53/56 | #573 | - | - | - |
-| 4 | Genz7 | +4.64 | 50/56 | #262 | -0.71 | -1.29 | follower |
-| 5 | QuantXAlpha | +4.62 | 52/57 | #547 | -0.10 | -0.06 | follower |
-| 6 | TeenPatti | +4.40 | 50/56 | #330 | +1.26 | +0.69 | blend |
-| 7 | MNC Traders | +3.88 | 36/56 | #581 | +0.67 | - | blend |
-| 8 | HAN SOLO | +3.85 | 48/56 | #563 | +0.21 | -0.69 | blend |
-| 9 | Techy Traders | +3.70 | 42/56 | #570 | +3.41 | - | follower |
-| 10 | Chill Chips | +3.36 | 51/56 | #531 | +0.23 | +0.98 | blend |
-| 11 | Happy Happy | +3.36 | 47/56 | #575 | +0.26 | - | blend |
-| 12 | Pokemons | +3.33 | 43/57 | #214 | +0.42 | +0.68 | follower |
-| 13 | The Risk Violators | +3.23 | 44/56 | #391 | +1.42 | +1.79 | blend |
-| 14 | Quants Treasure | +3.07 | 44/57 | #514 | +0.27 | +0.01 | follower |
-| 15 | Double Dividend | +2.94 | 41/57 | #453 | +2.06 | +0.44 | follower |
+| 1 | Imposters | +5.01 | 53/54 | #574 | +1.91 | -0.48 | blend |
+| 2 | PaperHands | +4.67 | 50/53 | #508 | -1.60 | -1.73 | blend |
+| 3 | TeenPatti | +4.05 | 48/54 | #330 | +2.77 | +1.93 | blend |
+| 4 | Genz7 | +3.97 | 45/54 | #262 | -1.04 | -0.54 | follower |
+| 5 | QuantXAlpha | +3.95 | 48/53 | #547 | +1.86 | -0.28 | follower |
+| 6 | AJ_The_Trader | +3.47 | 45/54 | #585 | +0.74 | -0.95 | blend |
+| 7 | MNC Traders | +3.34 | 32/44 | #594 | - | - | blend |
+| 8 | Alpha Rodeo | +3.21 | 41/44 | #596 | - | - | - |
+| 9 | HAN SOLO | +3.18 | 43/53 | #563 | -1.67 | +0.99 | blend |
+| 10 | Chill Chips | +2.94 | 49/54 | #531 | +1.18 | +1.74 | blend |
+| 11 | The Risk Violators | +2.84 | 40/54 | #391 | +3.03 | +2.65 | blend |
+| 12 | Pokemons | +2.69 | 40/55 | #214 | +4.48 | +0.88 | follower |
+| 13 | Happy Happy | +2.60 | 45/55 | #575 | +2.07 | +2.07 | blend |
+| 14 | Techy Traders | +2.54 | 7/8 | #599 | - | - | follower |
+| 15 | Double Dividend | +2.45 | 38/54 | #453 | +4.00 | +2.11 | follower |
 
-## Who beats us, whom we beat (e01 #573 against each team's newest entry)
+## Who beats us, whom we beat (palermo #591 against each team's newest entry it played)
 
-Beat us: Genz7#262 -0.71, PaperHands#508 -0.44, QuantXAlpha#547 -0.10.
+Beat us: HAN SOLO#563 -1.67, PaperHands#508 -1.60, Genz7#262 -1.04, Techy Traders#589 -0.34.
 
-We beat 61 of 64; biggest: House · reader#2 +31.47, House · sharp#3 +30.42, Alpha Predators#577 +22.53, Alpha Predators#492 +22.53, OptiMystics#430 +12.59, Chanakya#200 +9.77, IITBHUAVENGERS#527 +9.68, Code Riders#533 +9.58, Apex Syndicate#294 +9.36, Void Stalkers#195 +9.34.
+We beat 52 of 56; biggest: OptiMystics#430 +17.55, Code Riders#533 +14.13, IITBHUAVENGERS#527 +12.16, Alpha Predators#590 +11.50, Dalal Street#572 +11.20, Apex Syndicate#294 +10.45, Bulls Squad#370 +10.25, Void Stalkers#195 +9.10, Chanakya#200 +8.69, AnalysisParalysis#242 +8.55.
 
 ## Who beats the top teams (newest vs newest)
 
-- PaperHands: Chill Chips -1.49, Imposters -1.31
-- Imposters: Alpha Rodeo -0.14
-- Alpha Rodeo: Genz7 -0.71, PaperHands -0.44, QuantXAlpha -0.10
-- Genz7: Imposters -2.82, AJ_The_Trader -1.58, Cyberpsycho -1.36, QuantXAlpha -1.16, TeenPatti -1.01, PaperHands -0.85, Chill Chips -0.74
-- QuantXAlpha: PaperHands -3.14, Imposters -1.46, Chill Chips -0.50, Sattebaaz -0.31, The Risk Violators -0.19, AJ_The_Trader -0.07
-- TeenPatti: Double Dividend -3.49, PaperHands -1.68, Alpha Rodeo -1.26, Cyberpsycho -0.78, QuantXAlpha -0.39, Imposters -0.21
-- MNC Traders: Outliers -5.12, PaperHands -4.94, Imposters -4.42, QuantXAlpha -3.67, TeenPatti -3.25, Techy Traders -2.74, QUANTUMLYSTUPID -2.54, Cyberpsycho -2.53, AJ_The_Trader -2.11, Happy Happy -2.10, Hidden Alpha -2.03, Genz7 -1.41, Sattebaaz -1.35, Quantumlesssss -1.16, HAN SOLO -1.05, Alpha Rodeo -0.72, Quants Treasure -0.72, The Risk Violators -0.58, Chill Chips -0.33, ThunderX -0.30, Pokemons -0.10
-- HAN SOLO: PaperHands -3.95, TeenPatti -2.36, Imposters -2.03, Genz7 -1.46, QuantXAlpha -1.26, Pokemons -0.79, Chill Chips -0.46, Alpha Rodeo -0.21, AJ_The_Trader -0.04
+- Imposters: Alpha Rodeo -0.92
+- PaperHands: Chill Chips -1.49, Imposters -1.31, Alpha Rodeo -0.49
+- TeenPatti: Double Dividend -3.49, PaperHands -1.68, Cyberpsycho -0.78, Alpha Rodeo -0.75, QuantXAlpha -0.39, Imposters -0.21
+- Genz7: Imposters -2.82, Techy Traders -2.28, AJ_The_Trader -1.63, Cyberpsycho -1.36, QuantXAlpha -1.16, TeenPatti -1.01, PaperHands -0.85, Chill Chips -0.74, MNC Traders -0.71
+- QuantXAlpha: PaperHands -3.14, Imposters -1.46, Chill Chips -0.50, The Risk Violators -0.19, AJ_The_Trader -0.12
+- AJ_The_Trader: PaperHands -2.31, Alpha Rodeo -2.12, Sattebaaz -1.65, Imposters -1.25, TeenPatti -0.82, The Risk Violators -0.79, Pokemons -0.67, MNC Traders -0.04, Chill Chips -0.00
+- MNC Traders: PaperHands -4.19, Imposters -3.07, QUANTUMLYSTUPID -2.56, Happy Happy -1.67, Cyberpsycho -1.49, QuantXAlpha -1.04, Chill Chips -0.97, Quantumlesssss -0.88, TeenPatti -0.35, Alpha Rodeo -0.22, Outliers -0.06, AJ_The_Trader -0.02
+- Alpha Rodeo: QuantXAlpha -0.97, Genz7 -0.92, Cyberpsycho -0.71
 
 ## Styles (from replays)
 
