@@ -124,3 +124,4 @@ the mid-field. With top teams likely to upload their best at the end, the final 
 | gg01 / gg02 | ee01 with soft compression of large deviations (k 20 / 10) | field2 -0.085 / -0.193 vs ee01 | - | rejected: large planner deviations carry value |
 | hh01 / hh02 | ee01 + 1 / 2 more points of taker edge | field2 -0.098 / -0.382 vs ee01 | - | rejected |
 | ii01_nor5 / ii02_step07 | bogota, no nudge in round 5 / step 0.7 | field2 -0.022 / -0.028 | - | rejected |
+| z02_topbogota (test_z02_topbogota.py) | bogota minus take thresholds / P_NAIVE (= rio + 30% nudge for everyone + no probes) | field2 -0.948 +-0.104 vs bogota | #621 (17:09): 41 wins of 42, only loss Cyberpsycho -0.87; but -0.45 +-0.61 vs bogota (n=38); top-10 teams shared: +1.18 vs bogota +1.16 (Genz7 +0.8 / HAN SOLO +1.6 / AJ +2.7 better, TeenPatti / QuantXAlpha worse) | rejected for the final: lower average; bogota stays |
