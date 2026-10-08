@@ -15,7 +15,10 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 | v03 | rio | nairobi | calibrated imitations (opp_happy_happy_463, opp_paperhands, opp_teenpatti: live within 1.5), seeds 1-3 and 4-7: Happy +2.5 / +3.4, PaperHands +2.3 / +3.0, TeenPatti +2.1 / +2.4; house bots +0.05..+0.5; other new imitations +1.7..+2.9 | #505 (10:41) vs #495 nairobi: +0.93 +-0.39 (n=50; Balls +4.5, IITBHU +4.5, Trade Transmitters +3.1; alpha -2.4, Quantumlesssss -1.7) | swap only in round 5. Field model (22 calibrated imitations + house, seeds 4 5): rio +5.68, nairobi +3.76, tokyo +3.30; rio - nairobi +1.92 +-0.15 |
 | v04 | denver | rio | field model vs rio: seeds 4 5 +0.114 +-0.049, seeds 6 7 +0.115 +-0.051 (all opponents within -0.3..+0.5) | not uploaded alone (bundled into moscow) | first quote of the deal = public estimate |
 | v05 | moscow | denver | field model vs denver (c14_oppswap06): seeds 4 5 +0.105 +-0.062, 6 7 +0.129 +-0.059, 8 9 +0.109 +-0.063, 10 11 (800 deals) +0.077 +-0.044 -> above 2 se on 6 7 and 10 11; gains vs followers (Genz7, Pokemons, QuantXAlpha, QUANTUMLYSTUPID +0.5..+0.6), costs vs non-swappers (naive -0.7) | #513 (11:02) vs #505 rio: +0.04 +-0.19 (n=52): neutral live (expected +0.2) | price in the opponent's coming swap (K 0.6) |
-| v06 | helsinki | moscow | field model vs moscow, 800 deals: seeds 10 11 +0.855 +-0.069, seeds 12 13 +0.865 +-0.071 (avengers captain_america, same idea with the fill-price bug: +0.706 +-0.070); biggest gains Pokemons +2.7, Happy463 +2.8, ThunderX +2.2, Phantom +2.0, QUANTUMLYSTUPID +2.0, Godtier +1.7; costs HAN SOLO -0.8, Double Dividend -0.8, Quant Qods -0.3 | pending (sent 13:30) | per-hypothesis opponent take threshold 2 / 7 + P_NAIVE 0.45 |
+| v06 | helsinki | moscow | field model vs moscow, 800 deals: seeds 10 11 +0.855 +-0.069, seeds 12 13 +0.865 +-0.071 (avengers captain_america, same idea with the fill-price bug: +0.706 +-0.070); biggest gains Pokemons +2.7, Happy463 +2.8, ThunderX +2.2, Phantom +2.0, QUANTUMLYSTUPID +2.0, Godtier +1.7; costs HAN SOLO -0.8, Double Dividend -0.8, Quant Qods -0.3 | #561 (13:28) vs #513 moscow: -0.03 +-0.34 (n=49): neutral. Gains Dark Pool +2.7, Godtier +2.6, OptiMystics +2.3, Cyberpsycho +2.2, QUANTUMLYSTUPID +1.9; costs Techy -1.9, HAN SOLO -1.9, ThunderX -1.8, Imposters -1.6, Double Dividend -1.3 | per-hypothesis opponent take threshold 2 / 7 + P_NAIVE 0.45 |
+
+| v07 | oslo | helsinki | field model vs helsinki (800 deals): seeds 10 11 +0.116 +-0.049, seeds 12 13 +0.200 +-0.049 | not uploaded alone (in lisbon) | P_NAIVE 0.45 -> 0.3 |
+| v08 | lisbon | oslo | field model: no-op (no double peekers in it); decisions = oslo except vs teams that peek twice in a deal | pending (sent ~13:50) | peeker defence: after 2 opponent peeks, quote 1.3 from its last quote, take only with 3 more points of edge (QT: top teams +8 more than us) |
 
 ## Candidates and rejected ideas
 
@@ -53,3 +56,9 @@ avengers/captain_america.py = moscow + take-threshold hypotheses (2 / 7) + P_NAI
 seeds 10 11, 800 deals): +0.706 +-0.070 vs moscow. Its immediate-profit formula books a taker's fill at price + threshold
 instead of price + 2; heist's helsinki is the same idea with that fixed (+0.15 better). Its follow-up candidates b01-b11 were
 all flat or negative; its imitations of Cyberpsycho / Imposters / QT / Godtier / Trade Transmitters are not calibrated.
+| d01_th6040 / d02_th257 / d04_sigq10 | helsinki, threshold prior 2/7 at 0.6/0.4 / thresholds 2/5/7 / SIG_Q 1.0 | +0.004 / -0.006 / -0.035 (+-0.04) | - | rejected |
+| d03_naive03 | helsinki, P_NAIVE 0.3 | +0.116 / +0.200 (+-0.049) | - | -> oslo |
+| c24_honestswap / c24h | moscow / helsinki, early swap only vs 'honest' quoters (rio's late swap cost -1..-2.4 vs alpha, DD, Bayes, Quantumlesssss) | -0.347 +-0.037 / -0.133 +-0.027 | - | rejected: the honesty test also fires on PaperHands / Techy |
+
+Lesson (13:45): the field model over-predicts live gains (rio +1.9 local / +0.85 live; moscow +0.2 / 0.0; helsinki +0.86 / 0.0).
+Structural changes found from live data (house attack, swap timing) are what moved the live score.
