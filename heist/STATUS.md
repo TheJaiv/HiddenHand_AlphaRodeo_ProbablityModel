@@ -1,13 +1,13 @@
 # Heist status (the one file to look at)
 
-Updated 18:45, Thu 8 Oct. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
+Updated 18:45, Thu 8 Oct (swap-bar probe). The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
 
 | | File | Why |
 |---|---|---|
 | FINAL | heist/marseille.py = heist/professor.py (#636) | bogota's strategy, 30-40% faster; live +0.02 vs bogota; level with Imposters, ahead of PaperHands / MNC / Genz7 / TeenPatti on the same opponents |
 | BEST LIVE | heist/bogota.py (= test_ee01_nudgeall.py, #611, up 16:45; = professor.py) | +0.06 +-0.08 vs palermo; >= palermo against every top team (Imposters #615 +1.98, MNC +2.95, Techy #606 +0.57) |
 | ALSO PROVEN | heist/palermo.py (#591) | best live file: +0.43 +-0.38 vs the 30% nudge #588, +0.61 vs stockholm, +1.17 vs rio on real teams; wins back Imposters (+1.91), QuantXAlpha (+1.86), TeenPatti (+2.77), AJ (+0.74) |
-| UPLOAD NOW | (mm04 #656 is live and ties marseille; next probe from the nn01-03 screen, else nothing) | mm03 lost -0.53; mm04 tie |
+| UPLOAD NOW | heist/test_nn04_swap1.py (round-5 swap bar 4 -> 1; local +0.049 / +0.059 on two seed pairs) | live probe; the final stays professor.py unless it wins |
 | FALLBACK (proven live) | heist/bogota.py or heist/palermo.py | re-upload if a test comes out worse |
 
 Live results on real teams (paired: same opponent uploads, newest minus the previous):
