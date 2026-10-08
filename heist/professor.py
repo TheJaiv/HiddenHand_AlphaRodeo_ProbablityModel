@@ -1,43 +1,7 @@
 # Team Name: Alpha Rodeo
 # Members: Jaiv Patel(26075057)
 # Mentor: Arpit Gupta
-# Version: professor = pamplona (v14) (final candidate 19:27): manila with the round-5 swap decided by the average of current and expected final position; live #689 +0.40 +-0.13 vs manila
 
-"""
-rival_2.py - Bayesian opponent model + a planner that exploits readers.
-
-The stock is worth my hand + the board + the opponent's hand O, so the game is
-estimating O, and knowing how the opponent estimates mine.
-
-Inference
-    A set of hypotheses about HOW the opponent forms its fair value:
-        reads   does it read my quotes at all (naive vs reader)
-        rule    raw / clamped to a legal hand / ignores implausible quotes /
-                also reads the very price it is answering
-        lam     how much of its own hand its quotes reveal (1 honest .. 0 none;
-                0 also covers strategic quoters, whose quotes mean nothing)
-        tau     how far it moves its estimate of my hand per lot I trade
-        kappa   bias for "the opponent will swap" (ai-style bots)
-    Each hypothesis carries a 2-D Gaussian over (O, trust t) updated by an
-    extended Kalman filter: their quotes are noisy linear readings of their
-    fair value; their responses to my quotes say their fair value is above /
-    below / within 2 of my price (truncated-normal update). Hypotheses are
-    reweighted by how well they predicted what happened; outliers are expected.
-
-Decisions
-    Every candidate action (a price to quote; buy / pass / sell) is scored as
-    the expected profit now plus a play-out of the rest of the deal under the
-    top hypotheses, through a concave (square-root-like) utility, as the score.
-    Readers believe my quotes, which makes them steerable:
-      * at +-10 lots my quote cannot be traded against in the bad direction,
-        so an extreme price is free. A reader then thinks the stock is worth
-        ~170 (or ~20) and trades into my position at absurd prices.
-      * a paid "probe" (a quote implying a hand of 63 or 7) is only used once
-        the opponent is clearly a reader with informative quotes, and only
-        when its next quote will show whether the probe worked.
-    Swap: lowest card if I expect to end long, highest if short, when the
-    expected final position x (new card - old card) is large enough.
-"""
 
 import heapq
 import math

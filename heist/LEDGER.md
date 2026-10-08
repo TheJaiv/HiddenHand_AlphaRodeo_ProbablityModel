@@ -175,3 +175,4 @@ machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). m
 | rr02_roll075 (test_rr02_roll075.py) | qq02, play-out of the rest of the deal weighted 0.75 in quote / respond | vs qq02 +0.297 +-0.075 (12 13), +0.263 +-0.078 (14 15) | #701 (19:27): vs pamplona -0.356 +-0.333 at n=14 (worse on 10), -0.112 +-0.274 at n=26; vs manila +0.31, vs marseille +0.43 (its swap part) | rejected: the play-out weight does not hold up live; final = pamplona |
 
 19:36 FINAL: heist/professor.py = pamplona (v14), live #689 +0.40 +-0.13 vs manila. Last test rr02 (#701) rejected.
+19:45 FINAL UPLOADED: heist/professor.py as committed here = pamplona's code byte for byte, with the version line and the description docstring removed by the user before upload (1,076 lines; code lines are 36 lower than in pamplona.py).
