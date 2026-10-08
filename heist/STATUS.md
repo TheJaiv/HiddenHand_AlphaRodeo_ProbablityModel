@@ -1,28 +1,28 @@
 # Heist status (the one file to look at)
 
-Updated 15:58, Thu 8 Oct. House bots no longer count; upload limit now 15 minutes.
+Updated 16:05, Thu 8 Oct. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
 
 | | File | Why |
 |---|---|---|
-| LIVE NOW | heist/test_y01_topfix.py (sent 15:55) | 30% nudge minus moscow's two changes that cost vs top teams. Check vs #588 at about 16:20 |
-| FALLBACK (proven live) | heist/test_u01_nudge30.py (#588) | real teams +4.59 (#3); +0.13 vs stockholm #586 (+0.46 vs lisbon); house bots no longer count since 15:40 |
-| NEXT IN QUEUE | heist/cand/e01_thonly.py (moscow + take thresholds, no P_NAIVE change) | only if lisbon loses more to Imposters / Genz7 than helsinki did: separates helsinki's two changes live |
+| LIVE NOW | heist/palermo.py (= test_y01_topfix.py, #591, up 15:55) | best live file: +0.43 +-0.38 vs the 30% nudge #588, +0.61 vs stockholm, +1.17 vs rio on real teams; wins back Imposters (+1.91), QuantXAlpha (+1.86), TeenPatti (+2.77), AJ (+0.74) |
+| NEXT IN QUEUE | heist/test_aa01_naive06.py (upload from ~16:10) | palermo with P_NAIVE back to 0.6: lowering it cost -0.17 against top teams live; target Genz7 / HAN SOLO / PaperHands |
+| FALLBACK (proven live) | heist/palermo.py (#591) | re-upload it if a test comes out worse |
 
-Live results so far (paired: same opponent uploads, our newest minus the previous):
+Live results on real teams (paired: same opponent uploads, newest minus the previous):
 
 | Entry | File | Paired result | Rank / score |
 |---|---|---|---|
 | #486 | tokyo | reference | |
-| #495 | nairobi | +0.41 vs tokyo (house reader +7.4, sharp +10.0, nothing else changed) | |
-| #505 | rio | +0.85 +-0.37 vs nairobi | #2 at +5.43 (11:00) |
-| #513 | moscow | +0.04 +-0.19 vs rio | #4 at +5.35 |
-| #561 | helsinki | -0.03 +-0.34 vs moscow | #4 at +5.38 |
-| #565 | lisbon | -0.02 +-0.26 vs helsinki; peeker defence hurt (QT -0.65, Team How -1.4) | #4 |
-| #569 | test_j01_safeq (safe quoting) | -0.85 +-0.82 vs lisbon | #6 while live |
-| #573 | test_e01_thonly | -0.06 +-0.19 vs helsinki; +0.03 vs moscow | #3 at +5.29 |
-| #586 | stockholm | +0.46 +-0.23 vs lisbon (real teams) | #2 (with house) |
-| #588 | test_u01_nudge30 | +0.13 +-0.16 vs stockholm | #3 at +4.59 (real teams) |
-| next | test_y01_topfix | pending | |
+| #495 | nairobi | +0.03 vs tokyo on real teams (its gain was the house bots) | |
+| #505 | rio | +0.86 +-0.39 vs nairobi | |
+| #513 / #561 / #565 / #573 | moscow / helsinki / lisbon / e01 | all within +-0.06 of each other | |
+| #569 | test_j01_safeq (safe quoting) | -0.85 +-0.82 vs lisbon | |
+| #586 | stockholm (15% nudge) | +0.46 +-0.23 vs lisbon | |
+| #588 | test_u01_nudge30 (30% nudge) | +0.13 +-0.16 vs stockholm | #3 at +4.59 |
+| #591 | palermo | +0.43 +-0.38 vs #588 | #4 at +4.29 after 47 fights (still filling) |
+| next | test_aa01_naive06 | pending | |
 
-Plan to the deadline: keep testing structural ideas live until about 20:00; from 21:00 only files that already have a live record;
-upload the chosen final (copied to heist/professor.py) about 1-2 hours before close.
+Still losing to: PaperHands -1.60, HAN SOLO -1.67, Genz7 -1.04 (palermo).
+
+Plan: live tests every 15-20 minutes until about 20:00; from 21:00 only files with a live record; final = best live
+record on real teams, copied to heist/professor.py, uploaded about 1-2 hours before close.
