@@ -166,6 +166,7 @@ def rand_p(rng, fix):
             P[k] = rng.uniform(a, b)
     if P["TH2"] < P["TH"]:
         P["TH2"] = P["TH"]
+    P.update({k: v for k, v in fix.items() if k not in SPACE})
     return P
 
 

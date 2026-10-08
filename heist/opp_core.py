@@ -15,11 +15,11 @@ Quote:   first quote of the deal: (1-H1)*E + H1*public + FQ
 Respond: edge = E (reading the price too if TP, with trust TR) - price; |edge| > TH -> 1 lot, > TH2 -> 2 lots,
          at most R1L lots in round 1; ASYM shifts the edge (buy more readily than sell); a price further than SANR from the public estimate is ignored.
 Move:    one swap from round RS on: lowest card when long (or flat and E > public), highest when short,
-         if the card is at least SG from the unseen average. PK: peek in round PK (0 = never).
+         if the card is at least SG from the unseen average. PK: peek in round PK (0 = never); PKN: peek in every round up to PKN.
 """
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, ASYM=0.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0, PKN=0)
 
 
 def make_bot(P):
@@ -68,6 +68,8 @@ def make_bot(P):
 
         def move(self, obs):
             if P["PK"] and obs.round == P["PK"] and not any(w == "me" for _, w in obs.peeks):
+                return "PEEK"
+            if obs.round <= P["PKN"]:
                 return "PEEK"
             if obs.round < P["RS"] or any(w == "me" for _, w, _ in obs.discards):
                 return None

@@ -14,7 +14,8 @@ professor.py = a copy of whichever bot is chosen as the FINAL upload (its 4th li
 | v02 | nairobi | berlin | house bots (exact, seeds 1-3 x 400): reader +7.5 (31.0 vs 23.6), sharp +9.7 (29.6 vs 20.0), naive 0.0; field weight 2/57 -> about +0.30. Decisions identical to berlin in all 418 cached live fights except vs house reader / sharp | #495 (10:21): vs #466 berlin +0.39 (n=45): differs ONLY vs reader +7.4, sharp +10.0 (no false trigger on 400 deals x 45 teams); vs #486 tokyo +0.41 +-0.54 (n=57) | exact house-reader attack (merge line's planner), only after two quotes fit the reader formula to 0.005; off at the first unexpected answer. Slowest quote 3.7 ms |
 | v03 | rio | nairobi | calibrated imitations (opp_happy_happy_463, opp_paperhands, opp_teenpatti: live within 1.5), seeds 1-3 and 4-7: Happy +2.5 / +3.4, PaperHands +2.3 / +3.0, TeenPatti +2.1 / +2.4; house bots +0.05..+0.5; other new imitations +1.7..+2.9 | #505 (10:41) vs #495 nairobi: +0.93 +-0.39 (n=50; Balls +4.5, IITBHU +4.5, Trade Transmitters +3.1; alpha -2.4, Quantumlesssss -1.7) | swap only in round 5. Field model (22 calibrated imitations + house, seeds 4 5): rio +5.68, nairobi +3.76, tokyo +3.30; rio - nairobi +1.92 +-0.15 |
 | v04 | denver | rio | field model vs rio: seeds 4 5 +0.114 +-0.049, seeds 6 7 +0.115 +-0.051 (all opponents within -0.3..+0.5) | not uploaded alone (bundled into moscow) | first quote of the deal = public estimate |
-| v05 | moscow | denver | field model vs denver (c14_oppswap06): seeds 4 5 +0.105 +-0.062, 6 7 +0.129 +-0.059, 8 9 +0.109 +-0.063, 10 11 (800 deals) +0.077 +-0.044 -> above 2 se on 6 7 and 10 11; gains vs followers (Genz7, Pokemons, QuantXAlpha, QUANTUMLYSTUPID +0.5..+0.6), costs vs non-swappers (naive -0.7) | pending | price in the opponent's coming swap (K 0.6) |
+| v05 | moscow | denver | field model vs denver (c14_oppswap06): seeds 4 5 +0.105 +-0.062, 6 7 +0.129 +-0.059, 8 9 +0.109 +-0.063, 10 11 (800 deals) +0.077 +-0.044 -> above 2 se on 6 7 and 10 11; gains vs followers (Genz7, Pokemons, QuantXAlpha, QUANTUMLYSTUPID +0.5..+0.6), costs vs non-swappers (naive -0.7) | #513 (11:02) vs #505 rio: +0.04 +-0.19 (n=52): neutral live (expected +0.2) | price in the opponent's coming swap (K 0.6) |
+| v06 | helsinki | moscow | field model vs moscow, 800 deals: seeds 10 11 +0.855 +-0.069, seeds 12 13 +0.865 +-0.071 (avengers captain_america, same idea with the fill-price bug: +0.706 +-0.070); biggest gains Pokemons +2.7, Happy463 +2.8, ThunderX +2.2, Phantom +2.0, QUANTUMLYSTUPID +2.0, Godtier +1.7; costs HAN SOLO -0.8, Double Dividend -0.8, Quant Qods -0.3 | pending (sent 13:30) | per-hypothesis opponent take threshold 2 / 7 + P_NAIVE 0.45 |
 
 ## Candidates and rejected ideas
 
@@ -41,3 +42,14 @@ Our live entries identified from replays: #452 = #486 = tokyo; #459, #466 = hunt
 | c16_sigq10 / 15 | denver, SIG_Q 0.5 -> 1.0 / 1.5 | 1.0: seeds 4 5 +0.102 +-0.058, 6 7 +0.136 +-0.062, 8 9 +0.079 +-0.061, 10 11 (800) +0.048 +-0.043; 1.5: +0.069 +-0.067 | - | to be re-tested on moscow |
 | c17_safeq | denver, safe quote (their last quote +-1.3) unless reader / at the limit | field model: -1.149 +-0.121 | - | rejected again (on the calibrated field) |
 | c18_late | denver, take more readily in rounds 4-5 (-0.5 per lot) | -0.035 +-0.015 | - | rejected |
+| c19_sigq10 | moscow, SIG_Q 1.0 | seeds 10 11 (800): +0.048 +-0.043 | - | marginal; superseded |
+| c20_wmean07 / c21_pb25w07 | moscow, W_MEAN 0.7 / + P_BLEND 0.25 | not finished (machine overloaded) | - | open |
+| c22_peekdef | moscow, after 2 opponent peeks: safe quote + 3 points taker margin | field model: +0.001 (no 2-peekers in it); QT imitation (not calibrated): -2.2 | - | open: only a live test can tell (QT: top teams +8 more than us) |
+| c23_thfix | = avengers/captain_america with the fill price fixed | +0.855 +-0.069 / +0.865 +-0.071 vs moscow | - | -> helsinki |
+
+## Avengers line (other session, stopped)
+
+avengers/captain_america.py = moscow + take-threshold hypotheses (2 / 7) + P_NAIVE 0.45. Checked here (heist field model,
+seeds 10 11, 800 deals): +0.706 +-0.070 vs moscow. Its immediate-profit formula books a taker's fill at price + threshold
+instead of price + 2; heist's helsinki is the same idea with that fixed (+0.15 better). Its follow-up candidates b01-b11 were
+all flat or negative; its imitations of Cyberpsycho / Imposters / QT / Godtier / Trade Transmitters are not calibrated.
