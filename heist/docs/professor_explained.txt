@@ -3,12 +3,12 @@
 
 # How to use this guide
 
-This guide explains **heist/pamplona.py** (v14), our final bot, line by line. heist/professor.py is the same code; only its line 4 is different. pamplona is marseille (v12) with two small changes to the round-5 swap: line 71 (swap whenever the expected gain is positive; marseille needed 4 points, changed in manila, v13) and line 1103 (decide on the average of the position we hold now and the position we expect to end with; pamplona, v14). Everything else is marseille's code.
+This guide explains **heist/professor.py exactly as uploaded for the final** (1,076 lines), line by line. Its code is pamplona (v14): marseille (v12) with two small changes to the round-5 swap, on line 35 (swap whenever the expected gain is positive; marseille needed 4 points; this came in with manila, v13) and line 1067 (decide on the average of the position we hold now and the position we expect to end with; pamplona, v14). Our working copy heist/pamplona.py is the same code with a version line and a description at the top, so its line numbers are 36 higher from the imports on.
 
 Read it in this order:
 - **The one-page summary and chapters 1–2** tell the whole story in a few pages. Read them twice.
 - **Chapter 3** explains the five ideas you need (the value formula, the hypotheses, the Kalman filter, learning from answers, the planner). Its small examples were computed by running the real functions.
-- **Chapters 4–8** are the line-by-line walkthrough. Each grey box is a piece of the file with its line numbers. Under it, every line or group of lines is explained ("L88" means line 88).
+- **Chapters 4–8** are the line-by-line walkthrough. Each grey box is a piece of the file with its line numbers. Under it, every line or group of lines is explained ("L52" means line 52).
 - **Chapters 9–12** list every parameter, the version history, questions the organisers may ask (with answers) and a glossary.
 
 Two kinds of coloured boxes:
@@ -34,15 +34,15 @@ Every chapter ends with a box for your notes, and there are blank note pages at 
 ## Key numbers
 %cols 30,20,50
 | Thing | Value | Where |
-| hypotheses | 216 | _init, line 428 |
-| hypotheses used to plan | 6 (NPLAN) | line 73 |
-| pruning distance | 6 log-units = 403× | line 70 |
-| utility curvature | RISK = 60 | line 78 |
-| nudge | 30% (SAFE_W), step 1.3 (SAFE_D) | lines 79–80 |
-| prior: does not read my quotes | 30% (P_NAIVE) | line 51 |
-| opponent take threshold | 2 points (75%) or 7 (25%) | line 60 |
-| swap bar in round 5 | 0: any positive expected gain (marseille: 4) | line 71 |
-| swap decided on | average of current and expected final position | line 1103 |
+| hypotheses | 216 | _init, line 392 |
+| hypotheses used to plan | 6 (NPLAN) | line 37 |
+| pruning distance | 6 log-units = 403× | line 34 |
+| utility curvature | RISK = 60 | line 42 |
+| nudge | 30% (SAFE_W), step 1.3 (SAFE_D) | lines 43–44 |
+| prior: does not read my quotes | 30% (P_NAIVE) | line 15 |
+| opponent take threshold | 2 points (75%) or 7 (25%) | line 24 |
+| swap bar in round 5 | 0: any positive expected gain (marseille: 4) | line 35 |
+| swap decided on | average of current and expected final position | line 1067 |
 | speed (local) | median 0.20 ms, 99% under 1 ms per call | ledger |
 
 ## Live record of this file (entry #689)
@@ -125,17 +125,17 @@ We never peek. We swap at most once, only in round 5: our lowest card if we expe
 ## Where each part lives
 %cols 22,78
 | Lines | Part |
-| 1–84 | header, description, constants |
-| 87–204 | maths helpers: normal curve, utility, the opponent's value formula, Kalman update |
-| 207–415 | _Reader: exact attack on the house reader and sharp bots |
-| 418–465 | Bot: creation, the 216 hypotheses, pruning |
-| 467–750 | Bot: inference (public state, learning from quotes, answers and swaps) |
-| 752–852 | Bot: planning helpers (slots, beliefs, play-outs) |
-| 854–905 | the three engine methods with their fallbacks |
-| 907–1019 | _quote: choosing a price |
-| 1021–1037 | _safe_quote: the nudge target |
-| 1039–1069 | _respond: buy, pass or sell |
-| 1071–1112 | _move: the round-5 swap |
+| 1–48 | header, imports, constants |
+| 51–168 | maths helpers: normal curve, utility, the opponent's value formula, Kalman update |
+| 171–379 | _Reader: exact attack on the house reader and sharp bots |
+| 382–429 | Bot: creation, the 216 hypotheses, pruning |
+| 431–714 | Bot: inference (public state, learning from quotes, answers and swaps) |
+| 716–816 | Bot: planning helpers (slots, beliefs, play-outs) |
+| 818–869 | the three engine methods with their fallbacks |
+| 871–983 | _quote: choosing a price |
+| 985–1001 | _safe_quote: the nudge target |
+| 1003–1033 | _respond: buy, pass or sell |
+| 1035–1076 | _move: the round-5 swap |
 
 > "Our bot is a Bayesian trader. It keeps 216 guesses about the opponent's style, each with a belief about the opponent's hand that a Kalman filter updates from every quote and answer. To act, it scores each option by profit now plus a play-out of the rest of the deal under the six likeliest guesses, through a utility shaped like the score, and then hides a little by moving its quote 30% towards the opponent's last quote."
 
@@ -145,7 +145,7 @@ We never peek. We swap at most once, only in round 5: our lowest card if we expe
 
 All numbers in this chapter come from running the functions in pamplona.py.
 
-## 3.1 The value of the stock given O (_ev, line 666)
+## 3.1 The value of the stock given O (_ev, line 630)
 The unknowns for me are the opponent's 5 cards (sum O) and the hidden board cards. If I knew O, the hidden board cards would be random cards from the rest of my unseen pool. So
 
 **E[V | O] = α + β × O**, with α = my hand + visible board + (hidden board cards) × (unseen sum) / (unseen count − 5) and β = 1 − (hidden board cards) / (unseen count − 5).
@@ -154,7 +154,7 @@ Example, round 1, my hand sum 40: there are 47 unseen cards worth 364 − 40 = 3
 
 Why β is below 1: if the opponent's hand is high, the cards left for the board are a little lower on average.
 
-## 3.2 How the opponent values the stock (coefs, line 100)
+## 3.2 How the opponent values the stock (coefs, line 64)
 From the opponent's side, my hand is the unknown. A **naive** opponent uses only its own hand and the public cards. In round 1 its fair value is 77.45 + 0.787 × O (105.0 if O = 35, 112.9 if O = 45).
 
 A **reader** also reads my last quote q. It works out the hand my quote implies (function implied) and moves its fair value by t × (implied hand − average hand), where t is its trust in me. Example: my quote 115 implies a hand of 45, ten above average; a reader with t = 0.6 and O = 35 moves from 105 to 111.
@@ -165,7 +165,7 @@ So under every hypothesis, the opponent's fair value is a straight line in O and
 
 That straight-line form is what makes the Kalman filter work.
 
-## 3.3 The 216 hypotheses (_init, line 428)
+## 3.3 The 216 hypotheses (_init, line 392)
 %cols 18,40,24,18
 | Family | Rule | Prior share | Count |
 | naive | does not read my quotes | 0.30 × 0.88 | 24 |
@@ -182,105 +182,95 @@ Inside each family the hypotheses differ in:
 - **threshold**: it needs 2 or 7 points of edge before it trades.
 - blend quoters also have a **skew**: 0 or 0.9 per lot of my position.
 
-Each hypothesis is a Python list of 13 numbers (names H_READS … H_TH, line 84): its fixed style, its belief over (O, t) as two means and a 2×2 covariance, and its log-weight.
+Each hypothesis is a Python list of 13 numbers (names H_READS … H_TH, line 48): its fixed style, its belief over (O, t) as two means and a 2×2 covariance, and its log-weight.
 
-## 3.4 Learning from an opponent quote: the Kalman filter (_see, lines 565–587)
+## 3.4 Learning from an opponent quote: the Kalman filter (_see, lines 529–551)
 Under a hypothesis, the opponent's quote is a straight line in (O, t) plus a little noise (SIG_Q = 0.5). For a Gaussian belief and a linear noisy reading, the **Kalman filter** is the exact Bayes update: new mean = old mean + gain × (quote − predicted quote), and the variance shrinks.
 
 Example: an honest naive hypothesis in round 1 with belief O ~ N(35, 8^{2}). It predicts the quote 105.0. The opponent quotes 112.87, a surprise of 7.87. The gain is 1.262, so a pure Kalman step gives O ≈ 44.9 with sd 0.6: one honest quote almost reveals the hand.
 
 We also allow a 10% chance that a quote is unexplained (EPS_Q). Here the quote is plausible, so it counts as explained with probability 0.929, and the belief becomes O ≈ 44.2 with sd 3.4. The hypothesis' log-weight changes by log(0.0281) = −3.57; hypotheses that predicted the quote better lose less weight.
 
-## 3.5 Learning from an answer to my quote (_see, lines 588–624)
+## 3.5 Learning from an answer to my quote (_see, lines 552–588)
 When I quote p and an opponent with take threshold th **passes**, its fair value must be between p − th and p + th. When it **buys**, its fair value is above p + th; when it **sells**, below p − th. That is an interval, not a number, so the update uses the mean and variance of a normal distribution cut to that interval (a **truncated normal**), followed by the same Kalman step.
 
 Example (same hypothesis, I quote 100): before the answer, their fair value is believed to be 105.0 ± 6.4.
 - They **pass** (fair value in 98..102): this was only 18% likely. O moves from 35 to 29.6 and its sd from 8 to 3.6.
 - They **buy** (fair value above 102): 68% likely. O moves to 39.0, sd 5.7.
 
-## 3.6 Weights and pruning (lines 587, 617, 461)
+## 3.6 Weights and pruning (lines 551, 581, 425)
 Each hypothesis' log-weight adds log(the probability it gave to what happened). This is Bayes' rule in log form. After every event, hypotheses more than 6 log-units behind the best (e^{6} = 403 times less likely) are dropped (PRUNE), and the best is reset to 0 so the numbers never underflow.
 
-## 3.7 Choosing a price (_quote, line 907)
+## 3.7 Choosing a price (_quote, line 871)
 - **1. Their answer model.** Under each of the 6 likeliest hypotheses, the opponent's fair value when answering me is normal with mean f and sd sf.
 - **2. Immediate expected profit** of quoting p (function imm): they buy nb lots with probability Φ((f − p − th) / sf), and I sell at p + 2. But they buy exactly when their hand is high, which is when V is high, so the formula subtracts β × c × φ(z), the **adverse-selection** term (c = how much O moves with their fair value).
 - **3. Stage 1:** try their fair value ± 2, 2.5, 3, 3.5, 4.5 and 6 and keep the price with the best immediate profit.
 - **4. Stage 2:** for a short list of candidates (that price, their fair value, ± 3.05, ± 6.05, and extreme prices at the position limit), add a play-out of the rest of the deal (function _roll) and score the whole deal with the utility. Keep the best.
 - **5. Nudge:** final quote = 0.7 × best + 0.3 × safe quote.
 
-## 3.8 The utility (util, line 95)
+## 3.8 The utility (util, line 59)
 util(x) = x / √(1 + |x| / 60). Small amounts count fully (util(10) = 9.3); large amounts are shrunk like a square root (util(100) = 61.2, util(400) = 144.5). The score uses sign(p)√|p| per deal pair, so we choose actions by the same shape: a sure +30 is worth more to us than a coin flip between 0 and +60, because util(30) = 24.5 is more than (0 + util(60)) / 2 = 21.2.
 
-## 3.9 The swap (_move, line 1071)
+## 3.9 The swap (_move, line 1035)
 In round 5, before the last two quotes, let pos be the position we hold now and fpos the position we expect to end with (from play-outs of round 5). pamplona uses x = (pos + fpos) / 2. If x > 0 (we will be long), swapping our lowest card c for a random stack card (worth mstack on average) changes our PnL by about x × (mstack − c); if x < 0 we throw our highest card instead. We swap whenever that expected gain is positive. Example: pos = +4 and fpos = +8, so x = +6; lowest card 2, mstack 7: gain 6 × 5 = 30, which is positive, so we swap. Why the average: the play-out tends to predict more round-5 trading than really happens, and averaging it with the real position made the decision steadier (+0.40 live).
 
 %notes 6
 
-# 4. Header, description and constants (lines 1–84)
+# 4. Header and constants (lines 1–48)
 
-This chapter covers the top of the file: the required header, the description, the imports and every constant.
+This chapter covers the top of the file: the required header, the imports and every constant.
 
-@code 1-4 The required header
+@code 1-7 The required header and the imports
 L1-3: The three lines every submission must start with, exactly as the rules give them: team name, member, mentor.
-L4: Our version line: its name (pamplona, v14 in our ledger), its parent (manila) and the one idea it adds: the round-5 swap is decided on the average of the current and the expected final position. It also records the evidence: two local seed pairs (+0.115, +0.129) and the live result (+0.40 ± 0.13 against manila, better on 23 of 24 opponents). (manila added the swap bar 0; marseille was bogota made 30–40% faster.)
-> "Lines 1–3 are the required header. Line 4 says which version this is and what it changed."
+L4-5: Empty. Our working copy, heist/pamplona.py, also has a version line here and a description of the whole bot (its lines 4 and 6–40). Both were taken out of the uploaded file, so every code line in this guide is 36 lower than in pamplona.py.
+L6-7: Only `heapq` (to pick the 6 heaviest hypotheses quickly) and `math` (sqrt, exp, log, erf). Both are on the allowed list. There is no file or network access anywhere in the bot.
+> "Lines 1–3 are the required header; then come the two imports, both from the allowed list."
 
-@code 6-40 The description at the top
-The text between the triple quotes is the module docstring: a summary of the whole bot. Python ignores it when running.
-L7: "rival_2.py" was the name of the first file of this family; we kept its description. Our versions since: tokyo, berlin, … bogota, marseille, manila, pamplona.
-L9-10: The key sentence: the stock is my hand + the board + O, so the game is estimating O, and knowing how the opponent estimates my hand.
-L12-25: Inference: what each part of a hypothesis means (reads, rule, lam, tau, kappa), the 2-D Gaussian over (O, t), the Kalman update for quotes, the truncated-normal update for answers, reweighting, and the allowance for outliers.
-L27-37: Decisions: every action is scored by profit now plus a play-out, through a concave utility. "Readers are steerable" describes the free extreme quote at ±10 lots and the paid probes. In pamplona (as in marseille) the paid probes are switched off (P_EXT = P_PROBE = 2.0, lines 74 and 76); only the free extreme quote at the limit is still used.
-L38-39: The swap rule.
+@code 9-12 Basic numbers
+L9: MAXP = 195 = 13 × 15, the highest possible V. The engine clamps every quote to 0..195.
+L10: √2, used in Phi.
+L11: 1 / √(2π), the constant in the normal density.
+L12: Infinity, used for one-sided intervals such as "their fair value is above 102".
 
-@code 42-43 Imports
-L42-43: Only `heapq` (to pick the 6 heaviest hypotheses quickly) and `math` (sqrt, exp, log, erf). Both are on the allowed list. There is no file or network access anywhere in the bot.
-
-@code 45-48 Basic numbers
-L45: MAXP = 195 = 13 × 15, the highest possible V. The engine clamps every quote to 0..195.
-L46: √2, used in Phi.
-L47: 1 / √(2π), the constant in the normal density.
-L48: Infinity, used for one-sided intervals such as "their fair value is above 102".
-
-@code 50-63 Opponent styles and their prior probabilities
-L50: Five rule codes: RAW, CLAMP, SANE, CUR (the readers) and BLD (blend quoters). Small integers are faster to compare than strings.
-L51: P_NAIVE = 0.3: prior chance that the opponent does not read my quotes at all.
-L52: P_BLEND = 0.12: prior chance that it is a blend quoter. All other families share the remaining 0.88.
-L53: BLEND_LAM: for blend quoters, how much of their hand shows in their own value: 1.0 (prob. 0.5), 0.7 (0.2), 0.4 (0.15), 0.2 (0.15).
-L54: BLEND_SK: their quote moves 0 or 0.9 per lot of MY position (an inventory skew), 50/50.
-L55: W_MEAN, W_SD: prior for the blend weight W that a blend quoter puts on my last quote: mean 0.45, sd 0.25.
-L56: BLEND_TAU: for blend quoters, how much their value moves per lot I buy from them: 0, 1.5 or 3.
-L57: CARRY = 0.82: when a blend quoter carries my old quote forward, each new board card moves it by 0.82 per point away from 7. A shown card changes the value of the stock by a bit less than its distance from 7, because the average of the cards still unknown moves the other way: about 1 − 9/46 = 0.80 in round 2 and 0.86 in round 5.
-L58: RULE_PRIOR: among readers, RAW 55%, CLAMP 20%, SANE 8%, CUR 17%.
-L59: LAM_PRIOR: how honest their quotes are: lam 1 (45%), 0.7 (12%), 0.4 (8%) or 0 (35%: quotes say nothing about the hand, as with strategic quoters and "hiders").
-L60: TH_PRIOR: their take threshold: they trade on 2 points of edge (75%) or only on 7 (25%). Many strong teams only trade on large edges.
-L61: TAU_PRIOR: 0 (60%), 1.5 (25%), 3 (15%); used only for lam = 1 quoters.
-L62: KAP_PRIOR: 80% "does not expect me to swap" (0); 20% "moves its value by 3.9 in the direction my position says I will swap".
-L63: T_MEAN, T_SD: prior trust of a reader in my quotes: mean 0.6, sd 0.3.
+@code 14-27 Opponent styles and their prior probabilities
+L14: Five rule codes: RAW, CLAMP, SANE, CUR (the readers) and BLD (blend quoters). Small integers are faster to compare than strings.
+L15: P_NAIVE = 0.3: prior chance that the opponent does not read my quotes at all.
+L16: P_BLEND = 0.12: prior chance that it is a blend quoter. All other families share the remaining 0.88.
+L17: BLEND_LAM: for blend quoters, how much of their hand shows in their own value: 1.0 (prob. 0.5), 0.7 (0.2), 0.4 (0.15), 0.2 (0.15).
+L18: BLEND_SK: their quote moves 0 or 0.9 per lot of MY position (an inventory skew), 50/50.
+L19: W_MEAN, W_SD: prior for the blend weight W that a blend quoter puts on my last quote: mean 0.45, sd 0.25.
+L20: BLEND_TAU: for blend quoters, how much their value moves per lot I buy from them: 0, 1.5 or 3.
+L21: CARRY = 0.82: when a blend quoter carries my old quote forward, each new board card moves it by 0.82 per point away from 7. A shown card changes the value of the stock by a bit less than its distance from 7, because the average of the cards still unknown moves the other way: about 1 − 9/46 = 0.80 in round 2 and 0.86 in round 5.
+L22: RULE_PRIOR: among readers, RAW 55%, CLAMP 20%, SANE 8%, CUR 17%.
+L23: LAM_PRIOR: how honest their quotes are: lam 1 (45%), 0.7 (12%), 0.4 (8%) or 0 (35%: quotes say nothing about the hand, as with strategic quoters and "hiders").
+L24: TH_PRIOR: their take threshold: they trade on 2 points of edge (75%) or only on 7 (25%). Many strong teams only trade on large edges.
+L25: TAU_PRIOR: 0 (60%), 1.5 (25%), 3 (15%); used only for lam = 1 quoters.
+L26: KAP_PRIOR: 80% "does not expect me to swap" (0); 20% "moves its value by 3.9 in the direction my position says I will swap".
+L27: T_MEAN, T_SD: prior trust of a reader in my quotes: mean 0.6, sd 0.3.
 ! TH_PRIOR came in with helsinki (v06): modelling opponents who need 7 points of edge was worth +0.86 on our local field model. Taking the thresholds out again (test z02) lost −0.45 live, and moving the prior to 60/40 (test mm03, today 18:10) lost −0.53 ± 0.32 live, so 75/25 stays.
 
-@code 65-82 Noise, speed and decision settings
-L65: SIG_Q = 0.5: how far (sd) a quote can be from what a correct hypothesis predicts.
-L66-67: EPS_Q = 0.1 and U_Q = 0.02: 10% of quotes may be "unexplained"; such a quote gets a flat probability density of 0.02 (as if spread evenly over about 50 points). One odd quote then cannot destroy a good hypothesis.
-L68: SIG_R = 1.0: noise on the take threshold when we read answers.
-L69: EPS_R = 0.06: 6% of answers may be random (each of buy, pass and sell then has 2%).
-L70: PRUNE = 6.0: drop hypotheses 6 log-units (403 times) less likely than the best. It was 12 in bogota; 6 makes calls about 40% faster and changed only about 5% of decisions in our check (local score +0.014).
-L71: SWAP_TH: the gain needed to swap, by round: 15, 12, 9, 6, 0. We only swap in round 5, so only the last value is used, and it is 0: we swap whenever the expected gain is positive. manila (v13) changed it from marseille's 4 to 0, and pamplona keeps it.
-L72: DELTAS: how far from their fair value the stage-1 price candidates are: 2, 2.5, 3, 3.5, 4.5, 6.
-L73: NPLAN = 6: number of most likely hypotheses used in decisions (a speed versus accuracy choice).
-L74: P_EXT = 2.0: the confidence needed to PAY for an extreme quote. A probability is never above 1, so 2.0 switches paid extremes off.
-L75: EX_TOL = 0.02: the house-reader test: every quote must be within 0.02 of the house formula.
-L76: P_PROBE = 2.0: the same trick: paid probes are off.
-L77: LAM_PROBE = 0.4: for probes (now off), the reader would also have to show its hand in its quotes.
-L78: RISK = 60: the curvature of the utility (section 3.8).
-L79: SAFE_D = 1.3: the safe quote is 1.3 from their last quote, towards my value, inside their ±2 no-trade band.
-L80: SAFE_W = 0.3: the nudge: 30% safe quote, 70% planner.
-L81: OPP_SWAP_K = 0.6: belongs to _opp_swap (line 680), which is no longer called (since palermo).
+@code 29-46 Noise, speed and decision settings
+L29: SIG_Q = 0.5: how far (sd) a quote can be from what a correct hypothesis predicts.
+L30-31: EPS_Q = 0.1 and U_Q = 0.02: 10% of quotes may be "unexplained"; such a quote gets a flat probability density of 0.02 (as if spread evenly over about 50 points). One odd quote then cannot destroy a good hypothesis.
+L32: SIG_R = 1.0: noise on the take threshold when we read answers.
+L33: EPS_R = 0.06: 6% of answers may be random (each of buy, pass and sell then has 2%).
+L34: PRUNE = 6.0: drop hypotheses 6 log-units (403 times) less likely than the best. It was 12 in bogota; 6 makes calls about 40% faster and changed only about 5% of decisions in our check (local score +0.014).
+L35: SWAP_TH: the gain needed to swap, by round: 15, 12, 9, 6, 0. We only swap in round 5, so only the last value is used, and it is 0: we swap whenever the expected gain is positive. manila (v13) changed it from marseille's 4 to 0, and pamplona keeps it.
+L36: DELTAS: how far from their fair value the stage-1 price candidates are: 2, 2.5, 3, 3.5, 4.5, 6.
+L37: NPLAN = 6: number of most likely hypotheses used in decisions (a speed versus accuracy choice).
+L38: P_EXT = 2.0: the confidence needed to PAY for an extreme quote. A probability is never above 1, so 2.0 switches paid extremes off.
+L39: EX_TOL = 0.02: the house-reader test: every quote must be within 0.02 of the house formula.
+L40: P_PROBE = 2.0: the same trick: paid probes are off.
+L41: LAM_PROBE = 0.4: for probes (now off), the reader would also have to show its hand in its quotes.
+L42: RISK = 60: the curvature of the utility (section 3.8).
+L43: SAFE_D = 1.3: the safe quote is 1.3 from their last quote, towards my value, inside their ±2 no-trade band.
+L44: SAFE_W = 0.3: the nudge: 30% safe quote, 70% planner.
+L45: OPP_SWAP_K = 0.6: belongs to _opp_swap (line 644), which is no longer called (since palermo).
 ! The swap bar: lowering it improved the local score step by step (average of two seed pairs: bar 6 −0.060, 4 0, 2.5 +0.026, 1 +0.054, 0 +0.083). Live, manila (bar 0) beat marseille (bar 4) by +0.10 ± 0.05 on the same 37 opponents. Round 5 is the last chance to swap, so waiting has no value left.
 ! Paid probes were switched off in stockholm (v09): in a local test one probe quote of 146.18 cost 100 points in a single deal, and turning probes off was neutral to positive. RISK 30 and 120 were tested: 120 lost (−0.08), 30 was not clearly better.
 
-@code 83-84 Hypothesis fields
-L84: A hypothesis is a list of 13 numbers; these names are the positions in the list:
+@code 47-48 Hypothesis fields
+L48: A hypothesis is a list of 13 numbers; these names are the positions in the list:
 - H_READS (does it read my quotes?), H_RULE (RAW, CLAMP, SANE, CUR or BLD), H_LAM (honesty of its quotes), H_TAU (move per lot I buy), H_KAP (swap expectation), H_SK (blend skew), H_TH (take threshold). These are fixed for the hypothesis.
 - H_MO and H_MT: the belief means of O and t. H_P00, H_P01, H_P11: the belief covariance (variance of O, covariance of O and t, variance of t). These are updated by learning.
 - H_LW: the log-weight.
@@ -288,393 +278,393 @@ L84: A hypothesis is a list of 13 numbers; these names are the positions in the 
 
 %notes 5
 
-# 5. Maths helpers (lines 87–204)
+# 5. Maths helpers (lines 51–168)
 
 Small functions used everywhere: the normal curve, the utility, the opponent's value formula, and the Kalman update.
 
-@code 87-92 The normal curve
-L87-88: Phi(x): the standard normal cumulative probability P(Z ≤ x), computed with math.erf.
-L91-92: pdf(x): the standard normal density φ(x) = e^{−x²/2} / √(2π).
+@code 51-56 The normal curve
+L51-52: Phi(x): the standard normal cumulative probability P(Z ≤ x), computed with math.erf.
+L55-56: pdf(x): the standard normal density φ(x) = e^{−x²/2} / √(2π).
 
-@code 95-97 The utility
-L97: util(x) = x / √(1 + |x| / RISK). Close to x for small amounts, square-root-like for big ones, and symmetric: util(−x) = −util(x). See section 3.8.
+@code 59-61 The utility
+L61: util(x) = x / √(1 + |x| / RISK). Close to x for small amounts, square-root-like for big ones, and symmetric: util(−x) = −util(x). See section 3.8.
 > "We maximise a utility with the same shape as the score: small profits count fully, big ones only like a square root, so the bot prefers steady wins to gambles."
 
-@code 100-116 The opponent's value as a straight line
-st holds the public state as the opponent saw it (built by _state, line 468): bv = board sum, hb = hidden board cards, npk = number of their peeks, pk = estimated sum of my peeked cards, N = cards unknown to them, C0 = total of the cards they have not seen (still including their own hand), mo = the average unknown card if their hand is average.
-L106: Unpack st.
-L107: cm0 = the cards they cannot see that count in V, apart from their own hand: my unpeeked cards (5 − npk) plus the hidden board (hb).
-L108: A0 = visible board + my peeked cards + cm0 cards at the average unknown value C0 / N (the O part of that average goes into B0).
-L109: B0 = 1 − cm0 / N: their value rises by B0 per point of their own hand. It is below 1 because a high hand makes the unknown cards lower on average.
-L110-111: No reading (naive, or I have not quoted yet): fair = A0 + B0·O.
-L112-114: A raw reader adds t × [q − bv − pk − c1 × (C0 − O) / N] with c1 = 10 − npk + hb: my quote minus what a quote from an average hand would be. Written as a straight line: A1 = (q − bv − pk) − c1·C0 / N and B1 = c1 / N.
-L115-116: A reader with a clamped implied hand L (5 or 65) adds t × (L − pk − (5 − npk) × the average unknown card): the clamped hand minus my average hand.
+@code 64-80 The opponent's value as a straight line
+st holds the public state as the opponent saw it (built by _state, line 432): bv = board sum, hb = hidden board cards, npk = number of their peeks, pk = estimated sum of my peeked cards, N = cards unknown to them, C0 = total of the cards they have not seen (still including their own hand), mo = the average unknown card if their hand is average.
+L70: Unpack st.
+L71: cm0 = the cards they cannot see that count in V, apart from their own hand: my unpeeked cards (5 − npk) plus the hidden board (hb).
+L72: A0 = visible board + my peeked cards + cm0 cards at the average unknown value C0 / N (the O part of that average goes into B0).
+L73: B0 = 1 − cm0 / N: their value rises by B0 per point of their own hand. It is below 1 because a high hand makes the unknown cards lower on average.
+L74-75: No reading (naive, or I have not quoted yet): fair = A0 + B0·O.
+L76-78: A raw reader adds t × [q − bv − pk − c1 × (C0 − O) / N] with c1 = 10 − npk + hb: my quote minus what a quote from an average hand would be. Written as a straight line: A1 = (q − bv − pk) − c1·C0 / N and B1 = c1 / N.
+L79-80: A reader with a clamped implied hand L (5 or 65) adds t × (L − pk − (5 − npk) × the average unknown card): the clamped hand minus my average hand.
 > "Every opponent style we model values the stock as a straight line in its hand sum O and its trust t. That is what lets us track it with a Kalman filter."
 
-@code 119-120 implied
-L120: The hand of mine that quote q implies, for an average opponent hand: q − board − (5 + hidden board cards) × the average unknown card. The CLAMP and SANE readers use it to spot impossible quotes.
+@code 83-84 implied
+L84: The hand of mine that quote q implies, for an average opponent hand: q − board − (5 + hidden board cards) × the average unknown card. The CLAMP and SANE readers use it to spot impossible quotes.
 
-@code 123-139 pick_q: which of my quotes a reader uses
-L125-126: No quote of mine yet: nothing to read.
-L127-131: SANE: the newest quote whose implied hand is between 12 and 58; if there is none, nothing.
-L132: Every other rule reads my newest quote.
-L133-138: CLAMP: if the quote implies more than 65 or less than 5, also return the clamp value.
-L139: RAW and CUR: the newest quote, no clamp.
+@code 87-103 pick_q: which of my quotes a reader uses
+L89-90: No quote of mine yet: nothing to read.
+L91-95: SANE: the newest quote whose implied hand is between 12 and 58; if there is none, nothing.
+L96: Every other rule reads my newest quote.
+L97-102: CLAMP: if the quote implies more than 65 or less than 5, also return the clamp value.
+L103: RAW and CUR: the newest quote, no clamp.
 
-@code 142-154 ekf: one Kalman step (the readable version)
+@code 106-118 ekf: one Kalman step (the readable version)
 The belief of a hypothesis is a Gaussian over (O, t) with means (H_MO, H_MT) and covariance P = [[P00, P01], [P01, P11]]. An observation y behaves like Ho·O + Ht·t + noise; S is its predicted variance and d is how far it came out above the prediction.
-L147: Read the covariance.
-L148-149: P·H: how the observation moves together with O and with t.
-L150-151: The Kalman gains k = P·H / S: how much to move each mean per point of surprise.
-L152: g = S − Vy: how much of the observation's uncertainty was removed. For a quote all of it (Vy = 0); for an answer only part of it, because an answer only gives an interval.
-L153-154: New means = old means + k·d; new covariance = P − g·k·k^{T}.
-Note: ekf and mix_into are no longer called. ekf_mix (line 175) does both in one step for speed; these two stay as the readable reference.
+L111: Read the covariance.
+L112-113: P·H: how the observation moves together with O and with t.
+L114-115: The Kalman gains k = P·H / S: how much to move each mean per point of surprise.
+L116: g = S − Vy: how much of the observation's uncertainty was removed. For a quote all of it (Vy = 0); for an answer only part of it, because an answer only gives an interval.
+L117-118: New means = old means + k·d; new covariance = P − g·k·k^{T}.
+Note: ekf and mix_into are no longer called. ekf_mix (line 139) does both in one step for speed; these two stay as the readable reference.
 
-@code 157-172 mix_into: hedging against outliers
+@code 121-136 mix_into: hedging against outliers
 After the update we are not sure the observation was "explained" (see EPS_Q). With probability r the new belief is right, with 1 − r the old one is. mix_into replaces this mixture of two Gaussians by one Gaussian with the same mean and covariance ("moment matching").
-L161-162: The mixture means.
-L163-165: The mixture covariance = E[x·x^{T}] − mean·mean^{T}. The floors 0.05 and 0.00001 keep the variances positive.
-L166-167: Store the means; the trust t is kept between 0 and 1.15.
-L168-172: Keep |cov(O, t)| below √(P00·P11), so the correlation stays below 1 and the matrix stays valid.
+L125-126: The mixture means.
+L127-129: The mixture covariance = E[x·x^{T}] − mean·mean^{T}. The floors 0.05 and 0.00001 keep the variances positive.
+L130-131: Store the means; the trust t is kept between 0 and 1.15.
+L132-136: Keep |cov(O, t)| below √(P00·P11), so the correlation stays below 1 and the matrix stays valid.
 
-@code 175-204 ekf_mix: the same, fused (the one actually used)
-The same arithmetic as ekf followed by mix_into, written out in one function so that Python does not build a tuple for every hypothesis and every observation. This was part of marseille's speed-up. Lines 178–189 are ekf; lines 190–204 are mix_into.
+@code 139-168 ekf_mix: the same, fused (the one actually used)
+The same arithmetic as ekf followed by mix_into, written out in one function so that Python does not build a tuple for every hypothesis and every observation. This was part of marseille's speed-up. Lines 142–153 are ekf; lines 154–168 are mix_into.
 > "Each hypothesis keeps a Gaussian belief. Every observation moves it with a Kalman step, blended with the old belief by the chance that the observation was not an outlier."
 
 %notes 5
 
-# 6. The house-reader attack (lines 207–415)
+# 6. The house-reader attack (lines 171–379)
 
 ## What this part is for
 The arena had three house bots: naive, reader and sharp. The reader and the sharp value the stock with an exact formula that trusts my last quote with weight 0.8. Once we know their hand sum S exactly, we can predict every quote and answer they will make, and plan a sequence of quotes that steers their belief and then trades against it. Since 15:40 the house bots no longer count in the arena score, but this layer is harmless: it switches on only after two of their quotes fit the formula to the cent (no real team triggered it in 400 deals against 45 teams), and it switches off at the first answer that does not fit.
 ! It was added in nairobi (v02): +7.4 against the house reader and +10.0 against the sharp, with exactly the same decisions as before against every real team.
 
-@code 207-221 Constants of the attack
-L208-212: The house formula: fair = S + (1 − T)·board + T·P + m·(5 + h − T·(10 + h)), with T = 0.8, P = my last quote, m = the average unseen card and h = hidden board cards.
-L213: DECK_SUM = 364, the sum of all 52 cards.
-L214: RD_T = 0.8, their trust in my quote.
-L215: RD_TOL = 0.0051: their quotes are rounded to 0.01, so a true fit is within half a cent.
-L216: RD_NQ = 2: two consistent quotes needed, at least one of them reading a quote of mine.
-L217: STEER_IN = 1.98: a quote 1.98 from their value is inside their ±2 band: no trade, but they read my quote and their belief moves.
-L218: HARVEST_OUT = 3.02: just outside the band: the sharp then trades 2 lots.
-L219: RESP_MARGIN = 0.2: when answering an identified reader, take only with 2.2 points of edge (a small safety margin).
-L220: DEPTH = 4: how many of my future quotes the exact search explores with every option.
-L221: LIMIT = 10: the position limit.
+@code 171-185 Constants of the attack
+L172-176: The house formula: fair = S + (1 − T)·board + T·P + m·(5 + h − T·(10 + h)), with T = 0.8, P = my last quote, m = the average unseen card and h = hidden board cards.
+L177: DECK_SUM = 364, the sum of all 52 cards.
+L178: RD_T = 0.8, their trust in my quote.
+L179: RD_TOL = 0.0051: their quotes are rounded to 0.01, so a true fit is within half a cent.
+L180: RD_NQ = 2: two consistent quotes needed, at least one of them reading a quote of mine.
+L181: STEER_IN = 1.98: a quote 1.98 from their value is inside their ±2 band: no trade, but they read my quote and their belief moves.
+L182: HARVEST_OUT = 3.02: just outside the band: the sharp then trades 2 lots.
+L183: RESP_MARGIN = 0.2: when answering an identified reader, take only with 2.2 points of edge (a small safety margin).
+L184: DEPTH = 4: how many of my future quotes the exact search explores with every option.
+L185: LIMIT = 10: the position limit.
 
-@code 224-230 _lots: the sharp's trade size
-L226-230: For an edge e (their value − my price): no trade within 2; 1 lot when 2 < |e| < 3; 2 lots from 3 up. The sign says buy (+) or sell (−).
+@code 188-194 _lots: the sharp's trade size
+L190-194: For an edge e (their value − my price): no trade within 2; 1 lot when 2 < |e| < 3; 2 lots from 3 up. The sign says buy (+) or sell (−).
 
-@code 233-244 _Reader: its memory
-L237: S: their hand sum in the current run of consistent quotes.
-L238-239: nq: how many quotes are in the run; nread: how many of them read a quote of mine.
-L240: done: how many of their quotes were already processed.
-L241: last_round: the round of the last processed quote (to notice their swaps).
-L242: peeked: they peeked (their formula then changes), so give up.
-L243: off: an answer did not fit; the attack is off for the rest of the deal.
-L244: check: the answer we expect to my last planned quote, so we can verify the model.
+@code 197-208 _Reader: its memory
+L201: S: their hand sum in the current run of consistent quotes.
+L202-203: nq: how many quotes are in the run; nread: how many of them read a quote of mine.
+L204: done: how many of their quotes were already processed.
+L205: last_round: the round of the last processed quote (to notice their swaps).
+L206: peeked: they peeked (their formula then changes), so give up.
+L207: off: an answer did not fit; the attack is off for the rest of the deal.
+L208: check: the answer we expect to my last planned quote, so we can verify the model.
 
-@code 246-258 invert: their hand sum from one quote
+@code 210-222 invert: their hand sum from one quote
 Solve the house formula for S. F = their quote, B = board sum, h = hidden cards, D = discard sum, N = cards unknown to them, P = my last quote (None if I have not quoted).
-L248: U0 = the sum of all cards not on the board and not discarded (their hand + my hand + hidden board + stack).
-L249-252: The formula written as F = S + c0 + c1·(U0 − S) / N. Without a quote of mine c0 = board and c1 = 5 + h; with one, the 0.8 trust terms come in.
-L253-254: Rearranged: S = (F − c0 − c1·U0 / N) / (1 − c1 / N), rounded to a whole number (a hand sum is an integer).
-L255-256: A 5-card hand sum lies between 5 and 65; otherwise this is not the formula.
-L257-258: Recompute the quote from that S and accept it only if it matches to 0.0051.
+L212: U0 = the sum of all cards not on the board and not discarded (their hand + my hand + hidden board + stack).
+L213-216: The formula written as F = S + c0 + c1·(U0 − S) / N. Without a quote of mine c0 = board and c1 = 5 + h; with one, the 0.8 trust terms come in.
+L217-218: Rearranged: S = (F − c0 − c1·U0 / N) / (1 − c1 / N), rounded to a whole number (a hand sum is an integer).
+L219-220: A 5-card hand sum lies between 5 and 65; otherwise this is not the formula.
+L221-222: Recompute the quote from that S and accept it only if it matches to 0.0051.
 
-@code 260-283 observe: is this quote consistent with the earlier ones?
-L261: Count it.
-L262-263: If they peeked, stop: their formula now includes my peeked card.
-L264-266: The public numbers in that round: board sum B, hidden board h, the discards, D and N.
-L267: Their discards since the last quote I processed (a swap changes S).
-L269: S from this quote alone.
-L270-280: If both this quote and the run give a hand sum, they are consistent when they are equal (no swap), or, after they threw card k, when the new sum is between old − k + 1 and old − k + 13 (the new card is 1 to 13). Then the run grows.
-L281-283: Otherwise a new run starts with this quote.
+@code 224-247 observe: is this quote consistent with the earlier ones?
+L225: Count it.
+L226-227: If they peeked, stop: their formula now includes my peeked card.
+L228-230: The public numbers in that round: board sum B, hidden board h, the discards, D and N.
+L231: Their discards since the last quote I processed (a swap changes S).
+L233: S from this quote alone.
+L234-244: If both this quote and the run give a hand sum, they are consistent when they are equal (no swap), or, after they threw card k, when the new sum is between old − k + 1 and old − k + 13 (the new card is 1 to 13). Then the run grows.
+L245-247: Otherwise a new run starts with this quote.
 
-@code 285-305 sync: feed new quotes and verify predictions
-L286-287: Any peek by the opponent sets peeked.
-L288-293: Walk the tape, remembering my latest quote P; each opponent quote is stored with the quote of mine it would read.
-L294-295: When I am answering, their current quote is not on the tape yet, so add it.
-L296-297: Process only the new ones.
-L298-305: If I made a planned quote, compare their actual answer with the predicted direction. A mismatch that the position limit does not explain switches the attack off.
+@code 249-269 sync: feed new quotes and verify predictions
+L250-251: Any peek by the opponent sets peeked.
+L252-257: Walk the tape, remembering my latest quote P; each opponent quote is stored with the quote of mine it would read.
+L258-259: When I am answering, their current quote is not on the tape yet, so add it.
+L260-261: Process only the new ones.
+L262-269: If I made a planned quote, compare their actual answer with the predicted direction. A mismatch that the position limit does not explain switches the attack off.
 
-@code 307-310 active
-L308: On only if: not off, no peek, S known, at least 2 consistent quotes, at least 1 of them reading my quote.
-L310: And they have not swapped since their last quote (S would be unknown again).
+@code 271-274 active
+L272: On only if: not off, no peek, S known, at least 2 consistent quotes, at least 1 of them reading my quote.
+L274: And they have not swapped since their last quote (S would be unknown again).
 
-@code 312-316 value: V when S is known
-L313-315: The unseen pool contains their 5 cards (sum S); the rest average (total − S) / (count − 5).
-L316: V = my hand + board + S + (hidden board cards) × that average.
+@code 276-280 value: V when S is known
+L277-279: The unseen pool contains their 5 cards (sum S); the rest average (total − S) / (count − 5).
+L280: V = my hand + board + S + (hidden board cards) × that average.
 
-@code 318-327 their_base: their value for a given S and my last quote P
-L320-324: Board sum, hidden cards, discards, N, and the average unknown card m from their side.
-L325-326: Without a quote of mine: S + board + (5 + h)·m.
-L327: With one: the 0.8-trust formula.
+@code 282-291 their_base: their value for a given S and my last quote P
+L284-288: Board sum, hidden cards, discards, N, and the average unknown card m from their side.
+L289-290: Without a quote of mine: S + board + (5 + h)·m.
+L291: With one: the 0.8-trust formula.
 
-@code 329-340 events_left: who quotes next, until the end of the deal
-L332: Am I the first maker in this round (no tape entry this round yet)?
-L334-339: List the remaining quotes as ("me" or "opp", round): what is left of this round, then two per round, alternating who starts.
+@code 293-304 events_left: who quotes next, until the end of the deal
+L296: Am I the first maker in this round (no tape entry this round yet)?
+L298-303: List the remaining quotes as ("me" or "opp", round): what is left of this round, then two per round, alternating who starts.
 
-@code 342-397 plan: exact look-ahead against the house bot
+@code 306-361 plan: exact look-ahead against the house bot
 A depth-first search over the remaining quotes, with memoisation (memo stores the result for each (event, position, my last quote, depth)).
-L347-348: F(P): their value if my last quote is P (A + 0.8·P), or Fnone if I have not quoted.
-L352-360: dfs with its cache.
-L363-373: Their quote equals their value. I buy 2 if V is above their price + 2 + margin, sell 2 if it is below their price − 2 − margin (within limits).
-L374-377: My quote: the options are my true value V (no steering) or, while depth remains, ±1.98 (steer), ±3.02 (harvest), 195 or 0 (extremes).
-L379-394: For each option: their trade size by the sharp's rule, cut by the position limit; my profit at the true value V; plus the best continuation, in which they now read my new quote.
-L397: Depth 4, or 3 when 7 or more events are left (keeps round 2 fast).
+L311-312: F(P): their value if my last quote is P (A + 0.8·P), or Fnone if I have not quoted.
+L316-324: dfs with its cache.
+L327-337: Their quote equals their value. I buy 2 if V is above their price + 2 + margin, sell 2 if it is below their price − 2 − margin (within limits).
+L338-341: My quote: the options are my true value V (no steering) or, while depth remains, ±1.98 (steer), ±3.02 (harvest), 195 or 0 (extremes).
+L343-358: For each option: their trade size by the sharp's rule, cut by the position limit; my profit at the true value V; plus the best continuation, in which they now read my new quote.
+L361: Depth 4, or 3 when 7 or more events are left (keeps round 2 fast).
 
-@code 399-415 quote and respond against an identified reader
-L400-405: My value, my last quote, their value without and with my quote, then plan.
-L406-409: If the chosen price is not plain V, remember which way we expect them to answer, to check it next time.
-L413-415: Answering them: trade 2 lots when the edge beats 2.2.
+@code 363-379 quote and respond against an identified reader
+L364-369: My value, my last quote, their value without and with my quote, then plan.
+L370-373: If the chosen price is not plain V, remember which way we expect them to answer, to check it next time.
+L377-379: Answering them: trade 2 lots when the edge beats 2.2.
 > "The _Reader class is a special-purpose exact attack on the organisers' house bots. It only switches on when their quotes match the house formula to the cent, and it turns itself off at the first surprise, so against real teams it does nothing."
 
 %notes 5
 
-# 7. The Bot: inference (lines 418–750)
+# 7. The Bot: inference (lines 382–714)
 
 How the bot turns what it sees into beliefs about the opponent.
 
-@code 418-425 Creating the bot
+@code 382-389 Creating the bot
 The engine creates a fresh Bot for every deal, so nothing is kept between deals.
-L420: H: the hypotheses (built at the first call, when the first obs is available).
-L421: done: how many tape entries we have already learned from.
-L422: ndisc: how many discards we have already processed.
-L423: extra: the tape slot of their quote that we learned from early (while answering it).
-L424: first: do I quote first in odd rounds (am I seat 0)? Learned at the first call.
-L425: The house-reader attack layer.
+L384: H: the hypotheses (built at the first call, when the first obs is available).
+L385: done: how many tape entries we have already learned from.
+L386: ndisc: how many discards we have already processed.
+L387: extra: the tape slot of their quote that we learned from early (while answering it).
+L388: first: do I quote first in odd rounds (am I seat 0)? Learned at the first call.
+L389: The house-reader attack layer.
 
-@code 427-459 _init: the prior and the 216 hypotheses
-L429-432: From my unseen cards: count U, sum S, average m.
-L433: The variance of one unseen card.
-L434-435: Their hand sum O is 5 cards from that pool: mean 5m and variance 5v·(U − 5) / (U − 1) (cards drawn without replacement). At the start this is about 35 ± 8.
-L436: obar = the prior mean of O, our "average hand".
-L438: The families: naive (reads = False) and the four reader rules, with their prior probabilities.
-L440-447: Every combination of lam, tau, kappa and threshold. tau is only allowed for lam = 1 (L442–443), and for lam < 1 the tau factor is 1 (L444–445).
-L448: The log of the prior probability (the product of the factors), times 0.88 (= not a blend quoter).
-L449-450: The new hypothesis: style fields; belief mean O = mu; t = 0.6 for readers (0 for naive); variance of O; no correlation; variance of t (tiny for naive); log-weight; skew 0; threshold.
-L451-458: Blend quoters: every lam, tau, kappa, skew and threshold. For them "t" is the blend weight W (mean 0.45, sd 0.25).
-L459: Store them: 120 + 96 = 216 hypotheses.
+@code 391-423 _init: the prior and the 216 hypotheses
+L393-396: From my unseen cards: count U, sum S, average m.
+L397: The variance of one unseen card.
+L398-399: Their hand sum O is 5 cards from that pool: mean 5m and variance 5v·(U − 5) / (U − 1) (cards drawn without replacement). At the start this is about 35 ± 8.
+L400: obar = the prior mean of O, our "average hand".
+L402: The families: naive (reads = False) and the four reader rules, with their prior probabilities.
+L404-411: Every combination of lam, tau, kappa and threshold. tau is only allowed for lam = 1 (L406–407), and for lam < 1 the tau factor is 1 (L408–409).
+L412: The log of the prior probability (the product of the factors), times 0.88 (= not a blend quoter).
+L413-414: The new hypothesis: style fields; belief mean O = mu; t = 0.6 for readers (0 for naive); variance of O; no correlation; variance of t (tiny for naive); log-weight; skew 0; threshold.
+L415-422: Blend quoters: every lam, tau, kappa, skew and threshold. For them "t" is the blend weight W (mean 0.45, sd 0.25).
+L423: Store them: 120 + 96 = 216 hypotheses.
 
-@code 461-465 _prune
-L462: The best log-weight.
-L463: Keep hypotheses within PRUNE (6) of the best.
-L464-465: Shift so that the best is 0 (exp() then never underflows).
+@code 425-429 _prune
+L426: The best log-weight.
+L427: Keep hypotheses within PRUNE (6) of the best.
+L428-429: Shift so that the best is 0 (exp() then never underflows).
 
-@code 467-487 _state: the public numbers as the opponent saw them in round r
-L470-472: The board cards visible in round r (r − 1 of them), their count and sum.
-L473-478: Swaps made up to round r: count nd and sum ds.
-L479-483: How many times the opponent had peeked by round r (at most 5).
-L484: pk: we do not know which of my cards they saw, so each peek counts as the average card of my hand.
-L485: N = 47 − board − discards − peeks: the cards unknown to them (52, minus their own 5, minus what they have seen).
-L486: C0 = 364 − board − discards − peeked: the total of the cards they have not seen, still including their own hand.
-L487: Return (bv, hidden board cards, npk, pk, N, C0, the average unknown card for an average hand).
+@code 431-451 _state: the public numbers as the opponent saw them in round r
+L434-436: The board cards visible in round r (r − 1 of them), their count and sum.
+L437-442: Swaps made up to round r: count nd and sum ds.
+L443-447: How many times the opponent had peeked by round r (at most 5).
+L448: pk: we do not know which of my cards they saw, so each peek counts as the average card of my hand.
+L449: N = 47 − board − discards − peeks: the cards unknown to them (52, minus their own 5, minus what they have seen).
+L450: C0 = 364 − board − discards − peeked: the total of the cards they have not seen, still including their own hand.
+L451: Return (bv, hidden board cards, npk, pk, N, C0, the average unknown card for an average hand).
 
-@code 489-501 _before: my position and Q before slot j
-L494-500: Replay the tape up to slot j. When I was the maker, the taker's qty moves my position the other way (pos −= qty). When they were the maker, I was the taker (pos += qty), and Q counts the net lots I bought at their quotes.
+@code 453-465 _before: my position and Q before slot j
+L458-464: Replay the tape up to slot j. When I was the maker, the taker's qty moves my position the other way (pos −= qty). When they were the maker, I was the taker (pos += qty), and Q counts the net lots I bought at their quotes.
 
-@code 503-511 _ks: the sign swap-expecting bots use
-L506-511: +1 if I am long and can still swap, −1 if short, else 0. It is 0 in round 5 (all swaps happen before round 5's quotes) and after I have swapped. Opponents with kappa > 0 shift their value by kappa × this, expecting me to swap away a bad card.
+@code 467-475 _ks: the sign swap-expecting bots use
+L470-475: +1 if I am long and can still swap, −1 if short, else 0. It is 0 in round 5 (all swaps happen before round 5's quotes) and after I have swapped. Opponents with kappa > 0 shift their value by kappa × this, expecting me to swap away a bad card.
 
-@code 513-529 _lastq: my last quote, carried forward
-L518-522: Find my newest quote before slot j.
-L523-525: Each board card shown since adds CARRY × (card − 7).
-L526-528: Each of my swaps since adds 7 − (the card I threw).
-L529: What a blend quoter would now take from my old quote.
+@code 477-493 _lastq: my last quote, carried forward
+L482-486: Find my newest quote before slot j.
+L487-489: Each board card shown since adds CARRY × (card − 7).
+L490-492: Each of my swaps since adds 7 − (the card I threw).
+L493: What a blend quoter would now take from my old quote.
 
-@code 531-548 _see, part 1: one observation
+@code 495-512 _see, part 1: one observation
 _see is called once per event: their quote (is_quote = True, price = their quote) or their answer to my quote (is_quote = False, price = my quote, qty = their answer).
-L533-535: The public state at that time, my position, Q and ks.
-L536-537: My quotes so far; a CUR reader answering also reads the very price it is answering.
-L538-548: For an answer: kind = +1 (bought), −1 (sold) or 0 (passed). If the position limit blocked both buying and selling, a pass says nothing, so return.
+L497-499: The public state at that time, my position, Q and ks.
+L500-501: My quotes so far; a CUR reader answering also reads the very price it is answering.
+L502-512: For an answer: kind = +1 (bought), −1 (sold) or 0 (passed). If the position limit blocked both buying and selling, a pass says nothing, so return.
 
-@code 549-564 _see, part 2: per-hypothesis set-up
-L549: A cache of line coefficients per (reads, rule): all hypotheses of a family share them.
-L550: My carried last quote, for blend quoters.
-L553-555: A lam = 0 hypothesis says "their quotes carry no information": the quote gets the flat density U_Q and the belief does not change.
-L556-561: The coefficients for this family, from the cache or computed with pick_q and coefs.
-L563-564: The belief means; extra = tau·Q + kappa·ks.
+@code 513-528 _see, part 2: per-hypothesis set-up
+L513: A cache of line coefficients per (reads, rule): all hypotheses of a family share them.
+L514: My carried last quote, for blend quoters.
+L517-519: A lam = 0 hypothesis says "their quotes carry no information": the quote gets the flat density U_Q and the belief does not change.
+L520-525: The coefficients for this family, from the cache or computed with pick_q and coefs.
+L527-528: The belief means; extra = tau·Q + kappa·ks.
 
-@code 565-587 _see, part 3: learning from their quote
-L566: oe = lam·O + (1 − lam)·obar: a lam-honest quoter shows only the fraction lam of its hand's distance from average.
-L567-575: Blend quoter: its own value F (plus skew × my position), then quote = (1 − W)·F + W·(my carried last quote). Ho and Ht are the slopes of the predicted quote in O and in W.
-L576-579: Other styles: the predicted quote from the straight line, and its slopes Ho and Ht.
-L580-581: The predicted variance S = H^{T}·P·H + SIG_Q².
-L582: d = the surprise.
-L583: dens = the normal density of the surprise.
-L584: The likelihood with outliers: 90% normal, 10% flat.
-L585: rr = the chance that the quote was explained.
-L586: The Kalman step, blended by rr.
-L587: Add the log-likelihood to the weight.
+@code 529-551 _see, part 3: learning from their quote
+L530: oe = lam·O + (1 − lam)·obar: a lam-honest quoter shows only the fraction lam of its hand's distance from average.
+L531-539: Blend quoter: its own value F (plus skew × my position), then quote = (1 − W)·F + W·(my carried last quote). Ho and Ht are the slopes of the predicted quote in O and in W.
+L540-543: Other styles: the predicted quote from the straight line, and its slopes Ho and Ht.
+L544-545: The predicted variance S = H^{T}·P·H + SIG_Q².
+L546: d = the surprise.
+L547: dens = the normal density of the surprise.
+L548: The likelihood with outliers: 90% normal, 10% flat.
+L549: rr = the chance that the quote was explained.
+L550: The Kalman step, blended by rr.
+L551: Add the log-likelihood to the weight.
 
-@code 588-624 _see, part 4: learning from their answer to my quote
-L589: Their threshold th.
-L590-596: The interval their value must be in: bought → above price + th; sold → below price − th; passed → within ±th, except that a side blocked by the position limit is left open.
-L597-602: The predicted value (mean), its slopes, the predicted variance S (plus SIG_R² for threshold noise) and its sd sy.
-L603-614: The standardised ends of the interval, al and be, with their density and cumulative values (infinite ends handled).
-L615: Z = the probability of this answer.
-L616: The likelihood, allowing 6% random answers (EPS_R / 3 for each kind of answer).
-L617: Update the weight.
-L618-619: If the answer was impossible under this hypothesis, skip the belief update.
-L620-622: rr; m1 = the mean of the truncated normal (in sd units); vy = its variance.
-L623: The Kalman step: the observation "came out" sy·m1 above the prediction, with vy of uncertainty left.
-L624: Prune after every event.
+@code 552-588 _see, part 4: learning from their answer to my quote
+L553: Their threshold th.
+L554-560: The interval their value must be in: bought → above price + th; sold → below price − th; passed → within ±th, except that a side blocked by the position limit is left open.
+L561-566: The predicted value (mean), its slopes, the predicted variance S (plus SIG_R² for threshold noise) and its sd sy.
+L567-578: The standardised ends of the interval, al and be, with their density and cumulative values (infinite ends handled).
+L579: Z = the probability of this answer.
+L580: The likelihood, allowing 6% random answers (EPS_R / 3 for each kind of answer).
+L581: Update the weight.
+L582-583: If the answer was impossible under this hypothesis, skip the belief update.
+L584-586: rr; m1 = the mean of the truncated normal (in sd units); vy = its variance.
+L587: The Kalman step: the observation "came out" sy·m1 above the prediction, with vy of uncertainty left.
+L588: Prune after every event.
 > "From a quote we learn a number; from an answer we learn an interval. Both go through the same Kalman step, and each hypothesis' weight goes up or down by how likely it found what happened."
 
-@code 626-633 _see_swap: the opponent swapped
-L627-630: The mean m and variance v of a random unseen card.
-L631-633: Their new hand = old hand − thrown card + new card, so in every hypothesis the mean of O moves by m − card and its variance grows by v.
+@code 590-597 _see_swap: the opponent swapped
+L591-594: The mean m and variance v of a random unseen card.
+L595-597: Their new hand = old hand − thrown card + new card, so in every hypothesis the mean of O moves by m − card and its variance grows by v.
 
-@code 635-664 _sync: process everything new, in order
-L636-637: First call: build the hypotheses.
-L640-649: Walk the discards and the tape together. A discard of round r happens before the quotes of round r, so it goes first. Only opponent discards change our beliefs.
-L650-653: Skip a quote we already learned from early.
-L654-659: Their quote (ignoring the extreme prices 0 and 195, which carry no hand information) → quote update. My quote → answer update.
-L660-664: When answering (cur given), learn from their current quote now, and remember its slot so it is not used twice.
+@code 599-628 _sync: process everything new, in order
+L600-601: First call: build the hypotheses.
+L604-613: Walk the discards and the tape together. A discard of round r happens before the quotes of round r, so it goes first. Only opponent discards change our beliefs.
+L614-617: Skip a quote we already learned from early.
+L618-623: Their quote (ignoring the extreme prices 0 and 195, which carry no hand information) → quote update. My quote → answer update.
+L624-628: When answering (cur given), learn from their current quote now, and remember its slot so it is not used twice.
 
-@code 666-677 _ev: E[V | O] = α + β·O
-L668-670: Unseen count and sum (their unknown cards are among them).
-L671-672: k = their cards I have not peeked (always 5 for us); kn = the sum of the peeked ones.
-L673: The hidden board cards.
-L674-676: The hidden board comes from the unseen pool minus their k unknown cards, which gives α and β as in section 3.1.
+@code 630-641 _ev: E[V | O] = α + β·O
+L632-634: Unseen count and sum (their unknown cards are among them).
+L635-636: k = their cards I have not peeked (always 5 for us); kn = the sum of the peeked ones.
+L637: The hidden board cards.
+L638-640: The hidden board comes from the unseen pool minus their k unknown cards, which gives α and β as in section 3.1.
 
-@code 679-689 _opp_swap (not used any more)
+@code 643-653 _opp_swap (not used any more)
 An idea from moscow (v05): price in the swap the opponent may still make. palermo (v10) stopped calling it, because live tests showed it cost points against the top teams. The function is still in the file but is never called.
 
-@code 691-698 _mo: our best guess of O
+@code 655-662 _mo: our best guess of O
 The weighted average of O over all hypotheses.
 
-@code 700-712 _p_reader
+@code 664-676 _p_reader
 The probability that the opponent is a confident, informative reader (trust ≥ 0.5, lam ≥ 0.4), and the probability of that with rule RAW or CUR. Only used for paid manipulation, which is switched off (P_EXT = P_PROBE = 2.0).
 
-@code 714-750 _exact_reader: does the opponent fit the house reader formula?
-L718-721: Their last swap round (quotes before it used another hand).
-L722-730: rows: each of their quotes since then (not extreme), with the straight-line coefficients of a RAW reader of my last quote.
-L731-732: At least 3 are needed.
-L733-749: For every trust t from 0 to 1.15 in steps of 0.005: the best-fitting O (least squares), then the largest misfit. Keep the t with the smallest largest misfit.
-L750: Return t if every quote fits within 0.02, else None. _quote adds extreme prices when t is about 0.8 (the house reader).
+@code 678-714 _exact_reader: does the opponent fit the house reader formula?
+L682-685: Their last swap round (quotes before it used another hand).
+L686-694: rows: each of their quotes since then (not extreme), with the straight-line coefficients of a RAW reader of my last quote.
+L695-696: At least 3 are needed.
+L697-713: For every trust t from 0 to 1.15 in steps of 0.005: the best-fitting O (least squares), then the largest misfit. Keep the t with the smallest largest misfit.
+L714: Return t if every quote fits within 0.02, else None. _quote adds extreme prices when t is about 0.8 (the house reader).
 
 %notes 5
 
-# 8. The Bot: planning and decisions (lines 752–1112)
+# 8. The Bot: planning and decisions (lines 716–1076)
 
 How the bot chooses a quote, an answer and a move.
 
-@code 752-762 _slots: who quotes in each remaining slot
-L758-761: Slot s (0 to 9) is in round s // 2 + 1. The first slot of a round belongs to the player who starts that round, and I start the odd rounds if first is True.
+@code 716-726 _slots: who quotes in each remaining slot
+L722-725: Slot s (0 to 9) is in round s // 2 + 1. The first slot of a round belongs to the player who starts that round, and I start the odd rounds if first is True.
 Example with first = True: (me, 1) (opp, 1) (opp, 2) (me, 2) (me, 3) (opp, 3) (opp, 4) (me, 4) (me, 5) (opp, 5).
 
-@code 764-780 _bel: their value under one hypothesis
-L767-777: The reading rules: SANE ignores implausible quotes; CLAMP caps the implied hand.
-L778-780: fair = A0 + A1·t + (B0 + B1·t)·O + tau·Q + kappa·ks, returned with its slope in O.
+@code 728-744 _bel: their value under one hypothesis
+L731-741: The reading rules: SANE ignores implausible quotes; CLAMP caps the implied hand.
+L742-744: fair = A0 + A1·t + (B0 + B1·t)·O + tau·Q + kappa·ks, returned with its slope in O.
 
-@code 782-794 _roll: set-up
+@code 746-758 _roll: set-up
 A fast, deterministic play-out of the remaining slots under one hypothesis, used to value what an action does to the rest of the deal. V is the value of the stock under this hypothesis; all profits are measured against it.
 
-@code 795-823 _roll: my quotes
-L796: ks for this slot.
-L797: Their value f (and its slope b).
-L799-802: At +10 lots I quote 195, at −10 I quote 0: only the trade that helps me is possible, and readers are pulled my way.
-L803-808: If they value the stock more than 1 above V, quote 3.05 below their value so they buy (I sell above V); if more than 1 below, quote 3.05 above so they sell; otherwise quote their value.
-L809-810: A CUR reader re-reads this price.
-L811-820: If their edge beats their threshold, they trade 2 lots (capped by the limit); my profit is counted at V.
-L821-823: Readers now read this quote (SANE ones only if it is plausible).
+@code 759-787 _roll: my quotes
+L760: ks for this slot.
+L761: Their value f (and its slope b).
+L763-766: At +10 lots I quote 195, at −10 I quote 0: only the trade that helps me is possible, and readers are pulled my way.
+L767-772: If they value the stock more than 1 above V, quote 3.05 below their value so they buy (I sell above V); if more than 1 below, quote 3.05 above so they sell; otherwise quote their value.
+L773-774: A CUR reader re-reads this price.
+L775-784: If their edge beats their threshold, they trade 2 lots (capped by the limit); my profit is counted at V.
+L785-787: Readers now read this quote (SANE ones only if it is plausible).
 
-@code 824-838 _roll: their quotes
-L824: lam = 0 quoters are not simulated (their quotes carry nothing).
-L825: Their quote = their value, with only the fraction lam of their hand's distance from average showing.
-L826-827: Blend quoters mix in my last quote (and their skew).
-L828-837: I buy 2 if V − price − 2 > 0 and sell 2 if price − 2 − V > 0; Q keeps track of the lots I bought at their quotes.
-L838: Return (profit relative to V, final position).
+@code 788-802 _roll: their quotes
+L788: lam = 0 quoters are not simulated (their quotes carry nothing).
+L789: Their quote = their value, with only the fraction lam of their hand's distance from average showing.
+L790-791: Blend quoters mix in my last quote (and their skew).
+L792-801: I buy 2 if V − price − 2 > 0 and sell 2 if price − 2 − V > 0; Q keeps track of the lots I bought at their quotes.
+L802: Return (profit relative to V, final position).
 
-@code 840-852 _plan_setup
-L841: The public state now.
-L842-845: The 6 heaviest hypotheses and their normalised weights.
-L846-850: For each reading rule, which of my quotes a reader would use now.
-L851: Have I swapped?
-L852: The remaining slots after the current one.
+@code 804-816 _plan_setup
+L805: The public state now.
+L806-809: The 6 heaviest hypotheses and their normalised weights.
+L810-814: For each reading rule, which of my quotes a reader would use now.
+L815: Have I swapped?
+L816: The remaining slots after the current one.
 
-@code 854-872 _public (not used) and _plain_fair (the fallback)
-L856-864: _public: the value implied by the public cards alone (moscow's "first quote = public estimate"; no longer called since palermo).
-L867-872: _plain_fair: card counting: my hand + board + peeked cards + every hidden card at the unseen average. Used only if the main code raises an error.
+@code 818-836 _public (not used) and _plain_fair (the fallback)
+L820-828: _public: the value implied by the public cards alone (moscow's "first quote = public estimate"; no longer called since palermo).
+L831-836: _plain_fair: card counting: my hand + board + peeked cards + every hidden card at the unseen average. Used only if the main code raises an error.
 
-@code 874-905 The three methods the engine calls
-L874-878: quote: try the real thing; on any error use the card-counting value.
-L879-885: Then the house-reader layer may replace it (only when active). If that layer errors, it is switched off.
-L887-899: respond: the same pattern. The fallback trades 2 lots if the card-counting edge is over 2.
-L901-905: move: on an error, do nothing.
+@code 838-869 The three methods the engine calls
+L838-842: quote: try the real thing; on any error use the card-counting value.
+L843-849: Then the house-reader layer may replace it (only when active). If that layer errors, it is switched off.
+L851-863: respond: the same pattern. The fallback trades 2 lots if the card-counting edge is over 2.
+L865-869: move: on an error, do nothing.
 > "Every engine call is wrapped: if anything goes wrong we fall back to a simple card-counting value, so a bug costs a little edge, never a crash."
 
-@code 907-924 _quote, part 1: set-up
-L908: Learn from everything new.
-L910-912: j = the tape length. At my first call: if the tape is empty, I am the first maker (seat 0, odd rounds).
-L913-920: Position, Q, α and β, the planning set-up, ks, the money so far (cur), and how many lots they can buy (nb) or sell (ns) at my quote.
-L921-924: For each top hypothesis: its weight, the hypothesis, and V = α + β·O.
+@code 871-888 _quote, part 1: set-up
+L872: Learn from everything new.
+L874-876: j = the tape length. At my first call: if the tape is empty, I am the first maker (seat 0, odd rounds).
+L877-884: Position, Q, α and β, the planning set-up, ks, the money so far (cur), and how many lots they can buy (nb) or sell (ns) at my quote.
+L885-888: For each top hypothesis: its weight, the hypothesis, and V = α + β·O.
 
-@code 926-953 _quote, part 2: their answer model
-L928-936: resp_dist with a per-quote cache: for every hypothesis except CUR readers, the answer model does not depend on my price, so it is computed once (part of marseille's speed-up).
-L939: Which quote of mine they read: the price itself for CUR, otherwise their current reading.
-L940: Their value f.
-L941-947: The reading rules and coefficients.
-L948-953: The slopes; cO = cov(O, their value); S = var(their value) + SIG_R². Returns the mean, the sd and cO / sd.
+@code 890-917 _quote, part 2: their answer model
+L892-900: resp_dist with a per-quote cache: for every hypothesis except CUR readers, the answer model does not depend on my price, so it is computed once (part of marseille's speed-up).
+L903: Which quote of mine they read: the price itself for CUR, otherwise their current reading.
+L904: Their value f.
+L905-911: The reading rules and coefficients.
+L912-917: The slopes; cO = cov(O, their value); S = var(their value) + SIG_R². Returns the mean, the sd and cO / sd.
 
-@code 955-961 _quote, part 3: the immediate expected profit
-L957-959: The z-scores of "they buy" (value − p > th) and "they sell" (p − value > th).
-L960: nb lots sold at p + 2 with probability Φ(zb), minus the adverse-selection term β·c·φ(zb): they buy exactly when O, and so V, is high.
-L961: The same for selling to me. Returns (expected profit, their value).
+@code 919-925 _quote, part 3: the immediate expected profit
+L921-923: The z-scores of "they buy" (value − p > th) and "they sell" (p − value > th).
+L924: nb lots sold at p + 2 with probability Φ(zb), minus the adverse-selection term β·c·φ(zb): they buy exactly when O, and so V, is high.
+L925: The same for selling to me. Returns (expected profit, their value).
 > "The immediate profit of a quote includes adverse selection: the opponent buys exactly when its hand is high, so the formula subtracts β times the covariance times the normal density."
 
-@code 963-976 _quote, part 4: stage 1, the best price for this trade alone
-L964: Their value under the top two hypotheses.
-L965-969: Candidates: those values ± 2, 2.5, 3, 3.5, 4.5 and 6.
-L970-976: Keep the candidate with the highest weighted immediate profit (default: their value, which means no trade).
+@code 927-940 _quote, part 4: stage 1, the best price for this trade alone
+L928: Their value under the top two hypotheses.
+L929-933: Candidates: those values ± 2, 2.5, 3, 3.5, 4.5 and 6.
+L934-940: Keep the candidate with the highest weighted immediate profit (default: their value, which means no trade).
 
-@code 977-994 _quote, part 5: stage 2 candidates
-L978-980: The stage-1 price, their value, ±3.05 around it, and ±6.05 around the second hypothesis' value.
-L981: imp0 = the price that would imply a hand of 0 for me, so imp0 + x implies a hand of x.
-L982-985: At the limit, extreme prices are free: at +10 the prices 195, "hand 65" and "hand 58"; at −10 the prices 0, "hand 5" and "hand 12".
-L986-987: Against an exact house reader (trust about 0.8), extremes in rounds 1 to 4.
-L988-994: Paid manipulation: switched off, because P_EXT and P_PROBE (2.0) can never be reached.
+@code 941-958 _quote, part 5: stage 2 candidates
+L942-944: The stage-1 price, their value, ±3.05 around it, and ±6.05 around the second hypothesis' value.
+L945: imp0 = the price that would imply a hand of 0 for me, so imp0 + x implies a hand of x.
+L946-949: At the limit, extreme prices are free: at +10 the prices 195, "hand 65" and "hand 58"; at −10 the prices 0, "hand 5" and "hand 12".
+L950-951: Against an exact house reader (trust about 0.8), extremes in rounds 1 to 4.
+L952-958: Paid manipulation: switched off, because P_EXT and P_PROBE (2.0) can never be reached.
 
-@code 995-1019 _quote, part 6: score each candidate with the rest of the deal, then nudge
-L996-997: Clamp to 0..195.
-L999-1006: For each hypothesis: the immediate profit, and the position after their likely answer.
-L1007-1009: Readers will read this new price (SANE ones only if it is plausible).
-L1010: Add the play-out of the rest of the deal.
-L1011: The utility of the whole deal: money so far + position × V + future profit.
-L1012-1013: Keep the best.
-L1014: Clamp.
-L1015-1018: Not at the limit: final quote = 70% planner + 30% safe quote.
-L1019: At the limit: the planner's (extreme) price as it is.
+@code 959-983 _quote, part 6: score each candidate with the rest of the deal, then nudge
+L960-961: Clamp to 0..195.
+L963-970: For each hypothesis: the immediate profit, and the position after their likely answer.
+L971-973: Readers will read this new price (SANE ones only if it is plausible).
+L974: Add the play-out of the rest of the deal.
+L975: The utility of the whole deal: money so far + position × V + future profit.
+L976-977: Keep the best.
+L978: Clamp.
+L979-982: Not at the limit: final quote = 70% planner + 30% safe quote.
+L983: At the limit: the planner's (extreme) price as it is.
 ! Top teams quote close to the opponent's last quote and so hide their information. Moving 15% of the way to that "safe quote" (stockholm, v09) gained +0.46 ± 0.23 live; 30% (test u01) another +0.13; using it against every opponent (bogota, v11) another +0.06. Quoting only the safe quote (test j01) lost −0.85: we keep our edge and only borrow part of the hiding.
 
-@code 1021-1037 _safe_quote
-L1024-1029: Their last real quote (not 0 or 195). If there is none, there is no nudge.
-L1030-1032: Carry it for the board cards shown since (each moves it by card − 7).
-L1033-1035: And for the swaps since (7 − the thrown card).
-L1036: Move 1.3 towards my value: inside their ±2 band, so they should not trade on it.
-L1037: Clamp.
+@code 985-1001 _safe_quote
+L988-993: Their last real quote (not 0 or 195). If there is none, there is no nudge.
+L994-996: Carry it for the board cards shown since (each moves it by card − 7).
+L997-999: And for the swaps since (7 − the thrown card).
+L1000: Move 1.3 towards my value: inside their ±2 band, so they should not trade on it.
+L1001: Clamp.
 
-@code 1039-1069 _respond: buy, pass or sell?
-L1040: Learn from everything, including their current quote.
-L1043-1044: If my first call is an answer at slot 0, they quoted first, so I am not first in odd rounds.
-L1045-1052: Set-up; nbuy and nsell respect the limit.
-L1054: Three options: pass, buy, sell.
-L1057-1063: The profit now at this hypothesis' V (buy at price + 2, sell at price − 2).
-L1064-1065: Plus the play-out of the rest of the deal (tau readers see the lots I traded through Q + qty).
-L1066: The utility of the whole deal.
-L1067-1068: Keep the best; ties go to the earlier option (pass first).
+@code 1003-1033 _respond: buy, pass or sell?
+L1004: Learn from everything, including their current quote.
+L1007-1008: If my first call is an answer at slot 0, they quoted first, so I am not first in odd rounds.
+L1009-1016: Set-up; nbuy and nsell respect the limit.
+L1018: Three options: pass, buy, sell.
+L1021-1027: The profit now at this hypothesis' V (buy at price + 2, sell at price − 2).
+L1028-1029: Plus the play-out of the rest of the deal (tau readers see the lots I traded through Q + qty).
+L1030: The utility of the whole deal.
+L1031-1032: Keep the best; ties go to the earlier option (pass first).
 > "To answer a quote we compare buy, pass and sell with one yardstick: the profit now plus a play-out of the rest of the deal under the six likeliest opponent models, through the utility."
 
-@code 1071-1112 _move: never peek, swap only in round 5
-L1072: Keep the beliefs current.
-L1073-1074: Do nothing before round 5, or if I have already swapped.
-L1078-1095: The expected final position fpos: play out round 5's two quotes under the top hypotheses (both seatings if unknown).
-L1096-1101: mstack = the expected value of a fresh card: the unseen total minus their expected unknown cards, divided by the remaining count.
-L1102: My hand.
-L1103: pamplona's change: decide on the average of the position I hold now (pos) and the position I expect to end with (fpos). The play-out tends to predict more round-5 trading than really happens, so the average is steadier.
-L1104-1109: Long → throw my lowest card; short → my highest. gain = (that average position) × (mstack − card).
-L1110-1111: Swap if the expected gain is positive (SWAP_TH for round 5 is 0; it was 4 in marseille).
+@code 1035-1076 _move: never peek, swap only in round 5
+L1036: Keep the beliefs current.
+L1037-1038: Do nothing before round 5, or if I have already swapped.
+L1042-1059: The expected final position fpos: play out round 5's two quotes under the top hypotheses (both seatings if unknown).
+L1060-1065: mstack = the expected value of a fresh card: the unseen total minus their expected unknown cards, divided by the remaining count.
+L1066: My hand.
+L1067: pamplona's change: decide on the average of the position I hold now (pos) and the position I expect to end with (fpos). The play-out tends to predict more round-5 trading than really happens, so the average is steadier.
+L1068-1073: Long → throw my lowest card; short → my highest. gain = (that average position) × (mstack − card).
+L1074-1075: Swap if the expected gain is positive (SWAP_TH for round 5 is 0; it was 4 in marseille).
 ! Swapping only in round 5 (rio, v03) gained +0.86 ± 0.39 live on real teams, and local tests of swapping from round 4 lost about 0.3. Lowering the round-5 bar from 4 to 0 (manila, v13) gained another +0.10 ± 0.05 live, and deciding on the average of the current and the expected final position (pamplona, v14) another +0.40 ± 0.13, better against 23 of 24 opponents. By round 5 we know which way we are positioned, and the thrown card (which is public) leaves the opponent only two quotes to react.
 ! We never peek: a peek costs 3 points for one random card (a fifth of the opponent's hand), while the opponent's quotes and answers already tell us most of O.
 
@@ -789,7 +779,7 @@ Every version changed one idea. "Live" is the paired result on the arena against
 = In two stages. First, the price with the best immediate expected profit (including adverse selection) among offsets from the opponent's value. Then a few candidates are scored together with a play-out of the rest of the deal under the top 6 hypotheses, through the utility. Then the 30% nudge.
 
 ? What is adverse selection, and where is it in the code?
-= The opponent buys from me exactly when its hand is high, which is when V is high, so a naive expected-profit formula is too optimistic. Line 960 subtracts β·c·φ(z), the exact correction when the belief is normal.
+= The opponent buys from me exactly when its hand is high, which is when V is high, so a naive expected-profit formula is too optimistic. Line 924 subtracts β·c·φ(z), the exact correction when the belief is normal.
 
 ? Why a concave utility?
 = The score is sign(p)·√|p| per deal pair, so big wins count less than many small ones. A utility with the same shape makes the bot prefer steady profits to big gambles. We kept RISK = 60: 120 was worse and 30 was not clearly better.
