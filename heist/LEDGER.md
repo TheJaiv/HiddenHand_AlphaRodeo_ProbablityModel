@@ -105,4 +105,5 @@ them (stockholm: PaperHands -1.57, Genz7 -1.11, Imposters #574 -0.77; 30% nudge:
 the mid-field. With top teams likely to upload their best at the end, the final must not give these matchups away.
 | x01 / x02 | 30% nudge scaled by (1 - P(reader)) | field2 -0.018 / -0.036 vs stockholm | - | rejected |
 | z01_rionudge30 | rio + 30% nudge + no probes | field2 -0.854 +-0.112 vs the 30% nudge | - | parked (risky) |
-| aa01_naive06 (test_aa01_naive06.py) | palermo with P_NAIVE 0.6 | live split: lowering P_NAIVE cost -0.17 vs top teams (helsinki - e01 on 10 top-team entries) | queued 16:05 | |
+| aa01_naive06 (test_aa01_naive06.py) | palermo with P_NAIVE 0.6 | field2 -0.551 +-0.090 vs palermo | #596 (16:12): -0.91 +-0.64 vs palermo (n=26): HAN SOLO +3.0, AJ +1.4 but QuantXAlpha -2.8, Pokemons -4.1, Imposters -1.0 | rejected |
+| bb01_step2 (test_bb01_step2.py) | palermo, safe-quote step 1.3 -> 2.0 | field2 +0.037 +-0.035; bb02 (22% nudge) -0.026 | sent 16:22 | |
