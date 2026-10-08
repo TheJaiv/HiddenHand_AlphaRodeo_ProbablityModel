@@ -39,10 +39,12 @@ def main():
     args = sys.argv[1:]
     iters = int(args[args.index("--iters") + 1]) if "--iters" in args else 1500
     m = json.load(open(os.path.join(HERE, "data", "matrix.json"), encoding="utf-8"))
-    teams = args[args.index("--teams") + 1:] if "--teams" in args else [
-        t for t in m["newest"] if t != "Alpha Rodeo" and not t.startswith("House")]
     fits_fn = os.path.join(HERE, "data", "fits.json")
     fits = json.load(open(fits_fn)) if os.path.exists(fits_fn) else {}
+    teams = args[args.index("--teams") + 1:] if "--teams" in args else [
+        t for t in m["newest"] if t != "Alpha Rodeo" and not t.startswith("House")]
+    if "--missing" in args:
+        teams = [t for t in teams if t not in fits or fits[t]["entry"] != m["newest"][t]]
     for team in teams:
         e = m["newest"][team]
         best, plays = fit_opp.fit(team, e, iters=iters, verbose=False)

@@ -1,0 +1,134 @@
+{
+ "Alpha Hunters": {
+  "file": "heist/opp/opp_alpha_hunters.py",
+  "weight": 3.0,
+  "style": "blend",
+  "entry": 443
+ },
+ "Apex Syndicate": {
+  "file": "heist/opp/opp_apex_syndicate.py",
+  "weight": 1.6,
+  "style": "reader",
+  "entry": 294
+ },
+ "Bulls Squad": {
+  "file": "heist/opp/opp_bulls_squad.py",
+  "weight": 1.6,
+  "style": "reader",
+  "entry": 370
+ },
+ "Double Dividend": {
+  "file": "heist/opp/opp_double_dividend.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 453
+ },
+ "Genz7": {
+  "file": "heist/opp/opp_genz7.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 262
+ },
+ "Godtier": {
+  "file": "heist/opp/opp_godtier.py",
+  "weight": 2.75,
+  "style": "honest",
+  "entry": 465
+ },
+ "HAN SOLO": {
+  "file": "heist/opp/opp_han_solo.py",
+  "weight": 2.75,
+  "style": "honest",
+  "entry": 375
+ },
+ "IITBHUAVENGERS": {
+  "file": "heist/opp/opp_iitbhuavengers.py",
+  "weight": 3.0,
+  "style": "blend",
+  "entry": 389
+ },
+ "Money Heist": {
+  "file": "heist/opp/opp_money_heist.py",
+  "weight": 1.6,
+  "style": "reader",
+  "entry": 115
+ },
+ "PaperHands": {
+  "file": "heist/opp/opp_paperhands.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 485
+ },
+ "Phantom Halo": {
+  "file": "heist/opp/opp_phantom_halo.py",
+  "weight": 1.6,
+  "style": "reader",
+  "entry": 472
+ },
+ "Pokemons": {
+  "file": "heist/opp/opp_pokemons.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 214
+ },
+ "QUANTSTATIC": {
+  "file": "heist/opp/opp_quantstatic.py",
+  "weight": 2.75,
+  "style": "honest",
+  "entry": 185
+ },
+ "QUANTUMLYSTUPID": {
+  "file": "heist/opp/opp_quantumlystupid.py",
+  "weight": 1.6,
+  "style": "reader",
+  "entry": 489
+ },
+ "Quant Qods": {
+  "file": "heist/opp/opp_quant_qods.py",
+  "weight": 2.75,
+  "style": "honest",
+  "entry": 247
+ },
+ "QuantXAlpha": {
+  "file": "heist/opp/opp_quantxalpha.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 458
+ },
+ "Quantumlesssss": {
+  "file": "heist/opp/opp_quantumlesssss.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 474
+ },
+ "THUGS OF BHU": {
+  "file": "heist/opp/opp_thugs_of_bhu.py",
+  "weight": 3.0,
+  "style": "blend",
+  "entry": 369
+ },
+ "Techy Traders": {
+  "file": "heist/opp/opp_techy_traders.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 488
+ },
+ "TeenPatti": {
+  "file": "heist/opp/opp_teenpatti.py",
+  "weight": 3.0,
+  "style": "blend",
+  "entry": 330
+ },
+ "ThunderX": {
+  "file": "heist/opp/opp_thunderx.py",
+  "weight": 1.875,
+  "style": "follower",
+  "entry": 299
+ },
+ "Happy Happy #463": {
+  "file": "heist/opp/opp_happy_happy_463.py",
+  "weight": 1.0,
+  "style": "follower",
+  "entry": 463
+ }
+}

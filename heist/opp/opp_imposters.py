@@ -2,12 +2,12 @@
 # Members: none (local imitation, never uploaded)
 # Mentor: none
 """opp_imposters.py - imitation of live team Imposters #457, fitted to its public replays
-(heist/fit_opp.py): quote err 1.76, respond miss 0.34, move miss 0.01.
+(heist/fit_opp.py): quote err 1.79, respond miss 0.34, move miss 0.01.
 See heist/opp_core.py for what the parameters mean."""
 
 
 DEFAULT = dict(FQ=0.0, H1=0.0, T=0.0, SANE=99.0, TL=0.0, SA=0.0, W=0.0, C=0.0, CSIGN=1, HIDE=0.0,
-               QA=0.0, SKEW=0.0, TP=0, TH=2.0, TH2=3.0, SANR=999.0, RS=1, SG=3.0, PK=0)
+               QA=0.0, SKEW=0.0, TP=0, TR=0.0, TH=2.0, TH2=3.0, R1L=2, SANR=999.0, RS=1, SG=3.0, PK=0)
 
 
 def make_bot(P):
@@ -38,13 +38,15 @@ def make_bot(P):
             E = sum(obs.hand) + sum(obs.board) + sum(obs.opp_known) + (10 - nb - nk) * m
             pub = self._public(obs)
             theirs = [px for r, who, px, q in obs.tape if who == "opp"]
+            T = P["T"]
             if P["TP"] and price is not None:
                 theirs.append(price)
-            if theirs and P["T"]:
+                T = P["TR"]
+            if theirs and T:
                 last = theirs[-1]
                 if abs(last - pub) <= P["SANE"]:
                     implied = last - sum(obs.board) - (5 + 5 - nb) * m
-                    E += P["T"] * (implied - 5 * m)
+                    E += T * (implied - 5 * m)
             if P["TL"]:
                 net = sum(q for r, who, px, q in obs.tape if who == "me")
                 E += P["TL"] * net
@@ -94,17 +96,12 @@ def make_bot(P):
             if abs(price - pub) > P["SANR"]:
                 return 0
             e = E - price
-            if e > P["TH2"]:
-                return 2
-            if e > P["TH"]:
-                return 1
-            if e < -P["TH2"]:
-                return -2
-            if e < -P["TH"]:
-                return -1
-            return 0
+            n = 2 if abs(e) > P["TH2"] else (1 if abs(e) > P["TH"] else 0)
+            if obs.round == 1:
+                n = min(n, P["R1L"])
+            return n if e > 0 else -n
 
     return Bot
 
 
-Bot = make_bot({"FQ": -0.4768, "H1": 0.9735, "T": 0.5527, "SANE": 7.3129, "TL": 2.9353, "SA": 0.6622, "W": 0.472, "C": -1.7203, "CSIGN": 0, "HIDE": 0.0724, "QA": 1.7969, "SKEW": 1.1052, "TP": 1, "TH": 4.3757, "TH2": 6.794, "SANR": 73.5637, "RS": 4, "SG": 0.8658})
+Bot = make_bot({"FQ": -0.0696, "H1": 0.7325, "T": 0.0518, "SANE": 37.9859, "TL": 2.5591, "SA": 0.4429, "W": 0.496, "C": -0.2962, "CSIGN": 1, "HIDE": -0.2477, "QA": 0.27, "SKEW": 1.3317, "TP": 0, "TR": 0.7956, "TH": 4.4937, "TH2": 5.009, "R1L": 1, "SANR": 74.5986, "RS": 4, "SG": 0.5831})

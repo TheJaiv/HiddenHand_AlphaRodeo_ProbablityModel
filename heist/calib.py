@@ -19,6 +19,7 @@ import feval   # noqa: E402
 KNOWN = {          # our live entry -> the file that plays exactly like it
     "486": "heist/tokyo.py", "452": "heist/tokyo.py",
     "466": "heist/berlin.py", "459": "heist/berlin.py",
+    "495": "heist/nairobi.py",
 }
 
 
