@@ -1,13 +1,13 @@
 # Heist status (the one file to look at)
 
-Updated 18:00, Thu 8 Oct. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
+Updated 18:27, Thu 8 Oct. The arena warned of calls over 50 ms: speed-hardened final = marseille. Since 15:40 the house bots no longer count and uploads are limited to one every 15 minutes.
 
 | | File | Why |
 |---|---|---|
 | FINAL | heist/marseille.py = heist/professor.py (#636) | bogota's strategy, 30-40% faster; live +0.02 vs bogota; level with Imposters, ahead of PaperHands / MNC / Genz7 / TeenPatti on the same opponents |
 | BEST LIVE | heist/bogota.py (= test_ee01_nudgeall.py, #611, up 16:45; = professor.py) | +0.06 +-0.08 vs palermo; >= palermo against every top team (Imposters #615 +1.98, MNC +2.95, Techy #606 +0.57) |
 | ALSO PROVEN | heist/palermo.py (#591) | best live file: +0.43 +-0.38 vs the 30% nudge #588, +0.61 vs stockholm, +1.17 vs rio on real teams; wins back Imposters (+1.91), QuantXAlpha (+1.86), TeenPatti (+2.77), AJ (+0.74) |
-| UPLOAD NOW | heist/bogota.py (re-upload after the z02 test), then heist/test_ll01_oppswap.py | bogota = the final; ll01 = half of palermo's undo (may win back Blind_Ambition / HAN SOLO) |
+| UPLOAD NOW | heist/test_mm04_nudge40.py (18:27 probe), then heist/marseille.py again (~18:45) unless mm04 wins | mm03 (#647, threshold prior 60/40) lost -0.53 +-0.32 vs marseille: rejected |
 | FALLBACK (proven live) | heist/bogota.py or heist/palermo.py | re-upload if a test comes out worse |
 
 Live results on real teams (paired: same opponent uploads, newest minus the previous):
@@ -26,6 +26,9 @@ Live results on real teams (paired: same opponent uploads, newest minus the prev
 | #601 | test_bb01_step2 | -0.07 +-0.10 vs palermo | #4 at +4.48 |
 | #611 | bogota (test_ee01_nudgeall) | +0.06 +-0.07 vs palermo (n=41); 49 of 52 won | +4.37 on real teams |
 | #621 | test_z02_topbogota | -0.45 +-0.61 vs bogota; 41 of 42 won; top-10 teams equal | rejected for the final |
+| #629 | test_ll01_oppswap | -0.02 +-0.20 vs bogota | tie, rejected |
+| #636 | marseille (final) | +0.02 +-0.07 vs bogota; 47 of 50 won | +4.41 on real teams |
+| #647 | test_mm03_th6040 | -0.53 +-0.32 vs marseille (n=41) | rejected (rank 9 at +3.13 while newest) |
 
 Still losing to: PaperHands -1.60, HAN SOLO -1.67, Genz7 -1.04 (palermo).
 

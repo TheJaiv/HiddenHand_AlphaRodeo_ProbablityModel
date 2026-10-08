@@ -152,5 +152,5 @@ bogota is the best of our versions against every leader.
 50 ms ... x2" - 2 calls in about 1.4 million (58 fights x 400 deals x 2 seats x ~30 calls): negligible, consistent with rare
 machine pauses (locally even 0.03 ms move() calls occasionally spike to 9 ms). marseille cuts the work per call by 30-40%.
 | mm01_naive015 / mm02_risk30 | marseille, P_NAIVE 0.15 / RISK 30 | field2 -0.107 +-0.059 / +0.001 +-0.023 | - | rejected locally |
-| mm03_th6040 (test_mm03_th6040.py) | marseille, take-threshold prior 2 / 7 at 0.6 / 0.4 | field2 +0.022 +-0.070 | sent 18:10 | live probe: removing thresholds cost -0.45 live (z02) |
-| mm04_nudge40 (test_mm04_nudge40.py) | marseille, nudge 40% | (cc01 on palermo: field2 +0.021) | queued | |
+| mm03_th6040 (test_mm03_th6040.py) | marseille, take-threshold prior 2 / 7 at 0.6 / 0.4 | field2 +0.022 +-0.070 | #647 (18:10): -0.53 +-0.32 vs marseille (n=41), -0.43 vs bogota, -0.39 vs ll01; 41 of 45 won; worst Pokemons #641 -4.4, Sattebaaz -2.1, MNC -1.7; vs leaders worse (Imposters -0.76 vs +0.01) | rejected: more weight on the 7-point threshold hurts live |
+| mm04_nudge40 (test_mm04_nudge40.py) | marseille, nudge 40% | (cc01 on palermo: field2 +0.021) | sent 18:27 | |
