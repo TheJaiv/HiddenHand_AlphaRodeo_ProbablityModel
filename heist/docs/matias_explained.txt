@@ -137,6 +137,58 @@ We never peek. We swap at most once, only in round 5: our lowest card if we expe
 | 1005–1035 | _respond: buy, pass or sell |
 | 1037–1078 | _move: the round-5 swap |
 
+## Every function at a glance
+Every function in the file, in file order: what it is for and what it gives back. The walkthrough has a full card for each.
+%cols 27,9,40,24
+| Function | Line | What it does | Returns |
+| `Phi` | 53 | The standard normal cumulative probability: the chance that a standard normal value is at most x | A number between 0 and 1 |
+| `pdf` | 57 | The standard normal density at x | A number of 0 or more |
+| `util` | 61 | Concave, score-shaped utility of a deal's profit | A number with the sign of x |
+| `coefs` | 66 | The opponent's fair value as a straight line in O and t | A tuple (A0, A1, B0, B1) |
+| `implied` | 85 | The hand sum of ours that quote q implies to an opponent with an average hand | A number (a hand sum) |
+| `pick_q` | 89 | Which of our quotes a reader reads now | A pair (quote or None, cap or None) |
+| `ekf` | 108 | One Kalman step (readable reference) | A tuple (mean O, mean t, P00, P01, P11); h itself is not changed |
+| `mix_into` | 123 | Blend new and old belief (reference) | Nothing; changes h in place |
+| `ekf_mix` | 141 | The Kalman step + outlier blend actually used | Nothing; updates h's belief in place |
+| `_lots` | 190 | The house sharp bot's trade size for an edge e | Signed lots: 0, ±1 or ±2 |
+| `_Reader · __init__` | 199 | Exact attack on house bots: its memory | Nothing |
+| `invert` | 213 | Hand sum from one house-bot quote | S (a whole number from 5 to 65), or None if nothing fits within 0.0051 |
+| `observe` | 226 | Is this quote consistent with the run? | Nothing; updates S, nq and nread |
+| `sync` | 251 | Feed new quotes; verify predictions | Nothing |
+| `active` | 273 | Decides whether the exact attack may act now | True or False |
+| `value` | 278 | The stock's expected value once the opponent's hand sum S is known | A number |
+| `their_base` | 285 | The house bot's fair value for hand sum S, given our last quote P (or None) | A number |
+| `events_left` | 296 | Lists the remaining quotes of the deal, starting with ours now | A list of (who, round), who being "me" or "opp" |
+| `plan` | 308 | Exact look-ahead against a house bot | A pair (best total profit, the best quote to make now) |
+| `_Reader.quote` | 365 | The attack's quote and answer | quote: the price to quote. respond: +2, −2 or 0 |
+| `Bot.__init__` | 385 | A fresh bot for each deal | Nothing |
+| `_init` | 394 | Build the 216 hypotheses | Nothing; sets self.H and self.obar |
+| `_prune` | 427 | Drops hypotheses more than 6 log-units behind the best and shifts the weights so the best is 0 | Nothing |
+| `_state` | 434 | The public numbers as the opponent saw them in round r | A tuple: board sum, hidden board cards, their peeks, our peeked sum, cards unknown to them, total of those cards, average unknown card |
+| `_before` | 456 | Position and Q before a given slot | A pair (our position, Q = net lots we bought at their quotes) |
+| `_ks` | 470 | The direction a swap-expecting opponent assumes we will move V: the sign of our position while we can still swap | +1, −1 or 0 |
+| `_lastq` | 480 | Our last quote before slot j, carried forward for new board cards and our swaps the way a blend quoter carries it | A number, or None if we have not quoted |
+| `_see` | 497 | Learn from one quote or answer | Nothing; updates self.H |
+| `_see_swap` | 592 | Updates every belief after the opponent swaps: O moves by (average new card − thrown card) and becomes more uncertain | Nothing |
+| `_sync` | 601 | Catch up on everything new, in order | Nothing |
+| `_ev` | 632 | E[V given O] = alpha + beta·O | A pair (alpha, beta) with E[V / O] = alpha + beta·O |
+| `_opp_swap` | 646 | (unused) price in the opponent's swap | A number |
+| `_mo` | 657 | Our single best guess of O: the weighted average over all hypotheses | A number |
+| `_p_reader` | 666 | Chance the opponent is a confident reader | A pair (p_reader, p_raw) |
+| `_exact_reader` | 680 | Does the opponent fit the house formula? | t, or None |
+| `_slots` | 720 | Lists the remaining quote slots and who is the maker in each | A list of (we are the maker?, round) |
+| `_bel` | 730 | The opponent's fair value under one hypothesis with point values, reading our quote q | A pair (fair value, slope in O) |
+| `_roll` | 748 | Quick play-out of the rest of the deal | A pair (our profit relative to V, our final position) |
+| `_plan_setup` | 806 | Shared setup for every decision | A tuple (st, hs, ws, qe, slots, swapped) |
+| `_public` | 822 | Card-counting fallback value | A number each |
+| `quote` | 840 | The engine's entry points, with fallbacks | quote: our price. respond: lots to buy (+) or sell (−), at most 2. move: None or ("SWAP", card index) |
+| `_quote` | 873 | Choose our price as the maker | The price, between 0 and 195 |
+| `resp_dist` | 894 | Model of the opponent's answer (cached) | A tuple (mean f, sd, cov(O, fair) / sd) |
+| `imm` | 921 | Expected profit of a price, with adverse selection | A pair (expected profit, their fair value) |
+| `_safe_quote` | 988 | The safe quote the nudge aims at | A price, or None if the opponent has not quoted yet |
+| `_respond` | 1005 | Choose buy, pass or sell | Lots: 0, +nbuy or −nsell (each at most 2, limited by the position cap) |
+| `_move` | 1037 | The round-5 swap; never peek | None, or ("SWAP", index of the card to throw) |
+
 > "Our bot is a Bayesian trader. It keeps 216 guesses about the opponent's style, each with a belief about the opponent's hand that a Kalman filter updates from every quote and answer. To act, it scores each option by profit now plus a play-out of the rest of the deal under the eight likeliest guesses, through a utility shaped like the score, and then hides a little by moving its quote 30% towards the opponent's last quote."
 
 %notes 6
@@ -284,14 +336,38 @@ L50: A hypothesis is a list of 13 numbers; these names are the positions in the 
 Small functions used everywhere: the normal curve, the utility, the opponent's value formula, and the Kalman update.
 
 @code 53-58 The normal curve
+%fn Phi(x)   ·   line 53
+Does: The standard normal cumulative probability: the chance that a standard normal value is at most x.
+Returns: A number between 0 and 1.
+Why it matters: Turns "how many standard deviations away" into a probability: the chance the opponent buys or sells at our price, and how likely an answer was.
+Called by: _see (answer likelihood), imm inside _quote.
+%end
+%fn pdf(x)   ·   line 57
+Does: The standard normal density at x.
+Returns: A number of 0 or more.
+Why it matters: Needed for the mean shift of a normal cut to an interval (learning from answers) and for the adverse-selection term of a quote.
+Called by: _see, imm inside _quote.
+%end
 L53-54: Phi(x): the standard normal cumulative probability P(Z ≤ x), computed with math.erf.
 L57-58: pdf(x): the standard normal density φ(x) = e^{−x²/2} / √(2π).
 
 @code 61-63 The utility
+%fn util(x)   ·   line 61
+Does: A concave utility: about x for small amounts and about √(60·|x|) for large ones, with the same sign as x.
+Returns: A number with the sign of x.
+Why it matters: Makes the bot judge a whole deal the way the score does (square root per deal pair), so it prefers steady profit to gambles.
+Called by: _quote (stage 2) and _respond, on the whole deal's profit.
+%end
 L63: util(x) = x / √(1 + |x| / RISK). Close to x for small amounts, square-root-like for big ones, and symmetric: util(−x) = −util(x). See section 3.8.
 > "We maximise a utility with the same shape as the score: small profits count fully, big ones only like a square root, so the bot prefers steady wins to gambles."
 
 @code 66-82 The opponent's value as a straight line
+%fn coefs(st, reads, rule, q, L)   ·   line 66
+Does: Writes one opponent style's fair value as a straight line in its hand sum O and its trust t: fair = A0 + A1·t + (B0 + B1·t)·O, with or without reading our quote q (capped at L for CLAMP readers).
+Returns: A tuple (A0, A1, B0, B1).
+Why it matters: The core model of "what the opponent thinks the stock is worth". Because it is linear in O and t, the Kalman filter can update the beliefs exactly, and every learning and planning step relies on it.
+Called by: _see, _bel, _exact_reader, resp_dist_raw inside _quote.
+%end
 st holds the public state as the opponent saw it (built by _state, line 434): bv = board sum, hb = hidden board cards, npk = number of their peeks, pk = estimated sum of my peeked cards, N = cards unknown to them, C0 = total of the cards they have not seen (still including their own hand), mo = the average unknown card if their hand is average.
 L72: Unpack st.
 L73: cm0 = the cards they cannot see that count in V, apart from their own hand: my unpeeked cards (5 − npk) plus the hidden board (hb).
@@ -303,9 +379,21 @@ L81-82: A reader with a clamped implied hand L (5 or 65) adds t × (L − pk −
 > "Every opponent style we model values the stock as a straight line in its hand sum O and its trust t. That is what lets us track it with a Kalman filter."
 
 @code 85-86 implied
+%fn implied(st, q)   ·   line 85
+Does: The hand sum of ours that quote q implies to an opponent with an average hand.
+Returns: A number (a hand sum).
+Why it matters: Lets CLAMP and SANE readers spot impossible quotes (outside 5–65 or 12–58), and gives the "hand 65" and "hand 5" prices at the position limit.
+Called by: pick_q, _bel, _roll, _quote.
+%end
 L86: The hand of mine that quote q implies, for an average opponent hand: q − board − (5 + hidden board cards) × the average unknown card. The CLAMP and SANE readers use it to spot impossible quotes.
 
 @code 89-105 pick_q: which of my quotes a reader uses
+%fn pick_q(st, rule, mq)   ·   line 89
+Does: Decides which of our past quotes a reader with a given rule is reading now: the newest one, or for SANE the newest plausible one; for CLAMP also the cap.
+Returns: A pair (quote or None, cap or None).
+Why it matters: Different readers read different quotes; the right one has to go into coefs.
+Called by: _see, _plan_setup, _move.
+%end
 L91-92: No quote of mine yet: nothing to read.
 L93-97: SANE: the newest quote whose implied hand is between 12 and 58; if there is none, nothing.
 L98: Every other rule reads my newest quote.
@@ -313,6 +401,12 @@ L99-104: CLAMP: if the quote implies more than 65 or less than 5, also return th
 L105: RAW and CUR: the newest quote, no clamp.
 
 @code 108-120 ekf: one Kalman step (the readable version)
+%fn ekf(h, Ho, Ht, d, S, Vy)   ·   line 108
+Does: One Kalman step for a hypothesis' belief over (O, t): moves the means by gain × surprise and shrinks the covariance.
+Returns: A tuple (mean O, mean t, P00, P01, P11); h itself is not changed.
+Why it matters: The readable reference version of the belief update; the bot runs the fused ekf_mix.
+Called by: Nothing at run time.
+%end
 The belief of a hypothesis is a Gaussian over (O, t) with means (H_MO, H_MT) and covariance P = [[P00, P01], [P01, P11]]. An observation y behaves like Ho·O + Ht·t + noise; S is its predicted variance and d is how far it came out above the prediction.
 L113: Read the covariance.
 L114-115: P·H: how the observation moves together with O and with t.
@@ -322,6 +416,12 @@ L119-120: New means = old means + k·d; new covariance = P − g·k·k^{T}.
 Note: ekf and mix_into are no longer called. ekf_mix (line 141) does both in one step for speed; these two stay as the readable reference.
 
 @code 123-138 mix_into: hedging against outliers
+%fn mix_into(h, r, new)   ·   line 123
+Does: Blends the updated belief (weight r) with the old one (1 − r) into one Gaussian with the same mean and covariance, and keeps the matrix valid.
+Returns: Nothing; changes h in place.
+Why it matters: Hedges against outliers: an observation that may be unexplained should not fully rewrite a belief.
+Called by: Nothing at run time (fused into ekf_mix).
+%end
 After the update we are not sure the observation was "explained" (see EPS_Q). With probability r the new belief is right, with 1 − r the old one is. mix_into replaces this mixture of two Gaussians by one Gaussian with the same mean and covariance ("moment matching").
 L127-128: The mixture means.
 L129-131: The mixture covariance = E[x·x^{T}] − mean·mean^{T}. The floors 0.05 and 0.00001 keep the variances positive.
@@ -329,6 +429,12 @@ L132-133: Store the means; the trust t is kept between 0 and 1.15.
 L134-138: Keep |cov(O, t)| below √(P00·P11), so the correlation stays below 1 and the matrix stays valid.
 
 @code 141-170 ekf_mix: the same, fused (the one actually used)
+%fn ekf_mix(h, r, Ho, Ht, d, S, Vy)   ·   line 141
+Does: ekf followed by mix_into, written out as one function.
+Returns: Nothing; updates h's belief in place.
+Why it matters: The learning step run for every hypothesis on every event. Fusing it was part of marseille's 30–40% speed-up.
+Called by: _see.
+%end
 The same arithmetic as ekf followed by mix_into, written out in one function so that Python does not build a tuple for every hypothesis and every observation. This was part of marseille's speed-up. Lines 144–155 are ekf; lines 156–170 are mix_into.
 > "Each hypothesis keeps a Gaussian belief. Every observation moves it with a Kalman step, blended with the old belief by the chance that the observation was not an outlier."
 
@@ -353,9 +459,21 @@ L186: DEPTH = 4: how many of my future quotes the exact search explores with eve
 L187: LIMIT = 10: the position limit.
 
 @code 190-196 _lots: the sharp's trade size
+%fn _lots(e)   ·   line 190
+Does: The house sharp bot's trade size for an edge e.
+Returns: Signed lots: 0, ±1 or ±2.
+Why it matters: The exact attack must predict exactly how much the house bot trades at each price.
+Called by: _Reader.plan.
+%end
 L192-196: For an edge e (their value − my price): no trade within 2; 1 lot when 2 < |e| < 3; 2 lots from 3 up. The sign says buy (+) or sell (−).
 
 @code 199-210 _Reader: its memory
+%fn class _Reader  ·  __init__()   ·   line 199
+Does: The exact attack on the house reader and sharp bots. __init__ sets up its memory: the candidate hand sum S, counts of consistent quotes, the peeked and off flags, and the pending check.
+Returns: Nothing.
+Why it matters: The attack stays off until the evidence is overwhelming; this state collects that evidence over the deal.
+Called by: Bot.__init__ creates one per deal.
+%end
 L203: S: their hand sum in the current run of consistent quotes.
 L204-205: nq: how many quotes are in the run; nread: how many of them read a quote of mine.
 L206: done: how many of their quotes were already processed.
@@ -365,6 +483,12 @@ L209: off: an answer did not fit; the attack is off for the rest of the deal.
 L210: check: the answer we expect to my last planned quote, so we can verify the model.
 
 @code 212-224 invert: their hand sum from one quote
+%fn invert(F, B, h, D, N, P)   ·   line 213
+Does: Solves the house formula backwards: from one opponent quote F, finds the whole-number hand sum S that produces it exactly.
+Returns: S (a whole number from 5 to 65), or None if nothing fits within 0.0051.
+Why it matters: An exact fit both identifies a house bot and reveals its hand completely.
+Called by: observe.
+%end
 Solve the house formula for S. F = their quote, B = board sum, h = hidden cards, D = discard sum, N = cards unknown to them, P = my last quote (None if I have not quoted).
 L214: U0 = the sum of all cards not on the board and not discarded (their hand + my hand + hidden board + stack).
 L215-218: The formula written as F = S + c0 + c1·(U0 − S) / N. Without a quote of mine c0 = board and c1 = 5 + h; with one, the 0.8 trust terms come in.
@@ -373,6 +497,12 @@ L221-222: A 5-card hand sum lies between 5 and 65; otherwise this is not the for
 L223-224: Recompute the quote from that S and accept it only if it matches to 0.0051.
 
 @code 226-249 observe: is this quote consistent with the earlier ones?
+%fn observe(F, rnd, obs, P)   ·   line 226
+Does: Checks one new opponent quote against the current run of consistent quotes (the same S, or a consistent change after the opponent's swap).
+Returns: Nothing; updates S, nq and nread.
+Why it matters: Two consistent quotes, one of them reading our quote, are the trigger for the attack.
+Called by: sync.
+%end
 L227: Count it.
 L228-229: If they peeked, stop: their formula now includes my peeked card.
 L230-232: The public numbers in that round: board sum B, hidden board h, the discards, D and N.
@@ -382,6 +512,12 @@ L236-246: If both this quote and the run give a hand sum, they are consistent wh
 L247-249: Otherwise a new run starts with this quote.
 
 @code 251-271 sync: feed new quotes and verify predictions
+%fn sync(obs, pending=None)   ·   line 251
+Does: Feeds every new opponent quote to observe, notes peeks, and checks that the opponent answered our last planned quote as predicted (if not, the attack is off for the deal).
+Returns: Nothing.
+Why it matters: Keeps the attack's picture current and switches it off at the first surprise, which makes it safe against real teams.
+Called by: Bot.quote, Bot.respond.
+%end
 L252-253: Any peek by the opponent sets peeked.
 L254-259: Walk the tape, remembering my latest quote P; each opponent quote is stored with the quote of mine it would read.
 L260-261: When I am answering, their current quote is not on the tape yet, so add it.
@@ -389,23 +525,53 @@ L262-263: Process only the new ones.
 L264-271: If I made a planned quote, compare their actual answer with the predicted direction. A mismatch that the position limit does not explain switches the attack off.
 
 @code 273-276 active
+%fn active(obs)   ·   line 273
+Does: Decides whether the exact attack may act now.
+Returns: True or False.
+Why it matters: The gate: only an identified, unpeeked, unswapped house bot is attacked. Against real teams it stays False.
+Called by: Bot.quote, Bot.respond.
+%end
 L274: On only if: not off, no peek, S known, at least 2 consistent quotes, at least 1 of them reading my quote.
 L276: And they have not swapped since their last quote (S would be unknown again).
 
 @code 278-282 value: V when S is known
+%fn value(obs)   ·   line 278
+Does: The stock's expected value once the opponent's hand sum S is known.
+Returns: A number.
+Why it matters: The attack plans against the true value, not an estimate.
+Called by: _Reader.quote, _Reader.respond.
+%end
 L279-281: The unseen pool contains their 5 cards (sum S); the rest average (total − S) / (count − 5).
 L282: V = my hand + board + S + (hidden board cards) × that average.
 
 @code 284-293 their_base: their value for a given S and my last quote P
+%fn their_base(obs, S, P)   ·   line 285
+Does: The house bot's fair value for hand sum S, given our last quote P (or None).
+Returns: A number.
+Why it matters: Predicts the house bot's quotes and answers exactly.
+Called by: _Reader.quote.
+%end
 L286-290: Board sum, hidden cards, discards, N, and the average unknown card m from their side.
 L291-292: Without a quote of mine: S + board + (5 + h)·m.
 L293: With one: the 0.8-trust formula.
 
 @code 295-306 events_left: who quotes next, until the end of the deal
+%fn events_left(obs)   ·   line 296
+Does: Lists the remaining quotes of the deal, starting with ours now.
+Returns: A list of (who, round), who being "me" or "opp".
+Why it matters: The look-ahead needs the exact order of the remaining moves.
+Called by: _Reader.quote.
+%end
 L298: Am I the first maker in this round (no tape entry this round yet)?
 L300-305: List the remaining quotes as ("me" or "opp", round): what is left of this round, then two per round, alternating who starts.
 
 @code 308-363 plan: exact look-ahead against the house bot
+%fn plan(events, pos, Pl, Fnone, A, V)   ·   line 308
+Does: Exact depth-first search over the remaining quotes. At each of our quotes it tries our true value, steering (±1.98), harvesting (±3.02) and the extremes 195 and 0, simulates the house bot's exact reaction, and adds our answers to its quotes. Results are memoised.
+Returns: A pair (best total profit, the best quote to make now).
+Why it matters: Turns full knowledge of a house bot into the most profitable sequence of quotes: +7.4 against the house reader and +10.0 against sharp in nairobi's live test.
+Called by: _Reader.quote.
+%end
 A depth-first search over the remaining quotes, with memoisation (memo stores the result for each (event, position, my last quote, depth)).
 L313-314: F(P): their value if my last quote is P (A + 0.8·P), or Fnone if I have not quoted.
 L318-326: dfs with its cache.
@@ -415,6 +581,12 @@ L345-360: For each option: their trade size by the sharp's rule, cut by the posi
 L363: Depth 4, or 3 when 7 or more events are left (keeps round 2 fast).
 
 @code 365-381 quote and respond against an identified reader
+%fn _Reader.quote(obs)  ·  _Reader.respond(obs, price)   ·   line 365
+Does: quote runs plan and remembers which answer it expects; respond trades 2 lots when the edge against the known value beats 2.2.
+Returns: quote: the price to quote. respond: +2, −2 or 0.
+Why it matters: The attack's actions, used instead of the normal planner while active() is True.
+Called by: Bot.quote and Bot.respond.
+%end
 L366-371: My value, my last quote, their value without and with my quote, then plan.
 L372-375: If the chosen price is not plain V, remember which way we expect them to answer, to check it next time.
 L379-381: Answering them: trade 2 lots when the edge beats 2.2.
@@ -427,6 +599,12 @@ L379-381: Answering them: trade 2 lots when the edge beats 2.2.
 How the bot turns what it sees into beliefs about the opponent.
 
 @code 384-391 Creating the bot
+%fn Bot.__init__()   ·   line 385
+Does: Creates an empty bot for one deal: no hypotheses yet, all counters at zero, seat unknown, and a fresh house-bot attack layer.
+Returns: Nothing.
+Why it matters: The engine builds a new bot every deal, so nothing is carried over between deals (a rule of the event).
+Called by: The engine.
+%end
 The engine creates a fresh Bot for every deal, so nothing is kept between deals.
 L386: H: the hypotheses (built at the first call, when the first obs is available).
 L387: done: how many tape entries we have already learned from.
@@ -436,6 +614,12 @@ L390: first: do I quote first in odd rounds (am I seat 0)? Learned at the first 
 L391: The house-reader attack layer.
 
 @code 393-425 _init: the prior and the 216 hypotheses
+%fn _init(obs)   ·   line 394
+Does: Builds the 216 hypotheses with their prior weights and starting beliefs: O about 35 ± 8, trust 0.6 ± 0.3 for readers, blend weight 0.45 ± 0.25 for blend quoters.
+Returns: Nothing; sets self.H and self.obar.
+Why it matters: This is the prior: every opponent style starts with a weight, and learning moves weight to the styles that predict the opponent well.
+Called by: _sync, on the first call of the deal.
+%end
 L395-398: From my unseen cards: count U, sum S, average m.
 L399: The variance of one unseen card.
 L400-401: Their hand sum O is 5 cards from that pool: mean 5m and variance 5v·(U − 5) / (U − 1) (cards drawn without replacement). At the start this is about 35 ± 8.
@@ -448,11 +632,23 @@ L417-424: Blend quoters: every lam, tau, kappa, skew and threshold. For them "t"
 L425: Store them: 120 + 96 = 216 hypotheses.
 
 @code 427-431 _prune
+%fn _prune()   ·   line 427
+Does: Drops hypotheses more than 6 log-units behind the best and shifts the weights so the best is 0.
+Returns: Nothing.
+Why it matters: Keeps each call fast and the numbers stable.
+Called by: _see, after every event.
+%end
 L428: The best log-weight.
 L429: Keep hypotheses within PRUNE (6) of the best.
 L430-431: Shift so that the best is 0 (exp() then never underflows).
 
 @code 433-453 _state: the public numbers as the opponent saw them in round r
+%fn _state(obs, r, obar)   ·   line 434
+Does: The public numbers as the opponent saw them in round r.
+Returns: A tuple: board sum, hidden board cards, their peeks, our peeked sum, cards unknown to them, total of those cards, average unknown card.
+Why it matters: The opponent's view of the deal, which is what coefs needs.
+Called by: _see, _exact_reader, _plan_setup, _move.
+%end
 L436-438: The board cards visible in round r (r − 1 of them), their count and sum.
 L439-444: Swaps made up to round r: count nd and sum ds.
 L445-449: How many times the opponent had peeked by round r (at most 5).
@@ -462,18 +658,42 @@ L452: C0 = 364 − board − discards − peeked: the total of the cards they ha
 L453: Return (bv, hidden board cards, npk, pk, N, C0, the average unknown card for an average hand).
 
 @code 455-467 _before: my position and Q before slot j
+%fn _before(tape, j)   ·   line 456
+Does: Replays the tape up to slot j.
+Returns: A pair (our position, Q = net lots we bought at their quotes).
+Why it matters: Each past event has to be read in the situation it happened in.
+Called by: _see, _quote, _respond, _move.
+%end
 L460-466: Replay the tape up to slot j. When I was the maker, the taker's qty moves my position the other way (pos −= qty). When they were the maker, I was the taker (pos += qty), and Q counts the net lots I bought at their quotes.
 
 @code 469-477 _ks: the sign swap-expecting bots use
+%fn _ks(obs, r, pos)   ·   line 470
+Does: The direction a swap-expecting opponent assumes we will move V: the sign of our position while we can still swap.
+Returns: +1, −1 or 0.
+Why it matters: Input to the kappa term of the opponent model.
+Called by: _see, _quote.
+%end
 L472-477: +1 if I am long and can still swap, −1 if short, else 0. It is 0 in round 5 (all swaps happen before round 5's quotes) and after I have swapped. Opponents with kappa > 0 shift their value by kappa × this, expecting me to swap away a bad card.
 
 @code 479-495 _lastq: my last quote, carried forward
+%fn _lastq(obs, j, r)   ·   line 480
+Does: Our last quote before slot j, carried forward for new board cards and our swaps the way a blend quoter carries it.
+Returns: A number, or None if we have not quoted.
+Why it matters: Blend quoters copy part of this into their own quote.
+Called by: _see, _respond, _move.
+%end
 L484-488: Find my newest quote before slot j.
 L489-491: Each board card shown since adds CARRY × (card − 7).
 L492-494: Each of my swaps since adds 7 − (the card I threw).
 L495: What a blend quoter would now take from my old quote.
 
 @code 497-514 _see, part 1: one observation
+%fn _see(obs, r, j, price, qty, is_quote)   ·   line 497
+Does: Learns from one event for every hypothesis: from their quote with a Kalman update, or from their answer to our quote with a truncated-normal update; then reweights and prunes.
+Returns: Nothing; updates self.H.
+Why it matters: The heart of the bot's learning. Everything it believes about the opponent comes from here.
+Called by: _sync.
+%end
 _see is called once per event: their quote (is_quote = True, price = their quote) or their answer to my quote (is_quote = False, price = my quote, qty = their answer).
 L499-501: The public state at that time, my position, Q and ks.
 L502-503: My quotes so far; a CUR reader answering also reads the very price it is answering.
@@ -513,10 +733,22 @@ L590: Prune after every event.
 > "From a quote we learn a number; from an answer we learn an interval. Both go through the same Kalman step, and each hypothesis' weight goes up or down by how likely it found what happened."
 
 @code 592-599 _see_swap: the opponent swapped
+%fn _see_swap(obs, card)   ·   line 592
+Does: Updates every belief after the opponent swaps: O moves by (average new card − thrown card) and becomes more uncertain.
+Returns: Nothing.
+Why it matters: A swap changes the opponent's hand; ignoring it would spoil every estimate after it.
+Called by: _sync.
+%end
 L593-596: The mean m and variance v of a random unseen card.
 L597-599: Their new hand = old hand − thrown card + new card, so in every hypothesis the mean of O moves by m − card and its variance grows by v.
 
 @code 601-630 _sync: process everything new, in order
+%fn _sync(obs, cur=None)   ·   line 601
+Does: Processes everything new since the last call in game order (swaps before the quotes of the same round), and the opponent's current quote when we are answering it.
+Returns: Nothing.
+Why it matters: Runs at the start of every decision so beliefs are always up to date; also builds the hypotheses on the first call.
+Called by: _quote, _respond, _move.
+%end
 L602-603: First call: build the hypotheses.
 L606-615: Walk the discards and the tape together. A discard of round r happens before the quotes of round r, so it goes first. Only opponent discards change our beliefs.
 L616-619: Skip a quote we already learned from early.
@@ -524,21 +756,51 @@ L620-625: Their quote (ignoring the extreme prices 0 and 195, which carry no han
 L626-630: When answering (cur given), learn from their current quote now, and remember its slot so it is not used twice.
 
 @code 632-643 _ev: E[V | O] = α + β·O
+%fn _ev(obs)   ·   line 632
+Does: The expected value of the stock as a straight line in the opponent's hand sum.
+Returns: A pair (alpha, beta) with E[V | O] = alpha + beta·O.
+Why it matters: Turns beliefs about O into the money value of our position and trades.
+Called by: _quote, _respond, _move.
+%end
 L634-636: Unseen count and sum (their unknown cards are among them).
 L637-638: k = their cards I have not peeked (always 5 for us); kn = the sum of the peeked ones.
 L639: The hidden board cards.
 L640-642: The hidden board comes from the unseen pool minus their k unknown cards, which gives α and β as in section 3.1.
 
 @code 645-655 _opp_swap (not used any more)
+%fn _opp_swap(obs)   ·   line 646
+Does: Estimates how the opponent's coming swap would move V. Not called any more.
+Returns: A number.
+Why it matters: An idea from moscow; palermo stopped using it after live tests showed it cost points against top teams.
+Called by: Nothing.
+%end
 An idea from moscow (v05): price in the swap the opponent may still make. palermo (v10) stopped calling it, because live tests showed it cost points against the top teams. The function is still in the file but is never called.
 
 @code 657-664 _mo: our best guess of O
+%fn _mo()   ·   line 657
+Does: Our single best guess of O: the weighted average over all hypotheses.
+Returns: A number.
+Why it matters: Used for the safe quote's direction and the swap's card estimate.
+Called by: _quote, _move.
+%end
 The weighted average of O over all hypotheses.
 
 @code 666-678 _p_reader
+%fn _p_reader()   ·   line 666
+Does: The probability that the opponent is a confident, informative reader, and that it reads raw or current quotes.
+Returns: A pair (p_reader, p_raw).
+Why it matters: The gate for paid manipulation, which is switched off (P_EXT and P_PROBE are 2.0).
+Called by: _quote.
+%end
 The probability that the opponent is a confident, informative reader (trust ≥ 0.5, lam ≥ 0.4), and the probability of that with rule RAW or CUR. Only used for paid manipulation, which is switched off (P_EXT = P_PROBE = 2.0).
 
 @code 680-716 _exact_reader: does the opponent fit the house reader formula?
+%fn _exact_reader(obs)   ·   line 680
+Does: Tests whether the opponent's last 3 or more quotes fit the house reader formula exactly for one trust t.
+Returns: t, or None.
+Why it matters: Allows free extreme quotes against an exact house reader in rounds 1–4.
+Called by: _quote.
+%end
 L684-687: Their last swap round (quotes before it used another hand).
 L688-696: rows: each of their quotes since then (not extreme), with the straight-line coefficients of a RAW reader of my last quote.
 L697-698: At least 3 are needed.
@@ -552,14 +814,32 @@ L716: Return t if every quote fits within 0.02, else None. _quote adds extreme p
 How the bot chooses a quote, an answer and a move.
 
 @code 718-728 _slots: who quotes in each remaining slot
+%fn _slots(first, start)   ·   line 720
+Does: Lists the remaining quote slots and who is the maker in each.
+Returns: A list of (we are the maker?, round).
+Why it matters: The play-outs need the order of the remaining quotes.
+Called by: _plan_setup, _move.
+%end
 L724-727: Slot s (0 to 9) is in round s // 2 + 1. The first slot of a round belongs to the player who starts that round, and I start the odd rounds if first is True.
 Example with first = True: (me, 1) (opp, 1) (opp, 2) (me, 2) (me, 3) (opp, 3) (opp, 4) (me, 4) (me, 5) (opp, 5).
 
 @code 730-746 _bel: their value under one hypothesis
+%fn _bel(st, h, O, q, Q, ks)   ·   line 730
+Does: The opponent's fair value under one hypothesis with point values, reading our quote q.
+Returns: A pair (fair value, slope in O).
+Why it matters: The quick form of the opponent model used inside play-outs and the answer model.
+Called by: _roll, resp_dist_raw inside _quote.
+%end
 L733-743: The reading rules: SANE ignores implausible quotes; CLAMP caps the implied hand.
 L744-746: fair = A0 + A1·t + (B0 + B1·t)·O + tau·Q + kappa·ks, returned with its slope in O.
 
 @code 748-760 _roll: set-up
+%fn _roll(st, h, V, pos, Q, qeff, slots, swapped, lq)   ·   line 748
+Does: Plays out the rest of the deal quickly under one hypothesis, with simple rules for both sides.
+Returns: A pair (our profit relative to V, our final position).
+Why it matters: Values what an action does to the future (our position, what readers will believe next), not just the trade now. Also gives the expected final position for the swap.
+Called by: _quote, _respond, _move.
+%end
 A fast, deterministic play-out of the remaining slots under one hypothesis, used to value what an action does to the rest of the deal. V is the value of the stock under this hypothesis; all profits are measured against it.
 
 @code 761-789 _roll: my quotes
@@ -579,6 +859,12 @@ L794-803: I buy 2 if V − price − 2 > 0 and sell 2 if price − 2 − V > 0; 
 L804: Return (profit relative to V, final position).
 
 @code 806-818 _plan_setup
+%fn _plan_setup(obs, k)   ·   line 806
+Does: Gathers what every decision needs: the public state, the 8 heaviest hypotheses and their weights, which quote each reader rule reads, whether we have swapped, and the remaining slots.
+Returns: A tuple (st, hs, ws, qe, slots, swapped).
+Why it matters: One shared setup, so quoting and answering use the same view.
+Called by: _quote, _respond.
+%end
 L807: The public state now.
 L808-811: The 8 heaviest hypotheses and their normalised weights.
 L812-816: For each reading rule, which of my quotes a reader would use now.
@@ -586,10 +872,22 @@ L817: Have I swapped?
 L818: The remaining slots after the current one.
 
 @code 820-838 _public (not used) and _plain_fair (the fallback)
+%fn _public(obs)  ·  _plain_fair(obs)   ·   line 822
+Does: _public: value from public cards only (not used any more). _plain_fair: a simple card-counting value of the stock.
+Returns: A number each.
+Why it matters: _plain_fair is the safety net: if the main code ever fails, the bot still quotes and answers sensibly.
+Called by: _plain_fair: quote and respond, on errors.
+%end
 L822-830: _public: the value implied by the public cards alone (moscow's "first quote = public estimate"; no longer called since palermo).
 L833-838: _plain_fair: card counting: my hand + board + peeked cards + every hidden card at the unseen average. Used only if the main code raises an error.
 
 @code 840-871 The three methods the engine calls
+%fn quote(obs)  ·  respond(obs, price)  ·  move(obs)   ·   line 840
+Does: The three methods the engine calls. Each asks the real decision function, falls back to a simple rule if it raises an error, and (for quote and respond) lets the house-bot attack take over when it is active.
+Returns: quote: our price. respond: lots to buy (+) or sell (−), at most 2. move: None or ("SWAP", card index).
+Why it matters: They are the bot's only contact with the game, so they must never crash; a bug costs a little edge, never a deal.
+Called by: The game engine.
+%end
 L840-844: quote: try the real thing; on any error use the card-counting value.
 L845-851: Then the house-reader layer may replace it (only when active). If that layer errors, it is switched off.
 L853-865: respond: the same pattern. The fallback trades 2 lots if the card-counting edge is over 2.
@@ -597,12 +895,24 @@ L867-871: move: on an error, do nothing.
 > "Every engine call is wrapped: if anything goes wrong we fall back to a simple card-counting value, so a bug costs a little edge, never a crash."
 
 @code 873-890 _quote, part 1: set-up
+%fn _quote(obs)   ·   line 873
+Does: Chooses our price as the maker: updates beliefs, models how the opponent will answer each price, finds the best price for this trade alone (stage 1), scores a short list together with the rest of the deal through the utility (stage 2), then moves the result 30% toward the safe quote.
+Returns: The price, between 0 and 195.
+Why it matters: Our main decision as the maker, where the edge is earned and our hand is partly hidden.
+Called by: quote.
+%end
 L874: Learn from everything new.
 L876-878: j = the tape length. At my first call: if the tape is empty, I am the first maker (seat 0, odd rounds).
 L879-886: Position, Q, α and β, the planning set-up, ks, the money so far (cur), and how many lots they can buy (nb) or sell (ns) at my quote.
 L887-890: For each top hypothesis: its weight, the hypothesis, and V = α + β·O.
 
 @code 892-919 _quote, part 2: their answer model
+%fn resp_dist(h, p)  ·  resp_dist_raw(h, p)  (inside _quote)   ·   line 894
+Does: The opponent's fair value when answering price p under hypothesis h: its mean, its spread, and how it moves with O. resp_dist caches it per hypothesis because only CUR readers depend on p.
+Returns: A tuple (mean f, sd, cov(O, fair) / sd).
+Why it matters: The input to the expected-profit formula; the cache was part of marseille's speed-up.
+Called by: imm and stage 1 inside _quote.
+%end
 L894-902: resp_dist with a per-quote cache: for every hypothesis except CUR readers, the answer model does not depend on my price, so it is computed once (part of marseille's speed-up).
 L905: Which quote of mine they read: the price itself for CUR, otherwise their current reading.
 L906: Their value f.
@@ -610,6 +920,12 @@ L907-913: The reading rules and coefficients.
 L914-919: The slopes; cO = cov(O, their value); S = var(their value) + SIG_R². Returns the mean, the sd and cO / sd.
 
 @code 921-927 _quote, part 3: the immediate expected profit
+%fn imm(h, V, p)  (inside _quote)   ·   line 921
+Does: The expected profit of quoting p right now under hypothesis h, including adverse selection: the opponent buys exactly when its hand, and so V, is high.
+Returns: A pair (expected profit, their fair value).
+Why it matters: The core of pricing: what a price earns on average against an opponent who trades when it suits them.
+Called by: Stages 1 and 2 of _quote.
+%end
 L923-925: The z-scores of "they buy" (value − p > th) and "they sell" (p − value > th).
 L926: nb lots sold at p + 2 with probability Φ(zb), minus the adverse-selection term β·c·φ(zb): they buy exactly when O, and so V, is high.
 L927: The same for selling to me. Returns (expected profit, their value).
@@ -640,6 +956,12 @@ L985: At the limit: the planner's (extreme) price as it is.
 ! Top teams quote close to the opponent's last quote and so hide their information. Moving 15% of the way to that "safe quote" (stockholm, v09) gained +0.46 ± 0.23 live; 30% (test u01) another +0.13; using it against every opponent (bogota, v11) another +0.06. Quoting only the safe quote (test j01) lost −0.85: we keep our edge and only borrow part of the hiding.
 
 @code 987-1003 _safe_quote
+%fn _safe_quote(obs, v)   ·   line 988
+Does: The opponent's last quote, carried for new board cards and swaps, moved 1.3 toward our value v.
+Returns: A price, or None if the opponent has not quoted yet.
+Why it matters: The target of the 30% nudge: a price inside the opponent's no-trade band that reveals little about our hand.
+Called by: _quote.
+%end
 L990-995: Their last real quote (not 0 or 195). If there is none, there is no nudge.
 L996-998: Carry it for the board cards shown since (each moves it by card − 7).
 L999-1001: And for the swaps since (7 − the thrown card).
@@ -647,6 +969,12 @@ L1002: Move 1.3 towards my value: inside their ±2 band, so they should not trad
 L1003: Clamp.
 
 @code 1005-1035 _respond: buy, pass or sell?
+%fn _respond(obs, price)   ·   line 1005
+Does: Compares pass, buy and sell by the profit now plus a play-out of the rest of the deal under the top hypotheses, through the utility.
+Returns: Lots: 0, +nbuy or −nsell (each at most 2, limited by the position cap).
+Why it matters: Our main decision as the taker.
+Called by: respond.
+%end
 L1006: Learn from everything, including their current quote.
 L1009-1010: If my first call is an answer at slot 0, they quoted first, so I am not first in odd rounds.
 L1011-1018: Set-up; nbuy and nsell respect the limit.
@@ -658,6 +986,12 @@ L1033-1034: Keep the best; ties go to the earlier option (pass first).
 > "To answer a quote we compare buy, pass and sell with one yardstick: the profit now plus a play-out of the rest of the deal under the eight likeliest opponent models, through the utility."
 
 @code 1037-1078 _move: never peek, swap only in round 5
+%fn _move(obs)   ·   line 1037
+Does: Never peeks. In round 5, if we have not swapped, estimates our position as 0.7 × now + 0.3 × expected end, then swaps our lowest card if we will be long (highest if short) whenever the expected gain is positive.
+Returns: None, or ("SWAP", index of the card to throw).
+Why it matters: The late swap was one of our biggest live gains: +0.86 for round 5 only, +0.10 for the zero bar, +0.40 for the position mix.
+Called by: move.
+%end
 L1038: Keep the beliefs current.
 L1039-1040: Do nothing before round 5, or if I have already swapped.
 L1044-1061: The expected final position fpos: play out round 5's two quotes under the top hypotheses (both seatings if unknown).

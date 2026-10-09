@@ -64,6 +64,10 @@ qst = ParagraphStyle('q', fontName='Sans-Bold', fontSize=9.9, leading=13.5, text
                      spaceBefore=8, spaceAfter=2)
 ast = ParagraphStyle('a', parent=body, leftIndent=14)
 
+fn_head = ParagraphStyle('fnh', fontName='Mono-Bold', fontSize=8.8, leading=11.5, textColor='#0b3d66')
+fn_lab = ParagraphStyle('fnl', fontName='Sans-Bold', fontSize=7.6, leading=11.6, textColor='#2f5f8a')
+fn_txt = ParagraphStyle('fnt', fontName='Sans', fontSize=9.3, leading=12.6, textColor=INK)
+
 CODE_FS, CODE_LEAD = 7.35, 9.15
 codep = ParagraphStyle('code', fontName='Mono', fontSize=CODE_FS, leading=CODE_LEAD, textColor=INK)
 lnop = ParagraphStyle('lno', fontName='Mono', fontSize=CODE_FS - 0.7, leading=CODE_LEAD, textColor=LNO,
@@ -256,6 +260,20 @@ def callout(kind, text):
     return [Spacer(1, 4), t, Spacer(1, 5)]
 
 
+def fn_card(sig, rows):
+    data = [[Paragraph('<font name="Sans-Bold" size="7" color="#4a6b8a">FUNCTION CARD</font>&nbsp;&nbsp;&nbsp;' + esc(sig), fn_head), '']]
+    for k, v in rows:
+        data.append([Paragraph(esc(k).upper(), fn_lab), Paragraph(inline(v), fn_txt)])
+    t = Table(data, colWidths=[92, FW - 92], hAlign='LEFT')
+    t.setStyle(TableStyle([('SPAN', (0, 0), (-1, 0)), ('BACKGROUND', (0, 0), (-1, -1), '#eef4fa'),
+                           ('BACKGROUND', (0, 0), (-1, 0), '#dfeaf5'), ('LINEBEFORE', (0, 0), (0, -1), 3, '#2f6fa6'),
+                           ('VALIGN', (0, 0), (-1, -1), 'TOP'), ('LEFTPADDING', (0, 0), (-1, -1), 8),
+                           ('RIGHTPADDING', (0, 0), (-1, -1), 8), ('TOPPADDING', (0, 0), (-1, -1), 3.2),
+                           ('BOTTOMPADDING', (0, 0), (-1, -1), 3.6), ('TOPPADDING', (0, 0), (-1, 0), 5),
+                           ('BOTTOMPADDING', (0, 0), (-1, 0), 5)]))
+    return [Spacer(1, 2), KeepTogether([t]), Spacer(1, 6)]
+
+
 def notes_box(n):
     rows = [[Paragraph('<font color="%s"><b>Your notes</b></font>' % MUTED, small)]] + [['']] * n
     t = Table(rows, colWidths=[FW], rowHeights=[17] + [19.5] * n, hAlign='LEFT')
@@ -417,6 +435,8 @@ def build():
     ]
     toc.dotsMinLevel = 0
     pending = None          # (kind, label, text)
+    held = []               # code table waiting for its function cards
+    card = None             # function card being read
     para = []
     table_rows = []
     cols = None
@@ -446,11 +466,31 @@ def build():
             story.extend(make_table(table_rows, cols))
             table_rows, cols = [], None
 
+    def release():
+        if held:
+            story.extend(held)
+            del held[:]
+
     for raw in text.split('\n'):
         line = raw.rstrip()
+        if card is not None:
+            if line.strip() == '%end':
+                story.extend(fn_card(card[0], card[1]))
+                card = None
+            elif line.startswith('  ') and card[1]:
+                card[1][-1] = (card[1][-1][0], card[1][-1][1] + ' ' + line.strip())
+            elif ':' in line:
+                k, v = line.split(':', 1)
+                card[1].append((k.strip(), v.strip()))
+            continue
+        if line.startswith('%fn '):
+            flush()
+            card = (line[4:].strip(), [])
+            continue
         if not line.strip():
             flush()
             continue
+        release()
         if line.startswith('  ') and pending is not None:
             pending = (pending[0], pending[1], pending[2] + ' ' + line.strip())
             continue
@@ -511,8 +551,7 @@ def build():
             story.append(CondPageBreak(110))
             story.append(tagged(head, 1, '<font name="Mono" size="7.8" color="%s">%s</font>   %s'
                                 % (ACCENT, rng, esc(title)), 'L%s  %s' % (rng, title)))
-            story.append(code_block(a, b))
-            story.append(Spacer(1, 6))
+            held.extend([code_block(a, b), Spacer(1, 6)])
             continue
         m = re.match(r'^L(\d+)(?:-(\d+))?:\s*(.*)$', line)
         if m:
@@ -549,6 +588,7 @@ def build():
             flush()
         para.append(line.strip())
     flush()
+    release()
     story = [s for s in story if not isinstance(s, tuple)]
     doc = Doc(OUT)
     doc.multiBuild(story)
